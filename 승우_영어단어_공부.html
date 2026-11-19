@@ -1,0 +1,3019 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="sticker">
+  <title>영어 단어 듣기 퀴즈 — Day 33~39</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Sticker) */
+      --background: #fef7ff;
+      --surface-container-low: #ffffff;
+      --surface-container: #f8eef8;
+      --surface-container-high: #f2e8f2;
+
+      /* Ink */
+      --on-surface: #2e1a28;
+      --on-surface-variant: #604868;
+
+      /* Rules */
+      --outline: #907898;
+      --outline-variant: #dcc8e0;
+
+      /* Accents */
+      --primary: #c2207f;
+      --primary-hover: #a5186a;
+      --on-primary: #ffffff;
+      --primary-container: #fde4f3;
+      --on-primary-container: #7a0f4d;
+      --secondary: #7c52aa;
+      --secondary-hover: #653e90;
+      --on-secondary: #ffffff;
+      --secondary-container: #efe7fa;
+      --on-secondary-container: #4d2d73;
+      --tertiary: #0096cc;
+      --tertiary-container: #dff4fc;
+      --on-tertiary-container: #00587a;
+      --error: #c53030;
+      --on-error: #ffffff;
+      --error-container: #fdeaea;
+      --on-error-container: #8a1c1c;
+
+      /* Shared semantic tokens */
+      --positive: #157f4b;
+      --on-positive: #ffffff;
+      --positive-container: #e3f7ec;
+      --on-positive-container: #0d5733;
+      --warning: #b85c00;
+      --warning-container: #fff2e0;
+      --on-warning-container: #7a3c00;
+
+      /* Focus */
+      --focus: #c2207f;
+
+      /* Data series */
+      --data-1: #c2207f;
+      --data-2: #7c52aa;
+      --data-3: #0096cc;
+      --data-4: #d96a00;
+      --data-context: #c8b8d0;
+
+      /* Fonts */
+      --font-headline: 'Noto Sans KR', 'DM Sans', sans-serif;
+      --font-body: 'Noto Sans KR', 'DM Sans', sans-serif;
+      --font-label: 'Noto Sans KR', 'DM Sans', sans-serif;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.6rem);
+      --headline-size: clamp(1.3rem, 1.15rem + 0.45vw, 1.65rem);
+      --subhead-size: clamp(1.1rem, 1.02rem + 0.25vw, 1.28rem);
+      --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+      --label-size: clamp(0.84rem, 0.8rem + 0.12vw, 0.92rem);
+
+      /* Shape */
+      --rounded: 1.125rem;
+      --rounded-lg: 2rem;
+      --rounded-full: 9999px;
+
+      /* Style effects (Sticker tinted shadows) */
+      --shadow-pink: 0 4px 16px rgb(224 64 160 / 0.18);
+      --shadow-pink-deep: 0 10px 28px rgb(224 64 160 / 0.3);
+      --shadow-grape: 0 4px 16px rgb(124 82 170 / 0.18);
+      --shadow-grape-deep: 0 10px 26px rgb(124 82 170 / 0.28);
+      --shadow-sky: 0 4px 16px rgb(0 150 204 / 0.18);
+      --shadow-sky-deep: 0 10px 26px rgb(0 150 204 / 0.28);
+      --shadow-positive: 0 4px 16px rgb(21 127 75 / 0.2);
+      --shadow-error: 0 4px 16px rgb(197 48 48 / 0.18);
+      --focus-ring: 0 0 0 3px var(--primary-container), 0 0 0 5px var(--focus);
+      --pop-scale: scale(1.03);
+      --press-scale: scale(0.97);
+      --lift: translateY(-3px);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.25rem;
+      --space-2xl: 3.5rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 400ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.5;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: 0.85rem;
+      padding: 1rem clamp(1.25rem, 2.5vw, 2.5rem) 0.75rem;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Header & Top Nav */
+    .app-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      padding-top: 0;
+    }
+
+    .brand-block {
+      flex: 1 1 520px;
+      max-width: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.25rem 0.75rem;
+    }
+
+    .kicker-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 0;
+      align-self: center;
+    }
+
+    .display {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: clamp(1.35rem, 1.15rem + 0.5vw, 1.7rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    .display em {
+      font-style: normal;
+      color: var(--primary);
+    }
+
+    .subtitle {
+      flex: 1 1 100%;
+      margin: 0;
+      color: var(--on-surface-variant);
+      font-size: 0.9rem;
+    }
+
+    /* Segmented Top View Switch */
+    .segmented {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--surface-container-high);
+      padding: var(--space-xs);
+      border-radius: var(--rounded-full);
+      box-shadow: var(--shadow-grape);
+    }
+
+    .seg-btn {
+      border: 0;
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 0.35rem 1.15rem;
+      border-radius: var(--rounded-full);
+      min-height: 38px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      transition: background-color var(--dur-short) var(--ease-in-out),
+                  color var(--dur-short) var(--ease-in-out),
+                  transform var(--dur-short) var(--ease-bounce),
+                  box-shadow var(--dur-short) var(--ease-out);
+    }
+
+    .seg-btn:hover {
+      color: var(--on-surface);
+    }
+
+    .seg-btn.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+
+    /* Summary Stat Row */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .stat-card {
+      background: var(--surface-container-low);
+      border: 1.5px solid var(--outline-variant);
+      border-radius: 0.95rem;
+      padding: 0.65rem 1.1rem;
+      box-shadow: var(--shadow-pink);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: baseline;
+      gap: 0.15rem 0.6rem;
+    }
+    .stat-card:nth-child(3n+2) { box-shadow: var(--shadow-sky); }
+    .stat-card:nth-child(3n+3) { box-shadow: var(--shadow-grape); }
+
+    .stat-label {
+      grid-column: 1 / -1;
+      font-family: var(--font-label);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--on-surface-variant);
+    }
+
+    .stat-value {
+      font-family: var(--font-headline);
+      font-size: clamp(1.3rem, 1.1rem + 0.4vw, 1.55rem);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface);
+      line-height: 1.15;
+      margin-left: 0;
+    }
+
+    .stat-value.accent-pink { color: var(--primary); }
+    .stat-value.accent-grape { color: var(--secondary); }
+    .stat-value.accent-pos { color: var(--positive); }
+
+    .stat-caption {
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Main Workspace Layout */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--surface-container-low);
+      border: 1.5px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-grape);
+      padding: 1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .hero-panel {
+      background: var(--surface-container-low);
+      border: 1.5px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-pink);
+      padding: 1.25rem 1.75rem;
+      container-type: inline-size;
+    }
+
+    #quiz-active-stage {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .section-title {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 800;
+      margin: 0 0 var(--space-md);
+      color: var(--on-surface);
+      line-height: 1.25;
+    }
+
+    .card .section-title {
+      font-size: 1.08rem;
+      margin: 0 0 0.2rem;
+    }
+
+    /* Controls & Form Elements */
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 0;
+    }
+    .control-group:last-child {
+      margin-bottom: 0;
+    }
+    .card .control-group:last-child {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .field-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    #day-filter-chips {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    #chip-mistakes-only {
+      grid-column: 1 / -1;
+    }
+
+    #count-chips {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    #mode-chips {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    #rate-chips {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .card .chip {
+      justify-content: center;
+      text-align: center;
+      font-size: 0.85rem;
+      min-height: 34px;
+      padding: 0.25rem 0.5rem;
+    }
+
+    .chip {
+      border: 2px solid var(--outline-variant);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: var(--space-xs) var(--space-md);
+      min-height: 44px;
+      border-radius: var(--rounded-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  background-color var(--dur-micro) var(--ease-out),
+                  border-color var(--dur-micro) var(--ease-out),
+                  color var(--dur-micro) var(--ease-out),
+                  box-shadow var(--dur-short) var(--ease-out);
+    }
+
+    .chip:hover:not(:disabled) {
+      transform: var(--pop-scale);
+      border-color: var(--secondary);
+    }
+
+    .chip:active:not(:disabled) {
+      transform: var(--press-scale);
+    }
+
+    .chip.selected {
+      background: var(--primary-container);
+      border-color: var(--primary);
+      color: var(--on-primary-container);
+      box-shadow: var(--shadow-pink);
+    }
+
+    .chip.selected-grape {
+      background: var(--secondary-container);
+      border-color: var(--secondary);
+      color: var(--on-secondary-container);
+      box-shadow: var(--shadow-grape);
+    }
+
+    .chip:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .select-pill, .input-pill {
+      width: 100%;
+      min-height: 36px;
+      background: var(--surface-container);
+      border: 2px solid var(--outline);
+      border-radius: var(--rounded-full);
+      padding: 0.25rem 1rem;
+      font-size: 0.9rem;
+      color: var(--on-surface);
+      font-weight: 500;
+      transition: border-color var(--dur-micro) var(--ease-out),
+                  box-shadow var(--dur-micro) var(--ease-out),
+                  background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .select-pill {
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .select-pill:focus, .input-pill:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--surface-container-low);
+      box-shadow: var(--focus-ring);
+    }
+
+    /* Buttons */
+    .btn {
+      border: 0;
+      border-radius: var(--rounded-full);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      font-weight: 700;
+      font-size: var(--body-size);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  box-shadow var(--dur-short) var(--ease-out),
+                  background-color var(--dur-micro) var(--ease-out),
+                  opacity var(--dur-micro) var(--ease-out);
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: var(--pop-scale);
+    }
+
+    .btn:active:not(:disabled) {
+      transform: var(--press-scale);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--primary-hover);
+      box-shadow: var(--shadow-pink-deep);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--on-secondary);
+      box-shadow: var(--shadow-grape);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--secondary-hover);
+      box-shadow: var(--shadow-grape-deep);
+    }
+
+    .btn-soft {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      border: 2px solid var(--outline-variant);
+    }
+    .btn-soft:hover:not(:disabled) {
+      background: var(--surface-container-high);
+      border-color: var(--secondary);
+    }
+
+    .btn-quiet {
+      background: transparent;
+      color: var(--primary);
+      padding: var(--space-xs) var(--space-md);
+    }
+    .btn-quiet:hover:not(:disabled) {
+      background: var(--primary-container);
+    }
+
+    .btn-danger-soft {
+      background: var(--error-container);
+      color: var(--on-error-container);
+      border: 2px solid var(--error);
+    }
+
+    .btn-full { width: 100%; }
+
+    .card .btn {
+      min-height: 36px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.86rem;
+    }
+
+    /* Toggle Switch Row */
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      background: var(--surface-container);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--rounded);
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 52px;
+      height: 30px;
+      flex-shrink: 0;
+      border-radius: var(--rounded-full);
+      background: var(--outline-variant);
+      border: 0;
+      cursor: pointer;
+      padding: 3px;
+      transition: background-color var(--dur-short) var(--ease-in-out);
+    }
+
+    .toggle-switch[aria-checked="true"] {
+      background: var(--primary);
+    }
+
+    .toggle-thumb {
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container-low);
+      box-shadow: var(--shadow-pink);
+      transition: transform var(--dur-short) var(--ease-bounce);
+    }
+
+    .toggle-switch[aria-checked="true"] .toggle-thumb {
+      transform: translateX(22px);
+    }
+
+    /* Quiz Stage */
+    .quiz-top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      margin-bottom: 0;
+    }
+
+    .quiz-top-bar .btn {
+      min-height: 32px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      border-radius: var(--rounded-full);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .badge-pink {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .badge-grape {
+      background: var(--secondary-container);
+      color: var(--on-secondary-container);
+    }
+
+    .badge-sky {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+    }
+
+    .badge-pos {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+
+    .badge-err {
+      background: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    /* Lollipop Progress Bar */
+    .progress-wrap {
+      margin-bottom: 0;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background: var(--surface-container-high);
+      border-radius: var(--rounded-full);
+      overflow: hidden;
+      padding: 2px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--tertiary);
+      border-radius: var(--rounded-full);
+      transition: width var(--dur-long) var(--ease-bounce);
+      min-width: 12px;
+    }
+
+    /* Audio Listening Hero Well */
+    .audio-well {
+      background: var(--surface-container);
+      border: 2px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .speak-hero-btn {
+      min-height: 56px;
+      padding: 0.65rem 2rem;
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: var(--primary);
+      color: var(--on-primary);
+      border: 0;
+      border-radius: var(--rounded-full);
+      box-shadow: var(--shadow-pink-deep);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-md);
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  box-shadow var(--dur-short) var(--ease-out),
+                  background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .speak-hero-btn:hover {
+      transform: var(--pop-scale);
+      background: var(--primary-hover);
+    }
+    .speak-hero-btn:active {
+      transform: var(--press-scale);
+    }
+
+    .sound-bars {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      height: 20px;
+    }
+
+    .sound-bar {
+      width: 4px;
+      height: 8px;
+      border-radius: var(--rounded-full);
+      background: var(--on-primary);
+      transition: height var(--dur-micro) var(--ease-out);
+    }
+
+    .speak-hero-btn.speaking .sound-bar:nth-child(1) { animation: waveBar 520ms infinite ease-in-out 0ms; }
+    .speak-hero-btn.speaking .sound-bar:nth-child(2) { animation: waveBar 520ms infinite ease-in-out 120ms; }
+    .speak-hero-btn.speaking .sound-bar:nth-child(3) { animation: waveBar 520ms infinite ease-in-out 240ms; }
+    .speak-hero-btn.speaking .sound-bar:nth-child(4) { animation: waveBar 520ms infinite ease-in-out 140ms; }
+
+    @keyframes waveBar {
+      0%, 100% { height: 6px; }
+      50% { height: 20px; }
+    }
+
+    .word-reveal-box {
+      min-height: 2.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+    }
+
+    .english-word-display {
+      font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--on-surface);
+      line-height: 1.15;
+    }
+
+    .masked-prompt {
+      color: var(--on-surface-variant);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    #spelling-hint-btn {
+      min-height: 34px;
+      padding: 0.2rem 0.85rem;
+      font-size: 0.85rem;
+    }
+
+    .hint-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .shortcut-note {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    /* Multiple Choice Options */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    @container (max-width: 520px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-btn {
+      width: 100%;
+      min-height: 60px;
+      text-align: left;
+      background: var(--surface-container-low);
+      border: 2px solid var(--outline-variant);
+      border-radius: 1rem;
+      padding: 0.75rem 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      box-shadow: var(--shadow-sky);
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  border-color var(--dur-micro) var(--ease-out),
+                  background-color var(--dur-micro) var(--ease-out),
+                  box-shadow var(--dur-short) var(--ease-out);
+    }
+
+    .option-btn:hover:not(:disabled) {
+      transform: var(--lift);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-pink);
+    }
+
+    .option-btn:active:not(:disabled) {
+      transform: var(--press-scale);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-num {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container);
+      color: var(--secondary);
+      font-weight: 800;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .option-text {
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: var(--on-surface);
+      line-height: 1.35;
+    }
+
+    .option-btn.is-correct {
+      background: var(--positive-container);
+      border-color: var(--positive);
+      box-shadow: var(--shadow-positive);
+    }
+    .option-btn.is-correct .option-num {
+      background: var(--positive);
+      color: var(--on-positive);
+    }
+    .option-btn.is-correct .option-text {
+      color: var(--on-positive-container);
+    }
+
+    .option-btn.is-wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+      box-shadow: var(--shadow-error);
+    }
+    .option-btn.is-wrong .option-num {
+      background: var(--error);
+      color: var(--on-error);
+    }
+    .option-btn.is-wrong .option-text {
+      color: var(--on-error-container);
+    }
+
+    /* Typing Answer Form */
+    .typing-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .typing-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-sm);
+      align-items: end;
+    }
+
+    .typing-row .input-pill,
+    #typing-submit-btn {
+      min-height: 48px;
+      font-size: 1.05rem;
+    }
+
+    .typing-input-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    /* Feedback Box */
+    .feedback-panel {
+      margin-top: 0;
+      border-radius: var(--rounded);
+      padding: 0.65rem 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "header actions"
+        "meaning actions";
+      align-items: center;
+      gap: 0.35rem 0.85rem;
+      animation: popIn var(--dur-short) var(--ease-bounce);
+    }
+
+    .feedback-panel.correct {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      box-shadow: var(--shadow-positive);
+    }
+
+    .feedback-panel.wrong {
+      background: var(--error-container);
+      color: var(--on-error-container);
+      box-shadow: var(--shadow-error);
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: translateY(8px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .feedback-header {
+      grid-area: header;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feedback-header .btn {
+      min-height: 28px;
+      padding: 0.15rem 0.65rem;
+      font-size: 0.8rem;
+    }
+
+    .feedback-status {
+      font-weight: 900;
+      font-size: 0.98rem;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .feedback-meaning-row {
+      grid-area: meaning;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border-radius: 0.75rem;
+      padding: 0.45rem 0.85rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem 0.75rem;
+    }
+
+    .feedback-word-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--space-sm);
+    }
+
+    .feedback-word-en {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--on-surface);
+    }
+
+    .feedback-meaning-kr {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .feedback-hint-text {
+      flex: 1 1 100%;
+      font-size: 0.88rem;
+      color: var(--on-surface-variant);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .feedback-actions {
+      grid-area: actions;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    #next-question-btn {
+      min-height: 52px;
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    /* Summary View */
+    .summary-hero {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      width: 100%;
+    }
+
+    .summary-score-banner {
+      background: var(--surface-container);
+      border-radius: var(--rounded-lg);
+      padding: 1rem 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    .score-big {
+      font-family: var(--font-headline);
+      font-size: clamp(2.2rem, 1.8rem + 1.5vw, 3rem);
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .day-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+
+    .breakdown-tile {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .review-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .review-item {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: 0.6rem 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .review-item-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .mini-speak-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--rounded-full);
+      border: 0;
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .mini-speak-btn:hover {
+      transform: var(--pop-scale);
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Wordbook View */
+    #view-wordbook {
+      align-content: start;
+    }
+
+    .wordbook-controls {
+      background: var(--surface-container-low);
+      border: 1.5px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-sky);
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: end;
+      gap: var(--space-md);
+    }
+
+    .search-box {
+      flex: 1 1 240px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+      gap: 1rem;
+    }
+
+    .vocab-card {
+      background: var(--surface-container-low);
+      border: 1.5px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  box-shadow var(--dur-short) var(--ease-out);
+    }
+    .vocab-card:nth-child(3n+2) { box-shadow: var(--shadow-sky); }
+    .vocab-card:nth-child(3n+3) { box-shadow: var(--shadow-grape); }
+    .vocab-card:hover { transform: var(--lift); }
+
+    .vocab-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .vocab-word {
+      font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+      font-size: clamp(1.35rem, 1.25rem + 0.3vw, 1.55rem);
+      font-weight: 800;
+      color: var(--on-surface);
+      margin: var(--space-xs) 0 0;
+    }
+
+    .vocab-meaning-wrap {
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .vocab-meaning {
+      font-weight: 700;
+      font-size: 1.12rem;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .vocab-meaning.blinded {
+      filter: blur(6px);
+      user-select: none;
+    }
+
+    .vocab-hint {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--on-surface-variant);
+      margin: var(--space-xs) 0 0;
+    }
+
+    /* Inline Notices / Empty States */
+    .inline-notice {
+      background: var(--warning-container);
+      color: var(--on-warning-container);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      background: var(--surface-container);
+      border-radius: var(--rounded-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .hidden { display: none !important; }
+
+    .source-footer {
+      text-align: left;
+      font-size: 0.74rem;
+      line-height: 1.2;
+      color: var(--on-surface-variant);
+      padding: 0.1rem 0;
+    }
+
+    /* Tablet & Mobile breakpoints */
+    @media (max-width: 1180px) {
+      .workspace-grid {
+        grid-template-columns: 350px minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 960px) {
+      aside.card {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-md) var(--space-lg);
+        align-items: start;
+      }
+      aside.card .section-title {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+      }
+      aside.card .control-group {
+        margin-bottom: 0;
+      }
+      aside.card .control-group:first-of-type {
+        grid-column: 1 / -1;
+      }
+      aside.card #day-filter-chips {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .stats-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      #count-chips {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      #rate-chips {
+        grid-template-columns: 1fr;
+      }
+      .hero-panel {
+        padding: var(--space-lg) var(--space-md);
+      }
+      .typing-row {
+        grid-template-columns: 1fr;
+      }
+      .summary-score-banner {
+        grid-template-columns: 1fr;
+      }
+      .seg-btn {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand-block">
+        <div class="kicker-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span>Previous Check · Day 33–39</span>
+        </div>
+        <h1 class="display">영단어 <em>듣기</em> 퀴즈</h1>
+        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교)의 210개 단어만 출제됩니다.</p>
+      </div>
+
+      <nav class="segmented" aria-label="화면 전환">
+        <button type="button" id="nav-quiz-btn" class="seg-btn active" onclick="switchView('quiz')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+          </svg>
+          <span>퀴즈 풀기</span>
+        </button>
+        <button type="button" id="nav-wordbook-btn" class="seg-btn" onclick="switchView('wordbook')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+          </svg>
+          <span>단어장 · 오답노트</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Live Progress Stats -->
+    <section class="stats-strip" aria-label="학습 통계">
+      <div class="stat-card">
+        <span class="stat-label">누적 풀이 문제</span>
+        <span class="stat-value" id="stat-total-answered">0문제</span>
+        <span class="stat-caption">저장된 전체 기록</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">누적 정답률</span>
+        <span class="stat-value accent-pos" id="stat-accuracy">0%</span>
+        <span class="stat-caption" id="stat-correct-count">0개 정답</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">최고 연속 정답</span>
+        <span class="stat-value accent-pink" id="stat-best-streak">0연속</span>
+        <span class="stat-caption">한 번에 이어 맞힌 기록</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">복습할 오답 단어</span>
+        <span class="stat-value accent-grape" id="stat-mistake-count">0단어</span>
+        <span class="stat-caption">틀렸던 단어 자동 저장</span>
+      </div>
+    </section>
+
+    <!-- TTS Fallback Notice -->
+    <div id="tts-unsupported-notice" class="inline-notice hidden" role="status">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span>현재 브라우저 환경에서 음성 합성(Web Speech API)이 지원되지 않아, 문제 화면에 영어 단어를 함께 표시합니다.</span>
+    </div>
+
+    <!-- QUIZ VIEW -->
+    <main id="view-quiz" class="workspace-grid">
+      <!-- Left: Quiz Setup & TTS Settings -->
+      <aside class="card" aria-label="퀴즈 설정">
+        <h2 class="section-title">퀴즈 설정</h2>
+
+        <div class="control-group">
+          <span class="field-label">
+            <span>출제 범위 (Day 선택)</span>
+            <span id="pool-size-label">210단어 선택됨</span>
+          </span>
+          <div class="chip-row" id="day-filter-chips">
+            <button type="button" class="chip selected" data-day="all" onclick="toggleDayFilter('all')">전체</button>
+            <button type="button" class="chip selected" data-day="33" onclick="toggleDayFilter(33)">Day 33 우주</button>
+            <button type="button" class="chip selected" data-day="34" onclick="toggleDayFilter(34)">Day 34 에너지</button>
+            <button type="button" class="chip selected" data-day="35" onclick="toggleDayFilter(35)">Day 35 교육</button>
+            <button type="button" class="chip selected" data-day="36" onclick="toggleDayFilter(36)">Day 36 학교</button>
+            <button type="button" class="chip selected" data-day="37" onclick="toggleDayFilter(37)">Day 37 사회·경제</button>
+            <button type="button" class="chip selected" data-day="38" onclick="toggleDayFilter(38)">Day 38 정치·법률</button>
+            <button type="button" class="chip selected" data-day="39" onclick="toggleDayFilter(39)">Day 39 역사·종교</button>
+            <button type="button" class="chip" id="chip-mistakes-only" data-day="mistakes" onclick="toggleDayFilter('mistakes')">오답만 복습</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <span class="field-label">문제 수</span>
+          <div class="chip-row" id="count-chips">
+            <button type="button" class="chip" data-count="10" onclick="setQuestionCount(10)">10문제</button>
+            <button type="button" class="chip selected-grape" data-count="20" onclick="setQuestionCount(20)">20문제</button>
+            <button type="button" class="chip" data-count="30" onclick="setQuestionCount(30)">30문제</button>
+            <button type="button" class="chip" data-count="all" onclick="setQuestionCount('all')">전체</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <span class="field-label">답변 방식</span>
+          <div class="chip-row" id="mode-chips">
+            <button type="button" class="chip selected-grape" data-mode="choice" onclick="setAnswerMode('choice')">객관식 (4지선다)</button>
+            <button type="button" class="chip" data-mode="typing" onclick="setAnswerMode('typing')">주관식 (직접 입력)</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="field-label" for="voice-select">영어 발음 음성 (TTS)</label>
+          <select id="voice-select" class="select-pill" onchange="setSelectedVoice(this.value)">
+            <option value="">기본 영어 음성 (자동)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <span class="field-label">발음 속도</span>
+          <div class="chip-row" id="rate-chips">
+            <button type="button" class="chip" data-rate="0.75" onclick="setSpeechRate(0.75)">0.75x 천천히</button>
+            <button type="button" class="chip selected" data-rate="0.95" onclick="setSpeechRate(0.95)">1.0x 보통</button>
+            <button type="button" class="chip" data-rate="1.15" onclick="setSpeechRate(1.15)">1.15x 빠르게</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="toggle-row">
+            <span id="auto-speak-label" class="field-label">새 문제 자동 발음</span>
+            <button type="button" id="auto-speak-toggle" class="toggle-switch" role="switch" aria-checked="true" aria-labelledby="auto-speak-label" onclick="toggleAutoSpeak()">
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <button type="button" class="btn btn-primary btn-full" onclick="startNewQuiz()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            <span>새 퀴즈 시작하기</span>
+          </button>
+          <button type="button" id="reset-stats-btn" class="btn btn-quiet btn-full" onclick="handleResetProgress(this)">학습 기록 초기화</button>
+        </div>
+      </aside>
+
+      <!-- Right: Active Quiz Stage OR Final Summary -->
+      <section class="hero-panel" aria-live="polite">
+        <!-- Active Question Stage -->
+        <div id="quiz-active-stage">
+          <div class="quiz-top-bar">
+            <div class="badge-group">
+              <span class="badge badge-pink" id="q-day-badge">Day 33 · 우주</span>
+              <span class="badge badge-grape" id="q-pos-badge">명사</span>
+              <span class="badge badge-sky" id="q-streak-badge">연속 정답 0</span>
+            </div>
+            <button type="button" class="btn btn-quiet" onclick="finishQuizEarly()">지금 결과 보기</button>
+          </div>
+
+          <div class="progress-wrap">
+            <div class="progress-meta">
+              <span id="q-progress-text">문제 1 / 20</span>
+              <span id="q-score-live">현재 점수 0점</span>
+            </div>
+            <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="5" id="q-progress-bar">
+              <div class="progress-fill" id="q-progress-fill" style="width: 5%;"></div>
+            </div>
+          </div>
+
+          <!-- Audio Pronunciation Hero Well -->
+          <div class="audio-well">
+            <button type="button" id="speak-hero-btn" class="speak-hero-btn" onclick="speakCurrentWord()">
+              <span class="sound-bars" aria-hidden="true">
+                <span class="sound-bar"></span>
+                <span class="sound-bar"></span>
+                <span class="sound-bar"></span>
+                <span class="sound-bar"></span>
+              </span>
+              <span id="speak-btn-text">영어 발음 듣기</span>
+            </button>
+
+            <div class="word-reveal-box">
+              <div id="masked-word-prompt" class="masked-prompt">소리를 듣고 알맞은 한국어 뜻을 선택하세요</div>
+              <div id="revealed-word-text" class="english-word-display hidden"></div>
+            </div>
+
+            <div class="hint-actions">
+              <button type="button" id="spelling-hint-btn" class="btn btn-soft" onclick="toggleSpellingHint()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>철자 힌트 보기</span>
+              </button>
+              <span class="shortcut-note" id="shortcut-note">단축키: Space(다시 듣기) · 1~4(선택) · Enter(다음)</span>
+            </div>
+          </div>
+
+          <!-- Multiple Choice Container -->
+          <div id="choice-container" class="options-grid" role="group" aria-label="한국어 뜻 선택지"></div>
+
+          <!-- Typing Answer Container -->
+          <form id="typing-container" class="typing-form hidden" onsubmit="submitTypingAnswer(event)">
+            <div class="typing-row">
+              <div class="typing-input-wrap">
+                <label class="field-label" for="typing-answer-input">들은 단어의 한국어 뜻을 입력하세요</label>
+                <input type="text" id="typing-answer-input" class="input-pill" autocomplete="off" placeholder="예: 지구, 보존하다, 교과서">
+              </div>
+              <button type="submit" id="typing-submit-btn" class="btn btn-primary">정답 확인</button>
+            </div>
+            <div class="hint-actions">
+              <button type="button" id="typing-skip-btn" class="btn btn-quiet" onclick="skipTypingQuestion()">잘 모르겠어요 (정답 확인)</button>
+            </div>
+          </form>
+
+          <!-- Instant Feedback Panel -->
+          <div id="feedback-panel" class="feedback-panel hidden">
+            <div class="feedback-header">
+              <span class="feedback-status" id="feedback-status-text"></span>
+              <button type="button" class="btn btn-soft" onclick="speakCurrentWord()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                <span>다시 듣기</span>
+              </button>
+            </div>
+
+            <div class="feedback-meaning-row">
+              <div class="feedback-word-line">
+                <span class="feedback-word-en" id="fb-word-en"></span>
+                <span class="badge badge-grape" id="fb-word-meta"></span>
+              </div>
+              <div class="feedback-meaning-kr" id="fb-meaning-kr"></div>
+              <p class="feedback-hint-text" id="fb-hint-text"></p>
+            </div>
+
+            <div class="feedback-actions">
+              <button type="button" id="next-question-btn" class="btn btn-primary" onclick="goToNextQuestion()">다음 문제 →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Summary Stage -->
+        <div id="quiz-summary-stage" class="summary-hero hidden">
+          <div class="summary-score-banner">
+            <div>
+              <span class="badge badge-pink" style="margin-bottom: var(--space-sm);">퀴즈 완료</span>
+              <h2 class="section-title" id="summary-headline" style="margin-bottom: var(--space-xs);">수고했어요!</h2>
+              <p class="subtitle" id="summary-subtext" style="margin: 0;"></p>
+            </div>
+            <div style="text-align: right;">
+              <div class="score-big" id="summary-score-big">0 / 20</div>
+              <div class="stat-caption" id="summary-accuracy-text">정답률 0%</div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="section-title" style="font-size: var(--subhead-size);">Day별 정답률 분석</h3>
+            <div id="day-breakdown-grid" class="day-breakdown-grid"></div>
+          </div>
+
+          <div class="chip-row">
+            <button type="button" id="retry-wrong-btn" class="btn btn-secondary" onclick="retryWrongWords()">틀린 문제만 다시 풀기</button>
+            <button type="button" class="btn btn-primary" onclick="startNewQuiz()">새 퀴즈 다시 풀기</button>
+          </div>
+
+          <div>
+            <h3 class="section-title" style="font-size: var(--subhead-size);">이번 퀴즈 단어 복습</h3>
+            <div id="summary-review-list" class="review-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- WORDBOOK & MISTAKES VIEW -->
+    <section id="view-wordbook" class="hidden" style="display: grid; gap: var(--space-lg);">
+      <div class="wordbook-controls">
+        <div class="control-group" style="margin-bottom: 0;">
+          <span class="field-label">단어장 필터</span>
+          <div class="chip-row" id="wb-filter-chips">
+            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (210)</button>
+            <button type="button" class="chip" data-wb="33" onclick="setWordbookFilter(33)">Day 33 우주</button>
+            <button type="button" class="chip" data-wb="34" onclick="setWordbookFilter(34)">Day 34 에너지</button>
+            <button type="button" class="chip" data-wb="35" onclick="setWordbookFilter(35)">Day 35 교육</button>
+            <button type="button" class="chip" data-wb="36" onclick="setWordbookFilter(36)">Day 36 학교</button>
+            <button type="button" class="chip" data-wb="37" onclick="setWordbookFilter(37)">Day 37 사회·경제</button>
+            <button type="button" class="chip" data-wb="38" onclick="setWordbookFilter(38)">Day 38 정치·법률</button>
+            <button type="button" class="chip" data-wb="39" onclick="setWordbookFilter(39)">Day 39 역사·종교</button>
+            <button type="button" class="chip" data-wb="mistakes" onclick="setWordbookFilter('mistakes')">오답 노트</button>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <label class="field-label" for="wb-search-input">단어 또는 뜻 검색</label>
+          <input type="search" id="wb-search-input" class="input-pill" placeholder="예: telescope, 우주, 에너지" oninput="renderWordbook()">
+        </div>
+
+        <div class="toggle-row">
+          <span id="wb-blind-label" class="field-label">한국어 뜻 가리기</span>
+          <button type="button" id="wb-blind-toggle" class="toggle-switch" role="switch" aria-checked="false" aria-labelledby="wb-blind-label" onclick="toggleWordbookBlind()">
+            <span class="toggle-thumb"></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="wb-grid" class="card-grid"></div>
+      <div id="wb-empty-state" class="empty-state hidden">
+        <p style="font-weight: 700; margin: 0;" id="wb-empty-msg">표시할 단어가 없습니다.</p>
+        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 210단어 보기</button>
+      </div>
+    </section>
+
+    <footer class="source-footer">
+      출처: 사용자 제공 교과서 Previous Check (Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion) 총 210개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
+    </footer>
+  </div>
+
+  <api-shim></api-shim>
+
+  <script>
+    // Strict 120-word vocabulary list from Day 33, Day 34, Day 35, Day 36 Previous Check photos ONLY
+    const VOCAB_BANK = [
+      // ================= Day 33: Space (30 words) =================
+      { id: 1, day: 33, topic: `Space`, topicKr: `우주`, word: `earth`, speakText: `earth`, pos: `명사`, meaning: `지구, 땅`, accept: [`지구`, `땅`, `흙`], hint: `태양계 세 번째 행성으로 우리가 살아가는 지구입니다.` },
+      { id: 2, day: 33, topic: `Space`, topicKr: `우주`, word: `planet`, speakText: `planet`, pos: `명사`, meaning: `행성`, accept: [`행성`], hint: `별(항성) 주위를 도는 천체(수성, 금성, 지구, 화성 등)를 말합니다.` },
+      { id: 3, day: 33, topic: `Space`, topicKr: `우주`, word: `universe`, speakText: `universe`, pos: `명사`, meaning: `우주, 만물`, accept: [`우주`, `만물`, `전우주`], hint: `모든 은하와 시공간을 통틀어 가리키는 전체 우주입니다.` },
+      { id: 4, day: 33, topic: `Space`, topicKr: `우주`, word: `solar`, speakText: `solar`, pos: `형용사`, meaning: `태양의`, accept: [`태양의`, `태양`], hint: `solar system(태양계), solar energy(태양 에너지)처럼 태양과 관련된 형용사입니다.` },
+      { id: 5, day: 33, topic: `Space`, topicKr: `우주`, word: `lunar`, speakText: `lunar`, pos: `형용사`, meaning: `달의`, accept: [`달의`, `달`, `음력의`], hint: `solar(태양의)와 대비되는 말로, 달과 관련된 형용사입니다.` },
+      { id: 6, day: 33, topic: `Space`, topicKr: `우주`, word: `crew`, speakText: `crew`, pos: `명사`, meaning: `승무원, 대원`, accept: [`승무원`, `대원`, `선원`, `팀`], hint: `우주선, 비행기, 배 등에서 함께 일하는 탑승 팀과 승무원입니다.` },
+      { id: 7, day: 33, topic: `Space`, topicKr: `우주`, word: `rocket`, speakText: `rocket`, pos: `명사`, meaning: `로켓`, accept: [`로켓`], hint: `우주선이나 위성을 대기권 밖으로 쏘아 올리는 추진 비행체입니다.` },
+      { id: 8, day: 33, topic: `Space`, topicKr: `우주`, word: `outer`, speakText: `outer`, pos: `형용사`, meaning: `외부의, 바깥쪽의`, accept: [`외부의`, `바깥쪽의`, `바깥의`, `외부`], hint: `outer space(우주 공간)처럼 안쪽(inner)의 반대인 바깥쪽을 뜻합니다.` },
+      { id: 9, day: 33, topic: `Space`, topicKr: `우주`, word: `surface`, speakText: `surface`, pos: `명사`, meaning: `표면, 수면`, accept: [`표면`, `수면`, `겉면`], hint: `행성이나 물체의 가장 바깥 겉면을 뜻합니다.` },
+      { id: 10, day: 33, topic: `Space`, topicKr: `우주`, word: `Mercury`, speakText: `Mercury`, pos: `명사`, meaning: `수성`, accept: [`수성`, `수은`], hint: `태양에서 가장 가까운 첫 번째 행성입니다.` },
+      { id: 11, day: 33, topic: `Space`, topicKr: `우주`, word: `Venus`, speakText: `Venus`, pos: `명사`, meaning: `금성`, accept: [`금성`], hint: `태양계 두 번째 행성으로 밤하늘에서 매우 밝게 빛나는 샛별입니다.` },
+      { id: 12, day: 33, topic: `Space`, topicKr: `우주`, word: `Mars`, speakText: `Mars`, pos: `명사`, meaning: `화성`, accept: [`화성`], hint: `산화철 때문에 붉게 보여 '붉은 행성'이라 불리는 네 번째 행성입니다.` },
+      { id: 13, day: 33, topic: `Space`, topicKr: `우주`, word: `Jupiter`, speakText: `Jupiter`, pos: `명사`, meaning: `목성`, accept: [`목성`], hint: `태양계에서 가장 크기가 큰 다섯 번째 거대 가스 행성입니다.` },
+      { id: 14, day: 33, topic: `Space`, topicKr: `우주`, word: `Saturn`, speakText: `Saturn`, pos: `명사`, meaning: `토성`, accept: [`토성`], hint: `얼음과 먼지로 된 아름다운 고리를 가진 태양계 여섯 번째 행성입니다.` },
+      { id: 15, day: 33, topic: `Space`, topicKr: `우주`, word: `ring`, speakText: `ring`, pos: `명사`, meaning: `고리, 반지`, accept: [`고리`, `반지`, `울리다`], hint: `토성(Saturn) 주위를 둘러싼 둥근 고리나 손가락의 반지를 뜻합니다.` },
+      { id: 16, day: 33, topic: `Space`, topicKr: `우주`, word: `comet`, speakText: `comet`, pos: `명사`, meaning: `혜성`, accept: [`혜성`], hint: `태양 가까이 지나갈 때 긴 꼬리를 만드는 얼음과 먼지 천체입니다.` },
+      { id: 17, day: 33, topic: `Space`, topicKr: `우주`, word: `telescope`, speakText: `telescope`, pos: `명사`, meaning: `망원경`, accept: [`망원경`], hint: `멀리 있는 별이나 행성을 크게 확대해서 관찰하는 광학 기구입니다.` },
+      { id: 18, day: 33, topic: `Space`, topicKr: `우주`, word: `Milky Way`, speakText: `Milky Way`, pos: `명사`, meaning: `은하수`, accept: [`은하수`, `우리은하`], hint: `밤하늘을 가로지르는 수많은 별의 띠로, 태양이 속한 우리 은하입니다.` },
+      { id: 19, day: 33, topic: `Space`, topicKr: `우주`, word: `space shuttle`, speakText: `space shuttle`, pos: `명사`, meaning: `우주 왕복선`, accept: [`우주왕복선`, `우주 왕복선`, `왕복선`], hint: `지구와 우주 사이를 여러 번 오갈 수 있도록 만든 유인 우주선입니다.` },
+      { id: 20, day: 33, topic: `Space`, topicKr: `우주`, word: `space station`, speakText: `space station`, pos: `명사`, meaning: `우주 정거장`, accept: [`우주정거장`, `우주 정거장`, `정거장`], hint: `우주비행사들이 장기간 머물며 과학 실험을 하는 궤도 위 기지입니다.` },
+      { id: 21, day: 33, topic: `Space`, topicKr: `우주`, word: `eclipse`, speakText: `eclipse`, pos: `명사`, meaning: `일식, 월식`, accept: [`일식`, `월식`, `식`, `가리다`], hint: `달이 태양을 가리거나(일식) 지구의 그림자가 달을 가리는(월식) 현상입니다.` },
+      { id: 22, day: 33, topic: `Space`, topicKr: `우주`, word: `satellite`, speakText: `satellite`, pos: `명사`, meaning: `인공위성, 위성`, accept: [`인공위성`, `위성`], hint: `행성 주위를 공전하는 자연 위성(달)이나 사람이 쏘아 올린 인공위성입니다.` },
+      { id: 23, day: 33, topic: `Space`, topicKr: `우주`, word: `orbit`, speakText: `orbit`, pos: `명사/동사`, meaning: `궤도, 궤도를 돌다`, accept: [`궤도`, `궤도를돌다`, `공전하다`], hint: `천체나 위성이 중력에 이끌려 다른 천체 주위를 도는 길(또는 도는 것)입니다.` },
+      { id: 24, day: 33, topic: `Space`, topicKr: `우주`, word: `galaxy`, speakText: `galaxy`, pos: `명사`, meaning: `은하, 은하계`, accept: [`은하`, `은하계`], hint: `수천억 개의 별과 성간 물질이 중력으로 모여 있는 거대한 별의 집단입니다.` },
+      { id: 25, day: 33, topic: `Space`, topicKr: `우주`, word: `astronomy`, speakText: `astronomy`, pos: `명사`, meaning: `천문학`, accept: [`천문학`], hint: `별, 행성, 은하 등 우주의 현상을 연구하는 과학 분야입니다.` },
+      { id: 26, day: 33, topic: `Space`, topicKr: `우주`, word: `astronomer`, speakText: `astronomer`, pos: `명사`, meaning: `천문학자`, accept: [`천문학자`], hint: `astronomy(천문학)에 사람을 뜻하는 -er이 붙어 천문학을 연구하는 학자입니다.` },
+      { id: 27, day: 33, topic: `Space`, topicKr: `우주`, word: `Big Bang`, speakText: `Big Bang`, pos: `명사`, meaning: `빅뱅, 대폭발`, accept: [`빅뱅`, `대폭발`, `우주대폭발`], hint: `약 138억 년 전 우주가 한 점에서 거대하게 폭발하며 시작되었다는 이론입니다.` },
+      { id: 28, day: 33, topic: `Space`, topicKr: `우주`, word: `light year`, speakText: `light year`, pos: `명사`, meaning: `광년`, accept: [`광년`], hint: `빛이 1년 동안 진공에서 이동하는 거리로, 우주 거리의 단위입니다.` },
+      { id: 29, day: 33, topic: `Space`, topicKr: `우주`, word: `far from`, speakText: `far from`, pos: `숙어/표현`, meaning: `~에서 먼, 결코 ~아닌`, accept: [`에서먼`, `먼`, `떨어진`, `멀리떨어진`], hint: `거리상 멀리 떨어져 있거나, 뜻이 전혀 그렇지 않음을 나타내는 표현입니다.` },
+      { id: 30, day: 33, topic: `Space`, topicKr: `우주`, word: `by chance`, speakText: `by chance`, pos: `숙어/표현`, meaning: `우연히`, accept: [`우연히`, `우연으로`], hint: `계획하지 않았는데 뜻밖에 일이 일어났을 때 쓰는 표현(= accidentally)입니다.` },
+
+      // ================= Day 34: Energy (30 words) =================
+      { id: 31, day: 34, topic: `Energy`, topicKr: `에너지`, word: `power`, speakText: `power`, pos: `명사`, meaning: `힘, 전력, 동력`, accept: [`힘`, `전력`, `동력`, `권력`, `전기`], hint: `기계를 움직이는 동력이나 전기 에너지(전력), 물리적 힘을 뜻합니다.` },
+      { id: 32, day: 34, topic: `Energy`, topicKr: `에너지`, word: `produce`, speakText: `produce`, pos: `동사`, meaning: `생산하다, 만들어내다`, accept: [`생산하다`, `생산`, `만들어내다`, `만들다`], hint: `공장이나 발전소에서 물건이나 에너지를 만들어 내는 동사입니다.` },
+      { id: 33, day: 34, topic: `Energy`, topicKr: `에너지`, word: `wind`, speakText: `wind`, pos: `명사`, meaning: `바람`, accept: [`바람`, `풍력`], hint: `풍력 발전(wind power)의 원천이 되는 자연의 바람입니다.` },
+      { id: 34, day: 34, topic: `Energy`, topicKr: `에너지`, word: `coal`, speakText: `coal`, pos: `명사`, meaning: `석탄`, accept: [`석탄`], hint: `땅속에 묻힌 검은 화석 연료로 화력 발전 등에 쓰입니다.` },
+      { id: 35, day: 34, topic: `Energy`, topicKr: `에너지`, word: `mine`, speakText: `mine`, pos: `명사/동사`, meaning: `광산, 채굴하다`, accept: [`광산`, `채굴하다`, `채광하다`, `캐다`, `탄광`], hint: `석탄이나 광물을 캐내는 곳(광산) 또는 자원을 캐내는 행동입니다.` },
+      { id: 36, day: 34, topic: `Energy`, topicKr: `에너지`, word: `factory`, speakText: `factory`, pos: `명사`, meaning: `공장`, accept: [`공장`], hint: `기계와 노동력으로 물건을 대량 생산하는 건물입니다.` },
+      { id: 37, day: 34, topic: `Energy`, topicKr: `에너지`, word: `dam`, speakText: `dam`, pos: `명사`, meaning: `댐, 제방`, accept: [`댐`, `제방`, `둑`], hint: `강물을 막아 수력 발전을 하거나 물을 저장하는 거대한 구조물입니다.` },
+      { id: 38, day: 34, topic: `Energy`, topicKr: `에너지`, word: `heat`, speakText: `heat`, pos: `명사/동사`, meaning: `열, 가열하다`, accept: [`열`, `열기`, `가열하다`, `데우다`, `난방`], hint: `뜨거운 기운(열)을 말하거나 온도를 높여 데우는 것을 뜻합니다.` },
+      { id: 39, day: 34, topic: `Energy`, topicKr: `에너지`, word: `battery`, speakText: `battery`, pos: `명사`, meaning: `배터리, 건전지`, accept: [`배터리`, `건전지`, `전지`, `축전지`], hint: `화학 에너지를 저장해 필요할 때 전기로 공급하는 장치입니다.` },
+      { id: 40, day: 34, topic: `Energy`, topicKr: `에너지`, word: `consume`, speakText: `consume`, pos: `동사`, meaning: `소비하다, 소모하다`, accept: [`소비하다`, `소모하다`, `소비`, `쓰다`, `먹다`], hint: `에너지, 연료, 물건 등을 사용하여 다 써버리는 것을 뜻합니다.` },
+      { id: 41, day: 34, topic: `Energy`, topicKr: `에너지`, word: `generate`, speakText: `generate`, pos: `동사`, meaning: `발생시키다, 생성하다`, accept: [`발생시키다`, `생성하다`, `만들어내다`, `발전하다`], hint: `전기나 열 등의 에너지를 새로 일으켜 만들어 내는 동사입니다.` },
+      { id: 42, day: 34, topic: `Energy`, topicKr: `에너지`, word: `nuclear`, speakText: `nuclear`, pos: `형용사`, meaning: `원자력의, 핵의`, accept: [`원자력의`, `핵의`, `원자력`, `핵`], hint: `원자핵의 분열·융합 에너지를 이용하는 원자력 발전(nuclear power)에 쓰입니다.` },
+      { id: 43, day: 34, topic: `Energy`, topicKr: `에너지`, word: `windmill`, speakText: `windmill`, pos: `명사`, meaning: `풍차`, accept: [`풍차`], hint: `바람의 힘으로 날개를 돌려 동력을 얻는 장치입니다.` },
+      { id: 44, day: 34, topic: `Energy`, topicKr: `에너지`, word: `tidal`, speakText: `tidal`, pos: `형용사`, meaning: `조수의, 조력의`, accept: [`조수의`, `조력의`, `밀물과썰물의`, `조수`, `조력`], hint: `바닷물의 밀물과 썰물(tide)을 이용하는 조력 발전에 쓰이는 형용사입니다.` },
+      { id: 45, day: 34, topic: `Energy`, topicKr: `에너지`, word: `careless`, speakText: `careless`, pos: `형용사`, meaning: `부주의한, 조심성 없는`, accept: [`부주의한`, `조심성없는`, `경솔한`, `부주의`], hint: `care(주의) + -less(없는) = 주의를 기울이지 않아 실수하기 쉬운 상태입니다.` },
+      { id: 46, day: 34, topic: `Energy`, topicKr: `에너지`, word: `transform`, speakText: `transform`, pos: `동사`, meaning: `변형시키다, 바꾸다`, accept: [`변형시키다`, `바꾸다`, `변환하다`, `탈바꿈하다`], hint: `에너지를 다른 형태로 전환하거나 모습을 완전히 바꾸는 것입니다.` },
+      { id: 47, day: 34, topic: `Energy`, topicKr: `에너지`, word: `natural gas`, speakText: `natural gas`, pos: `명사`, meaning: `천연가스`, accept: [`천연가스`, `천연 가스`], hint: `땅속에서 채취되어 난방이나 발전에 쓰이는 기체 화석 연료입니다.` },
+      { id: 48, day: 34, topic: `Energy`, topicKr: `에너지`, word: `abundant`, speakText: `abundant`, pos: `형용사`, meaning: `풍부한`, accept: [`풍부한`, `많은`, `넉넉한`], hint: `부족하지 않고 양이 매우 많고 넉넉함을 뜻하는 형용사입니다.` },
+      { id: 49, day: 34, topic: `Energy`, topicKr: `에너지`, word: `utility pole`, speakText: `utility pole`, pos: `명사`, meaning: `전봇대, 전신주`, accept: [`전봇대`, `전신주`], hint: `거리에서 전선이나 통신선을 높이 매달아 지지하는 기둥입니다.` },
+      { id: 50, day: 34, topic: `Energy`, topicKr: `에너지`, word: `solar collector`, speakText: `solar collector`, pos: `명사`, meaning: `태양열 집열기`, accept: [`태양열집열기`, `태양열 집열기`, `집열기`, `태양광집열기`], hint: `태양의 빛과 열을 모아서 온수나 난방 에너지로 바꾸는 장치입니다.` },
+      { id: 51, day: 34, topic: `Energy`, topicKr: `에너지`, word: `transmission tower`, speakText: `transmission tower`, pos: `명사`, meaning: `송전탑`, accept: [`송전탑`, `철탑`], hint: `발전소에서 만든 고압 전기를 멀리까지 보내는 거대한 철탑입니다.` },
+      { id: 52, day: 34, topic: `Energy`, topicKr: `에너지`, word: `radioactive`, speakText: `radioactive`, pos: `형용사`, meaning: `방사성의, 방사능이 있는`, accept: [`방사성의`, `방사능이있는`, `방사능의`, `방사성`, `방사능`], hint: `불안정한 원자핵이 붕괴하며 방사선을 내뿜는 성질을 말합니다.` },
+      { id: 53, day: 34, topic: `Energy`, topicKr: `에너지`, word: `power line`, speakText: `power line`, pos: `명사`, meaning: `전선, 송전선`, accept: [`전선`, `송전선`, `고압선`], hint: `전기가 흐르도록 연결해 놓은 선(전봇대나 송전탑 사이)입니다.` },
+      { id: 54, day: 34, topic: `Energy`, topicKr: `에너지`, word: `conserve`, speakText: `conserve`, pos: `동사`, meaning: `보존하다, 아끼다`, accept: [`보존하다`, `아끼다`, `절약하다`, `보호하다`], hint: `에너지나 자연 자원이 낭비되지 않도록 아끼고 잘 지키는 동사입니다.` },
+      { id: 55, day: 34, topic: `Energy`, topicKr: `에너지`, word: `efficiency`, speakText: `efficiency`, pos: `명사`, meaning: `효율, 효율성`, accept: [`효율`, `효율성`, `능률`], hint: `적은 에너지를 들여서 얼마나 많은 결과를 얻는지 나타내는 비율입니다.` },
+      { id: 56, day: 34, topic: `Energy`, topicKr: `에너지`, word: `crisis`, speakText: `crisis`, pos: `명사`, meaning: `위기`, accept: [`위기`, `중대고비`], hint: `energy crisis(에너지 위기)처럼 큰 어려움과 위험이 닥친 상황입니다.` },
+      { id: 57, day: 34, topic: `Energy`, topicKr: `에너지`, word: `authorized`, speakText: `authorized`, pos: `형용사`, meaning: `허가된, 인가받은`, accept: [`허가된`, `인가받은`, `권한이있는`, `승인된`, `공식적인`], hint: `정식 권한이나 승인을 받은 사람·기관만 출입하거나 사용할 수 있음을 뜻합니다.` },
+      { id: 58, day: 34, topic: `Energy`, topicKr: `에너지`, word: `be made up of`, speakText: `be made up of`, pos: `숙어/표현`, meaning: `~로 구성되다, 이루어지다`, accept: [`로구성되다`, `구성되다`, `이루어지다`, `로이루어지다`], hint: `전체가 여러 부분이나 요소들로 이루어져 있다는 대표 숙어(= consist of)입니다.` },
+      { id: 59, day: 34, topic: `Energy`, topicKr: `에너지`, word: `turn into`, speakText: `turn into`, pos: `숙어/표현`, meaning: `~로 변하다, 바꾸다`, accept: [`로변하다`, `변하다`, `바꾸다`, `로바뀌다`, `바뀌다`], hint: `한 물질이나 에너지가 전혀 다른 형태나 상태로 바뀔 때 씁니다.` },
+      { id: 60, day: 34, topic: `Energy`, topicKr: `에너지`, word: `and so on`, speakText: `and so on`, pos: `숙어/표현`, meaning: `등등, 기타 등등`, accept: [`등등`, `기타등등`, `와같은것들`], hint: `여러 예시를 나열한 뒤 "그 밖에 이와 같은 것들"을 줄여 말할 때 씁니다.` },
+
+      // ================= Day 35: Education (30 words) =================
+      { id: 61, day: 35, topic: `Education`, topicKr: `교육`, word: `exam`, speakText: `exam`, pos: `명사`, meaning: `시험`, accept: [`시험`, `고사`], hint: `examination의 줄임말로 학교에서 치르는 중간·기말 시험입니다.` },
+      { id: 62, day: 35, topic: `Education`, topicKr: `교육`, word: `college`, speakText: `college`, pos: `명사`, meaning: `단과대학, 대학`, accept: [`대학`, `단과대학`, `전문대`], hint: `고등학교 졸업 후 진학하는 대학(또는 종합대학 안의 단과대학)입니다.` },
+      { id: 63, day: 35, topic: `Education`, topicKr: `교육`, word: `university`, speakText: `university`, pos: `명사`, meaning: `종합대학, 대학교`, accept: [`대학교`, `종합대학`, `대학`], hint: `여러 단과대학과 대학원 과정을 갖춘 큰 규모의 대학교입니다.` },
+      { id: 64, day: 35, topic: `Education`, topicKr: `교육`, word: `elementary`, speakText: `elementary`, pos: `형용사`, meaning: `초등의, 기초의`, accept: [`초등의`, `기초의`, `기본적인`, `초등학교의`], hint: `elementary school(초등학교)처럼 가장 기본적이고 첫 단계를 뜻합니다.` },
+      { id: 65, day: 35, topic: `Education`, topicKr: `교육`, word: `tutor`, speakText: `tutor`, pos: `명사/동사`, meaning: `개인 교사, 지도하다`, accept: [`개인교사`, `가정교사`, `과외교사`, `지도하다`, `가르치다`], hint: `소수나 1대1로 학생을 가까이서 개별 지도하는 선생님입니다.` },
+      { id: 66, day: 35, topic: `Education`, topicKr: `교육`, word: `discuss`, speakText: `discuss`, pos: `동사`, meaning: `토론하다, 논의하다`, accept: [`토론하다`, `논의하다`, `이야기하다`, `토의하다`], hint: `여러 사람이 한 주제에 대해 서로 의견을 나누며 이야기하는 것입니다.` },
+      { id: 67, day: 35, topic: `Education`, topicKr: `교육`, word: `explain`, speakText: `explain`, pos: `동사`, meaning: `설명하다`, accept: [`설명하다`, `해명하다`], hint: `이해하기 쉽도록 이유나 방법을 풀어서 말해주는 동사입니다.` },
+      { id: 68, day: 35, topic: `Education`, topicKr: `교육`, word: `memorize`, speakText: `memorize`, pos: `동사`, meaning: `암기하다, 외우다`, accept: [`암기하다`, `외우다`, `암기`, `기억하다`], hint: `단어나 공식을 잊지 않도록 머릿속에 꼭 외워 두는 것입니다.` },
+      { id: 69, day: 35, topic: `Education`, topicKr: `교육`, word: `entrance`, speakText: `entrance`, pos: `명사`, meaning: `입학, 입구`, accept: [`입학`, `입구`, `입장`], hint: `entrance exam(입학시험)이나 건물로 들어가는 입구를 뜻합니다.` },
+      { id: 70, day: 35, topic: `Education`, topicKr: `교육`, word: `educate`, speakText: `educate`, pos: `동사`, meaning: `교육하다, 가르치다`, accept: [`교육하다`, `가르치다`, `교육`], hint: `education(교육)의 동사형으로 지식과 인성을 기르도록 가르치는 것입니다.` },
+      { id: 71, day: 35, topic: `Education`, topicKr: `교육`, word: `kindergarten`, speakText: `kindergarten`, pos: `명사`, meaning: `유치원`, accept: [`유치원`], hint: `초등학교에 들어가기 전 어린아이들이 다니는 교육 기관입니다.` },
+      { id: 72, day: 35, topic: `Education`, topicKr: `교육`, word: `graduate`, speakText: `graduate`, pos: `동사/명사`, meaning: `졸업하다, 졸업생`, accept: [`졸업하다`, `졸업생`, `졸업`], hint: `학교의 모든 과정을 마치고 졸업하는 것 또는 졸업한 사람입니다.` },
+      { id: 73, day: 35, topic: `Education`, topicKr: `교육`, word: `knowledge`, speakText: `knowledge`, pos: `명사`, meaning: `지식`, accept: [`지식`, `학식`, `앎`], hint: `공부와 경험을 통해 얻게 된 정보와 이해를 뜻합니다.` },
+      { id: 74, day: 35, topic: `Education`, topicKr: `교육`, word: `counsel`, speakText: `counsel`, pos: `동사/명사`, meaning: `상담하다, 조언하다`, accept: [`상담하다`, `조언하다`, `상담`, `조언`, `충고하다`], hint: `고민이나 진로에 대해 전문적으로 조언을 해주고 상담하는 것입니다.` },
+      { id: 75, day: 35, topic: `Education`, topicKr: `교육`, word: `admit`, speakText: `admit`, pos: `동사`, meaning: `인정하다, 입학을 허가하다`, accept: [`인정하다`, `입학을허가하다`, `입장을허가하다`, `허가하다`, `받아들이다`], hint: `잘못이나 사실을 인정하거나, 학교에 입학하는 것을 받아들이는 동사입니다.` },
+      { id: 76, day: 35, topic: `Education`, topicKr: `교육`, word: `evaluate`, speakText: `evaluate`, pos: `동사`, meaning: `평가하다`, accept: [`평가하다`, `가치를매기다`, `평가`], hint: `학생의 과제나 시험 결과의 수준과 가치를 판단해 점수를 매기는 것입니다.` },
+      { id: 77, day: 35, topic: `Education`, topicKr: `교육`, word: `submit`, speakText: `submit`, pos: `동사`, meaning: `제출하다, 내다`, accept: [`제출하다`, `내다`, `제출`, `복종하다`], hint: `선생님께 숙제나 보고서(assignment)를 정해진 기한 내에 내는 것입니다.` },
+      { id: 78, day: 35, topic: `Education`, topicKr: `교육`, word: `lecture`, speakText: `lecture`, pos: `명사/동사`, meaning: `강의, 강연`, accept: [`강의`, `강연`, `강의하다`, `수업`], hint: `교수나 강사가 학생들 앞에서 주제에 대해 설명하는 수업이나 강연입니다.` },
+      { id: 79, day: 35, topic: `Education`, topicKr: `교육`, word: `instruct`, speakText: `instruct`, pos: `동사`, meaning: `가르치다, 지시하다`, accept: [`가르치다`, `지시하다`, `교육하다`, `지도하다`], hint: `규칙이나 기술을 체계적으로 가르치고 해야 할 일을 지시하는 동사입니다.` },
+      { id: 80, day: 35, topic: `Education`, topicKr: `교육`, word: `absent`, speakText: `absent`, pos: `형용사`, meaning: `결석한, 없는`, accept: [`결석한`, `없는`, `불참한`, `결석`], hint: `수업이나 모임에 나오지 않은 상태로, present(출석한)의 반대말입니다.` },
+      { id: 81, day: 35, topic: `Education`, topicKr: `교육`, word: `attend`, speakText: `attend`, pos: `동사`, meaning: `출석하다, 참석하다`, accept: [`출석하다`, `참석하다`, `다니다`, `출석`], hint: `학교, 수업, 회의 등의 자리에 빠지지 않고 나가는 동사입니다.` },
+      { id: 82, day: 35, topic: `Education`, topicKr: `교육`, word: `semester`, speakText: `semester`, pos: `명사`, meaning: `학기`, accept: [`학기`], hint: `1년 학사 일정을 반으로 나눈 1학기, 2학기처럼 학기를 뜻합니다.` },
+      { id: 83, day: 35, topic: `Education`, topicKr: `교육`, word: `alternative`, speakText: `alternative`, pos: `명사/형용사`, meaning: `대안, 대체의`, accept: [`대안`, `대체의`, `선택지`, `다른`], hint: `기존 방식 대신 선택할 수 있는 또 다른 방법(대안)을 뜻합니다.` },
+      { id: 84, day: 35, topic: `Education`, topicKr: `교육`, word: `academic`, speakText: `academic`, pos: `형용사`, meaning: `학업의, 학문의`, accept: [`학업의`, `학문의`, `학교의`, `학구적인`, `학업`], hint: `학교 공부, 연구, 학문과 관련된 것을 꾸밀 때 쓰는 형용사입니다.` },
+      { id: 85, day: 35, topic: `Education`, topicKr: `교육`, word: `pupil`, speakText: `pupil`, pos: `명사`, meaning: `학생, 제자 (눈동자)`, accept: [`학생`, `제자`, `초등학생`, `눈동자`, `동공`], hint: `선생님에게 배우는 어린 학생이나 제자(또는 눈의 동공)를 뜻합니다.` },
+      { id: 86, day: 35, topic: `Education`, topicKr: `교육`, word: `intelligence`, speakText: `intelligence`, pos: `명사`, meaning: `지능, 지성`, accept: [`지능`, `지성`, `정보`], hint: `생각하고 배우며 문제를 해결하는 능력(AI = Artificial Intelligence)입니다.` },
+      { id: 87, day: 35, topic: `Education`, topicKr: `교육`, word: `scholarship`, speakText: `scholarship`, pos: `명사`, meaning: `장학금`, accept: [`장학금`, `학문`], hint: `성적이 우수하거나 도움이 필요한 학생에게 학비를 지원해 주는 돈입니다.` },
+      { id: 88, day: 35, topic: `Education`, topicKr: `교육`, word: `encourage`, speakText: `encourage`, pos: `동사`, meaning: `격려하다, 장려하다`, accept: [`격려하다`, `장려하다`, `용기를북돋우다`, `북돋우다`], hint: `en-(만들다) + courage(용기) = 용기를 내도록 응원하고 격려하는 동사입니다.` },
+      { id: 89, day: 35, topic: `Education`, topicKr: `교육`, word: `pay attention to`, speakText: `pay attention to`, pos: `숙어/표현`, meaning: `~에 주의를 기울이다, 집중하다`, accept: [`에주의를기울이다`, `주의를기울이다`, `집중하다`, `주목하다`], hint: `수업이나 설명을 딴청 피우지 않고 주의 깊게 들을 때 쓰는 필수 숙어입니다.` },
+      { id: 90, day: 35, topic: `Education`, topicKr: `교육`, word: `play a role (in)`, speakText: `play a role in`, pos: `숙어/표현`, meaning: `(~에서) 역할을 하다`, accept: [`역할을하다`, `에서역할을하다`, `역할을맡다`], hint: `어떤 일이나 상황에서 중요한 몫(역할)을 담당한다는 뜻의 숙어입니다.` },
+
+      // ================= Day 36: School (30 words) =================
+      { id: 91, day: 36, topic: `School`, topicKr: `학교`, word: `classroom`, speakText: `classroom`, pos: `명사`, meaning: `교실`, accept: [`교실`], hint: `학생들이 모여 수업을 듣는 학교 안의 방입니다.` },
+      { id: 92, day: 36, topic: `School`, topicKr: `학교`, word: `chalk`, speakText: `chalk`, pos: `명사`, meaning: `분필`, accept: [`분필`, `백묵`], hint: `칠판(chalk board)에 글씨를 쓸 때 쓰는 하얗거나 색깔 있는 막대입니다.` },
+      { id: 93, day: 36, topic: `School`, topicKr: `학교`, word: `textbook`, speakText: `textbook`, pos: `명사`, meaning: `교과서`, accept: [`교과서`], hint: `학교 수업 시간에 배우는 과목의 기본 책입니다.` },
+      { id: 94, day: 36, topic: `School`, topicKr: `학교`, word: `partner`, speakText: `partner`, pos: `명사`, meaning: `짝, 파트너, 동료`, accept: [`짝`, `파트너`, `동료`, `짝꿍`], hint: `수업이나 모둠 활동을 함께 하는 짝꿍이나 동료입니다.` },
+      { id: 95, day: 36, topic: `School`, topicKr: `학교`, word: `homework`, speakText: `homework`, pos: `명사`, meaning: `숙제`, accept: [`숙제`, `과제`], hint: `수업이 끝난 뒤 집에서 해 오도록 내주는 공부입니다.` },
+      { id: 96, day: 36, topic: `School`, topicKr: `학교`, word: `math`, speakText: `math`, pos: `명사`, meaning: `수학`, accept: [`수학`], hint: `mathematics의 줄임말로 수와 도형을 다루는 교과목입니다.` },
+      { id: 97, day: 36, topic: `School`, topicKr: `학교`, word: `conversation`, speakText: `conversation`, pos: `명사`, meaning: `대화`, accept: [`대화`, `회화`], hint: `두 사람 이상이 서로 말을 주고받으며 나누는 이야기입니다.` },
+      { id: 98, day: 36, topic: `School`, topicKr: `학교`, word: `classmate`, speakText: `classmate`, pos: `명사`, meaning: `반 친구, 급우`, accept: [`반친구`, `급우`, `학급친구`, `동급생`], hint: `같은 반(class)에서 함께 수업을 듣는 친구입니다.` },
+      { id: 99, day: 36, topic: `School`, topicKr: `학교`, word: `senior`, speakText: `senior`, pos: `명사/형용사`, meaning: `선배, 상급생, 연상의`, accept: [`선배`, `상급생`, `연상의`, `고학년`, `노인의`], hint: `나보다 학년이나 경력이 위인 선배(반대말: junior)입니다.` },
+      { id: 100, day: 36, topic: `School`, topicKr: `학교`, word: `locker`, speakText: `locker`, pos: `명사`, meaning: `사물함`, accept: [`사물함`, `락커`, `보관함`], hint: `학교 복도나 교실에 있어 책과 가방을 잠가 보관하는 개인 함입니다.` },
+      { id: 101, day: 36, topic: `School`, topicKr: `학교`, word: `chalk board`, speakText: `chalk board`, pos: `명사`, meaning: `칠판`, accept: [`칠판`, `흑판`], hint: `분필(chalk)로 필기할 수 있도록 교실 앞에 걸린 판(= blackboard)입니다.` },
+      { id: 102, day: 36, topic: `School`, topicKr: `학교`, word: `marker`, speakText: `marker`, pos: `명사`, meaning: `마커펜, 보드마카`, accept: [`마커펜`, `마커`, `보드마카`, `사인펜`, `형광펜`], hint: `화이트보드나 종이에 굵은 글씨를 쓸 때 쓰는 펜입니다.` },
+      { id: 103, day: 36, topic: `School`, topicKr: `학교`, word: `club`, speakText: `club`, pos: `명사`, meaning: `동아리, 클럽`, accept: [`동아리`, `클럽`, `동호회`], hint: `취미나 관심이 같은 학생들이 모여 활동하는 학교 동아리입니다.` },
+      { id: 104, day: 36, topic: `School`, topicKr: `학교`, word: `hall`, speakText: `hall`, pos: `명사`, meaning: `강당, 복도, 홀`, accept: [`강당`, `복도`, `홀`, `회관`], hint: `학교 건물의 넓은 현관 홀, 복도, 또는 모임을 여는 강당을 뜻합니다.` },
+      { id: 105, day: 36, topic: `School`, topicKr: `학교`, word: `subject`, speakText: `subject`, pos: `명사`, meaning: `과목, 주제`, accept: [`과목`, `교과목`, `주제`, `대상`], hint: `국어, 영어, 수학처럼 학교에서 배우는 과목이나 글의 주제입니다.` },
+      { id: 106, day: 36, topic: `School`, topicKr: `학교`, word: `project`, speakText: `project`, pos: `명사`, meaning: `프로젝트, 연구 과제`, accept: [`프로젝트`, `과제`, `계획`, `연구과제`], hint: `특정 목표를 세우고 자료를 조사해 완성하는 탐구 과제입니다.` },
+      { id: 107, day: 36, topic: `School`, topicKr: `학교`, word: `library`, speakText: `library`, pos: `명사`, meaning: `도서관`, accept: [`도서관`, `도서실`], hint: `책을 빌리거나 조용히 공부할 수 있도록 많은 책이 모인 곳입니다.` },
+      { id: 108, day: 36, topic: `School`, topicKr: `학교`, word: `P.E.`, speakText: `P E`, pos: `명사`, meaning: `체육 (수업)`, accept: [`체육`, `체육수업`], hint: `Physical Education의 약자로 운동장과 체육관에서 하는 체육 과목입니다.` },
+      { id: 109, day: 36, topic: `School`, topicKr: `학교`, word: `hallway`, speakText: `hallway`, pos: `명사`, meaning: `복도`, accept: [`복도`, `통로`], hint: `교실과 교실 사이를 이어주는 건물 안의 긴 통로입니다.` },
+      { id: 110, day: 36, topic: `School`, topicKr: `학교`, word: `principal`, speakText: `principal`, pos: `명사`, meaning: `교장 (선생님)`, accept: [`교장`, `교장선생님`, `주요한`], hint: `한 학교를 대표하고 전체 운영을 책임지는 교장 선생님입니다.` },
+      { id: 111, day: 36, topic: `School`, topicKr: `학교`, word: `schoolmate`, speakText: `schoolmate`, pos: `명사`, meaning: `학교 친구, 동창`, accept: [`학교친구`, `동창`, `동문`, `학우`], hint: `같은 반이 아니더라도 같은 학교(school)에 다니는 친구입니다.` },
+      { id: 112, day: 36, topic: `School`, topicKr: `학교`, word: `homeroom teacher`, speakText: `homeroom teacher`, pos: `명사`, meaning: `담임 선생님`, accept: [`담임선생님`, `담임`, `담임교사`], hint: `우리 반을 맡아 출석, 생활 지도, 상담을 해 주시는 선생님입니다.` },
+      { id: 113, day: 36, topic: `School`, topicKr: `학교`, word: `auditorium`, speakText: `auditorium`, pos: `명사`, meaning: `강당, 객석`, accept: [`강당`, `대강당`, `객석`], hint: `입학식, 졸업식, 공연 등이 열리는 무대와 좌석이 있는 큰 강당입니다.` },
+      { id: 114, day: 36, topic: `School`, topicKr: `학교`, word: `cafeteria`, speakText: `cafeteria`, pos: `명사`, meaning: `구내식당, 급식실`, accept: [`구내식당`, `급식실`, `카페테리아`, `식당`, `학생식당`], hint: `학생들이 줄을 서서 음식을 받아 식사하는 학교 식당입니다.` },
+      { id: 115, day: 36, topic: `School`, topicKr: `학교`, word: `assignment`, speakText: `assignment`, pos: `명사`, meaning: `과제, 숙제`, accept: [`과제`, `숙제`, `임무`], hint: `선생님이 학생에게 배정해 준 보고서나 숙제입니다.` },
+      { id: 116, day: 36, topic: `School`, topicKr: `학교`, word: `laboratory`, speakText: `laboratory`, pos: `명사`, meaning: `실험실, 연구실`, accept: [`실험실`, `연구실`, `과학실`], hint: `줄여서 lab이라고도 하며 과학 실험과 연구를 하는 교실입니다.` },
+      { id: 117, day: 36, topic: `School`, topicKr: `학교`, word: `bulletin board`, speakText: `bulletin board`, pos: `명사`, meaning: `게시판`, accept: [`게시판`, `알림판`], hint: `학교 공지사항이나 행사 안내문을 붙여 놓는 판입니다.` },
+      { id: 118, day: 36, topic: `School`, topicKr: `학교`, word: `ask ~ a favor`, speakText: `ask someone a favor`, pos: `숙어/표현`, meaning: `~에게 부탁하다`, accept: [`에게부탁하다`, `부탁하다`, `청을들다`, `부탁을하다`], hint: `도움이 필요할 때 누군가에게 호의(favor)를 요청하며 부탁하는 표현입니다.` },
+      { id: 119, day: 36, topic: `School`, topicKr: `학교`, word: `get along with`, speakText: `get along with`, pos: `숙어/표현`, meaning: `~와 잘 지내다`, accept: [`와잘지내다`, `잘지내다`, `사이좋게지내다`, `어울리다`], hint: `반 친구들이나 동료와 다투지 않고 사이좋게 어울려 지낼 때 씁니다.` },
+      { id: 120, day: 36, topic: `School`, topicKr: `학교`, word: `take part in`, speakText: `take part in`, pos: `숙어/표현`, meaning: `~에 참여하다, 참가하다`, accept: [`에참여하다`, `참여하다`, `참가하다`, `에참가하다`], hint: `동아리 활동, 대회, 행사 등에 함께 끼어 참여한다는 뜻(= participate in)입니다.` },
+
+      // ================= Day 37: Society & Economy (30 words) =================
+      { id: 121, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `value`, speakText: `value`, pos: `명사/동사`, meaning: `가치, 소중히 여기다`, accept: [`가치`, `가치관`, `소중히여기다`, `존중하다`, `평가하다`], hint: `사물이나 생각이 지닌 중요성·값어치(가치) 또는 무엇을 귀하게 여기는 것입니다.` },
+      { id: 122, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `local`, speakText: `local`, pos: `형용사/명사`, meaning: `지역의, 현지의, 주민`, accept: [`지역의`, `현지의`, `지방의`, `동네의`, `현지인`, `주민`], hint: `특정 동네나 지역 사회와 관련된(local community: 지역 사회) 형용사입니다.` },
+      { id: 123, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `crowd`, speakText: `crowd`, pos: `명사`, meaning: `군중, 인파, 무리`, accept: [`군중`, `인파`, `무리`, `사람들`], hint: `한 장소에 많이 모여 있는 사람들의 무리(군중)를 뜻합니다.` },
+      { id: 124, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `debt`, speakText: `debt`, pos: `명사`, meaning: `빚, 부채`, accept: [`빚`, `부채`, `채무`], hint: `남에게 빌려서 갚아야 하는 돈(철자 b는 발음하지 않는 묵음)입니다.` },
+      { id: 125, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `salary`, speakText: `salary`, pos: `명사`, meaning: `급여, 월급, 봉급`, accept: [`급여`, `월급`, `봉급`, `연봉`, `임금`], hint: `직장에서 일한 대가로 매달 또는 정기적으로 받는 급여입니다.` },
+      { id: 126, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `invest`, speakText: `invest`, pos: `동사`, meaning: `투자하다`, accept: [`투자하다`, `투자`], hint: `이익을 얻기 위해 돈, 시간, 노력을 기업이나 사업에 쏟아붓는 동사입니다.` },
+      { id: 127, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `duty`, speakText: `duty`, pos: `명사`, meaning: `의무, 임무, 세금(관세)`, accept: [`의무`, `임무`, `본분`, `관세`, `세금`], hint: `시민이나 직원이 마땅히 해야 할 책임과 의무(또는 면세점 duty-free의 세금)입니다.` },
+      { id: 128, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `status`, speakText: `status`, pos: `명사`, meaning: `지위, 신분, 상태`, accept: [`지위`, `신분`, `상태`, `위상`], hint: `사회적 위치·신분(social status)이나 현재의 진행 상태를 뜻합니다.` },
+      { id: 129, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `culture`, speakText: `culture`, pos: `명사`, meaning: `문화`, accept: [`문화`, `교양`], hint: `한 사회가 공유하는 생활 양식, 예술, 전통, 가치관을 아우르는 문화입니다.` },
+      { id: 130, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `citizen`, speakText: `citizen`, pos: `명사`, meaning: `시민, 국민`, accept: [`시민`, `국민`, `주민`], hint: `한 나라나 도시에 속해 권리와 의무를 지니는 구성원(시민)입니다.` },
+      { id: 131, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `public`, speakText: `public`, pos: `형용사/명사`, meaning: `공공의, 대중의, 대중`, accept: [`공공의`, `대중의`, `공적인`, `일반대중`, `대중`, `공개된`], hint: `개인이 아닌 사회 전체 사람들과 관련된(public transportation: 대중교통) 말입니다.` },
+      { id: 132, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `supply`, speakText: `supply`, pos: `명사/동사`, meaning: `공급, 공급하다`, accept: [`공급`, `공급하다`, `제공하다`, `보급품`], hint: `필요한 물건이나 자원을 시장이나 사람들에게 제공하는 것(반대 개념: demand)입니다.` },
+      { id: 133, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `demand`, speakText: `demand`, pos: `명사/동사`, meaning: `수요, 요구하다`, accept: [`수요`, `요구`, `요구하다`, `요청하다`], hint: `소비자가 상품이나 서비스를 사고자 하는 욕구(수요) 또는 강하게 요구하는 것입니다.` },
+      { id: 134, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `import`, speakText: `import`, pos: `동사/명사`, meaning: `수입하다, 수입(품)`, accept: [`수입하다`, `수입`, `수입품`, `들여오다`], hint: `외국에서 만든 상품이나 자원을 우리나라로 사서 들여오는 것(반대말: export)입니다.` },
+      { id: 135, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `export`, speakText: `export`, pos: `동사/명사`, meaning: `수출하다, 수출(품)`, accept: [`수출하다`, `수출`, `수출품`], hint: `국내에서 만든 상품이나 기술을 외국으로 팔아 내보내는 것(반대말: import)입니다.` },
+      { id: 136, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `account`, speakText: `account`, pos: `명사`, meaning: `계좌, 계정, 설명`, accept: [`계좌`, `은행계좌`, `계정`, `장부`, `설명`], hint: `은행에서 돈을 입출금하는 통장 계좌(bank account)나 인터넷 계정입니다.` },
+      { id: 137, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `employ`, speakText: `employ`, pos: `동사`, meaning: `고용하다, 채용하다`, accept: [`고용하다`, `채용하다`, `쓰다`, `사용하다`], hint: `급여를 주고 사람을 뽑아 일하게 하는 동사(employee: 직원, employer: 고용주)입니다.` },
+      { id: 138, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `individual`, speakText: `individual`, pos: `명사/형용사`, meaning: `개인, 개인의, 개별적인`, accept: [`개인`, `개인의`, `개별적인`, `개개의`, `각자의`], hint: `집단과 대비되는 한 사람 한 사람(개인) 또는 각각의 것을 뜻합니다.` },
+      { id: 139, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `relationship`, speakText: `relationship`, pos: `명사`, meaning: `관계, 사이`, accept: [`관계`, `인간관계`, `사이`, `연관성`], hint: `사람과 사람, 또는 사물과 사물이 서로 맺고 있는 관계입니다.` },
+      { id: 140, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `tradition`, speakText: `tradition`, pos: `명사`, meaning: `전통, 관습`, accept: [`전통`, `관습`, `풍습`], hint: `오랜 세월에 걸쳐 한 사회에서 다음 세대로 이어져 내려오는 풍습과 전통입니다.` },
+      { id: 141, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `consumer`, speakText: `consumer`, pos: `명사`, meaning: `소비자`, accept: [`소비자`, `고객`], hint: `consume(소비하다)에 -er이 붙어 돈을 내고 상품이나 서비스를 사서 쓰는 사람입니다.` },
+      { id: 142, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `responsibility`, speakText: `responsibility`, pos: `명사`, meaning: `책임, 책무`, accept: [`책임`, `책무`, `책임감`, `의무`], hint: `맡은 일을 끝까지 해내거나 결과에 대해 져야 하는 책임입니다.` },
+      { id: 143, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `influence`, speakText: `influence`, pos: `명사/동사`, meaning: `영향(력), 영향을 미치다`, accept: [`영향`, `영향력`, `영향을미치다`, `영향을주다`], hint: `다른 사람의 생각이나 행동, 상황에 변화를 주는 힘(영향력)입니다.` },
+      { id: 144, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `obstacle`, speakText: `obstacle`, pos: `명사`, meaning: `장애물, 걸림돌, 난관`, accept: [`장애물`, `걸림돌`, `난관`, `방해물`, `장벽`], hint: `목표를 향해 나아갈 때 앞길을 가로막는 방해물이나 어려운 문제입니다.` },
+      { id: 145, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `property`, speakText: `property`, pos: `명사`, meaning: `재산, 소유물, 부동산`, accept: [`재산`, `소유물`, `부동산`, `자산`, `특성`], hint: `개인이나 단체가 소유한 물건, 땅, 건물 등의 재산을 뜻합니다.` },
+      { id: 146, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `moral`, speakText: `moral`, pos: `형용사/명사`, meaning: `도덕적인, 윤리적인, 교훈`, accept: [`도덕적인`, `윤리적인`, `도덕의`, `도덕`, `교훈`], hint: `옳고 그름을 판단하는 사회적 양심과 도덕에 관한 형용사(또는 이야기의 교훈)입니다.` },
+      { id: 147, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `donate`, speakText: `donate`, pos: `동사`, meaning: `기부하다, 기증하다`, accept: [`기부하다`, `기증하다`, `기부`, `기증`], hint: `자선 단체나 어려운 이웃을 돕기 위해 돈이나 물건을 대가 없이 내놓는 것입니다.` },
+      { id: 148, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `predict`, speakText: `predict`, pos: `동사`, meaning: `예측하다, 예언하다`, accept: [`예측하다`, `예상하다`, `예언하다`, `예보하다`, `예측`], hint: `pre-(미리) + dict(말하다) = 앞으로 일어날 경제 상황이나 날씨 등을 미리 내다보는 것입니다.` },
+      { id: 149, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `show off`, speakText: `show off`, pos: `숙어/표현`, meaning: `자랑하다, 과시하다`, accept: [`자랑하다`, `과시하다`, `뽐내다`], hint: `자신의 재산, 능력, 물건 등을 남에게 보란 듯이 뽐내고 과시할 때 쓰는 표현입니다.` },
+      { id: 150, day: 37, topic: `Society & Economy`, topicKr: `사회와 경제`, word: `look for`, speakText: `look for`, pos: `숙어/표현`, meaning: `~을 찾다, 구하다`, accept: [`찾다`, `을찾다`, `구하다`, `탐색하다`], hint: `잃어버린 물건이나 일자리(job) 등을 얻기 위해 찾아다닐 때 쓰는 필수 숙어입니다.` },
+
+      // ================= Day 38: Politics & Law (30 words) =================
+      { id: 151, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `vote`, speakText: `vote`, pos: `동사/명사`, meaning: `투표하다, 투표, 표`, accept: [`투표하다`, `투표`, `표`, `선거하다`], hint: `선거나 회의에서 찬반 의사나 지지하는 후보를 표로 뽑는 것입니다.` },
+      { id: 152, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `party`, speakText: `party`, pos: `명사`, meaning: `정당, 당사자 (파티)`, accept: [`정당`, `당`, `당사자`, `일행`, `파티`, `모임`], hint: `정치적 뜻이 같은 사람들이 모인 단체(정당)나 계약·소송의 당사자(또는 잔치)입니다.` },
+      { id: 153, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `gap`, speakText: `gap`, pos: `명사`, meaning: `격차, 차이, 틈`, accept: [`격차`, `차이`, `빈부격차`, `틈`, `간격`], hint: `빈부 격차이나 세대 차이(generation gap)처럼 벌어진 간격과 차이를 뜻합니다.` },
+      { id: 154, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `justice`, speakText: `justice`, pos: `명사`, meaning: `정의, 사법, 공정성`, accept: [`정의`, `공정`, `공정성`, `사법`, `재판`], hint: `법과 사회가 추구하는 올바르고 공정한 도리(사회 정의: social justice)입니다.` },
+      { id: 155, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `crime`, speakText: `crime`, pos: `명사`, meaning: `범죄, 범행`, accept: [`범죄`, `범행`, `죄`], hint: `법을 어기고 사회에 해를 끼치는 위법 행위(commit a crime: 범죄를 저지르다)입니다.` },
+      { id: 156, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `murder`, speakText: `murder`, pos: `명사/동사`, meaning: `살인, 살해하다`, accept: [`살인`, `살해`, `살해하다`, `살인죄`, `죽이다`], hint: `고의로 다른 사람의 생명을 빼앗는 중대한 범죄입니다.` },
+      { id: 157, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `victim`, speakText: `victim`, pos: `명사`, meaning: `희생자, 피해자`, accept: [`희생자`, `피해자`], hint: `범죄, 사고, 재난 등으로 인해 해를 입거나 다친 사람입니다.` },
+      { id: 158, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `argue`, speakText: `argue`, pos: `동사`, meaning: `주장하다, 논쟁하다, 다투다`, accept: [`주장하다`, `논쟁하다`, `다투다`, `언쟁하다`, `말다툼하다`], hint: `근거를 들어 자신의 의견을 강하게 주장하거나 서로 말다툼을 하는 동사입니다.` },
+      { id: 159, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `punish`, speakText: `punish`, pos: `동사`, meaning: `처벌하다, 벌주다`, accept: [`처벌하다`, `벌주다`, `벌하다`, `형벌을주다`, `처벌`], hint: `법을 어기거나 잘못을 저지른 사람에게 벌을 내리는 것입니다.` },
+      { id: 160, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `policy`, speakText: `policy`, pos: `명사`, meaning: `정책, 방침`, accept: [`정책`, `방침`, `규정`], hint: `정부나 단체가 목표를 이루기 위해 세운 공식적인 운영 방향과 정책입니다.` },
+      { id: 161, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `illegal`, speakText: `illegal`, pos: `형용사`, meaning: `불법적인, 위법의`, accept: [`불법적인`, `불법의`, `위법의`, `불법`], hint: `il-(아닌) + legal(합법적인) = 법에 어긋나 금지된 상태를 뜻합니다.` },
+      { id: 162, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `guilty`, speakText: `guilty`, pos: `형용사`, meaning: `유죄의, 죄책감이 드는`, accept: [`유죄의`, `유죄`, `죄책감이드는`, `가책을느끼는`, `죄가있는`], hint: `재판에서 죄가 있다고 판결났거나 마음속으로 죄책감을 느끼는 상태(반대말: innocent)입니다.` },
+      { id: 163, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `innocent`, speakText: `innocent`, pos: `형용사`, meaning: `무죄의, 결백한, 순진한`, accept: [`무죄의`, `무죄`, `결백한`, `죄가없는`, `순진한`, `무고한`], hint: `아무런 죄나 잘못이 없어 결백한 상태(반대말: guilty)입니다.` },
+      { id: 164, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `majority`, speakText: `majority`, pos: `명사`, meaning: `대다수, 과반수`, accept: [`대다수`, `과반수`, `다수`], hint: `전체 중에서 절반이 넘는 많은 수(반대말: minority)를 뜻합니다.` },
+      { id: 165, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `minority`, speakText: `minority`, pos: `명사`, meaning: `소수, 소수 집단`, accept: [`소수`, `소수집단`, `소수파`], hint: `전체 중에서 적은 비중을 차지하는 수나 사회적 소수 집단(반대말: majority)입니다.` },
+      { id: 166, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `suspect`, speakText: `suspect`, pos: `명사/동사`, meaning: `용의자, 의심하다`, accept: [`용의자`, `혐의자`, `의심하다`, `추측하다`], hint: `범죄를 저질렀을 것으로 의심받는 사람(용의자) 또는 사실인지 의심하는 것입니다.` },
+      { id: 167, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `witness`, speakText: `witness`, pos: `명사/동사`, meaning: `목격자, 증인, 목격하다`, accept: [`목격자`, `증인`, `목격하다`, `증언하다`], hint: `사건 현장을 직접 본 사람(목격자)이나 법정에서 사실을 증명하는 증인입니다.` },
+      { id: 168, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `arrest`, speakText: `arrest`, pos: `동사/명사`, meaning: `체포하다, 체포`, accept: [`체포하다`, `체포`, `검거하다`, `붙잡다`], hint: `경찰이 법에 따라 범죄 용의자를 붙잡아 가두는 것입니다.` },
+      { id: 169, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `candidate`, speakText: `candidate`, pos: `명사`, meaning: `후보자, 지원자`, accept: [`후보자`, `후보`, `지원자`, `응시자`], hint: `선거에 출마하거나 일자리에 뽑히기 위해 나선 후보자입니다.` },
+      { id: 170, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `government`, speakText: `government`, pos: `명사`, meaning: `정부, 통치`, accept: [`정부`, `정권`, `통치`, `행정`], hint: `나라의 법을 집행하고 국가 살림을 운영하는 행정 기관(정부)입니다.` },
+      { id: 171, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `elect`, speakText: `elect`, pos: `동사`, meaning: `선출하다, 선거로 뽑다`, accept: [`선출하다`, `뽑다`, `선거로뽑다`, `당선시키다`, `선거하다`], hint: `투표(election: 선거)를 통해 대표나 대통령을 뽑는 동사입니다.` },
+      { id: 172, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `trial`, speakText: `trial`, pos: `명사`, meaning: `재판, 공판, 시도`, accept: [`재판`, `공판`, `시도`, `시험`], hint: `법원에서 판사가 유죄·무죄를 가리는 법정 재판(또는 시행착오 trial and error의 시도)입니다.` },
+      { id: 173, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `sentence`, speakText: `sentence`, pos: `명사/동사`, meaning: `형벌, 선고하다 (문장)`, accept: [`형벌`, `판결`, `선고`, `선고하다`, `형을선고하다`, `문장`], hint: `법률에서는 판사가 죄인에게 내리는 형벌·선고(일반적으로는 글의 '문장')를 뜻합니다.` },
+      { id: 174, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `protest`, speakText: `protest`, pos: `동사/명사`, meaning: `항의하다, 시위하다, 시위`, accept: [`항의하다`, `시위하다`, `반대하다`, `항의`, `시위`], hint: `부당한 정책이나 결정에 반대하여 집단으로 목소리를 내고 시위하는 것입니다.` },
+      { id: 175, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `compensate`, speakText: `compensate`, pos: `동사`, meaning: `보상하다, 배상하다`, accept: [`보상하다`, `배상하다`, `보상`, `배상`, `변상하다`], hint: `피해나 손실을 입은 사람에게 돈이나 다른 것으로 메워 주고 배상하는 동사입니다.` },
+      { id: 176, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `diplomat`, speakText: `diplomat`, pos: `명사`, meaning: `외교관`, accept: [`외교관`], hint: `자기 나라를 대표해 외국 정부와 교섭하고 외교 업무를 맡는 사람입니다.` },
+      { id: 177, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `represent`, speakText: `represent`, pos: `동사`, meaning: `대표하다, 대변하다, 나타내다`, accept: [`대표하다`, `대변하다`, `나타내다`, `상징하다`, `대신하다`], hint: `국민이나 집단을 대신해 목소리를 내고 대표하는 동사(representative: 국회의원·대표자)입니다.` },
+      { id: 178, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `democracy`, speakText: `democracy`, pos: `명사`, meaning: `민주주의, 민주 국가`, accept: [`민주주의`, `민주정치`, `민주국가`], hint: `국민이 나라의 주인으로서 권리를 가지고 대표를 뽑아 다스리는 정치 제도입니다.` },
+      { id: 179, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `be supposed to`, speakText: `be supposed to`, pos: `숙어/표현`, meaning: `~하기로 되어 있다, ~해야 한다`, accept: [`하기로되어있다`, `해야한다`, `하기로약속되어있다`, `할예정이다`], hint: `규칙, 법, 약속 등에 따라 마땅히 어떤 일을 하기로 정해져 있을 때 쓰는 숙어입니다.` },
+      { id: 180, day: 38, topic: `Politics & Law`, topicKr: `정치와 법률`, word: `look into`, speakText: `look into`, pos: `숙어/표현`, meaning: `~을 조사하다, 살피다`, accept: [`조사하다`, `을조사하다`, `살피다`, `수사하다`, `자세히살피다`], hint: `경찰이나 기관이 사건의 진실이나 원인을 파헤쳐 자세히 조사할 때 쓰는 표현(= investigate)입니다.` },
+
+      // ================= Day 39: History & Religion (30 words) =================
+      { id: 181, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `peace`, speakText: `peace`, pos: `명사`, meaning: `평화, 평온`, accept: [`평화`, `평온`, `화평`], hint: `전쟁이나 갈등이 없이 평온하고 화목한 상태(반대말: war)입니다.` },
+      { id: 182, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `war`, speakText: `war`, pos: `명사`, meaning: `전쟁`, accept: [`전쟁`, `전투`, `싸움`], hint: `국가나 집단 사이에 무력을 사용하여 싸우는 전쟁(반대말: peace)입니다.` },
+      { id: 183, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `century`, speakText: `century`, pos: `명사`, meaning: `세기, 100년`, accept: [`세기`, `100년`, `백년`], hint: `100년의 기간을 묶어 세는 역사적 시간 단위(예: 21st century = 21세기)입니다.` },
+      { id: 184, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `age`, speakText: `age`, pos: `명사/동사`, meaning: `시대, 나이, 늙어가다`, accept: [`시대`, `시기`, `나이`, `연령`, `늙어가다`, `나이가들다`], hint: `사람의 나이를 뜻하기도 하고, 역사에서는 특정한 시대(Ice Age: 빙하기, Middle Ages: 중세)를 뜻합니다.` },
+      { id: 185, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `battle`, speakText: `battle`, pos: `명사/동사`, meaning: `전투, 싸움, 싸우다`, accept: [`전투`, `교전`, `싸움`, `전쟁`, `싸우다`], hint: `전쟁 중에 두 군대가 맞붙어 벌이는 개별 전투나 치열한 다툼입니다.` },
+      { id: 186, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `pray`, speakText: `pray`, pos: `동사`, meaning: `기도하다, 빌다`, accept: [`기도하다`, `빌다`, `기원하다`, `기도`], hint: `신에게 간절히 소망을 빌거나 감사하는 마음을 올리는 동사(prayer: 기도)입니다.` },
+      { id: 187, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `soul`, speakText: `soul`, pos: `명사`, meaning: `영혼, 정신, 혼`, accept: [`영혼`, `혼`, `정신`, `마음`], hint: `육체와 대비되는 인간의 내면적인 영혼이나 정신을 뜻합니다.` },
+      { id: 188, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `belief`, speakText: `belief`, pos: `명사`, meaning: `믿음, 신념, 신앙`, accept: [`믿음`, `신념`, `신앙`, `확신`], hint: `believe(믿다)의 명사형으로, 굳게 믿는 마음이나 종교적 신앙을 뜻합니다.` },
+      { id: 189, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `invade`, speakText: `invade`, pos: `동사`, meaning: `침략하다, 침입하다`, accept: [`침략하다`, `침입하다`, `침공하다`, `침범하다`, `침략`], hint: `군대를 이끌고 다른 나라의 영토에 무력으로 쳐들어가는 동사(invasion: 침략)입니다.` },
+      { id: 190, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `attack`, speakText: `attack`, pos: `동사/명사`, meaning: `공격하다, 공격`, accept: [`공격하다`, `공격`, `습격하다`, `습격`], hint: `적이나 대상을 향해 먼저 무력이나 비난으로 타격을 가하는 것(반대말: defend)입니다.` },
+      { id: 191, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `weapon`, speakText: `weapon`, pos: `명사`, meaning: `무기, 병기`, accept: [`무기`, `병기`, `흉기`], hint: `전쟁이나 싸움에서 적을 공격하거나 몸을 방어하기 위해 쓰는 도구입니다.` },
+      { id: 192, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `empire`, speakText: `empire`, pos: `명사`, meaning: `제국`, accept: [`제국`, `왕국`], hint: `황제(emperor)가 여러 민족과 넓은 영토를 지배하는 거대한 국가(예: Roman Empire = 로마 제국)입니다.` },
+      { id: 193, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `rule`, speakText: `rule`, pos: `동사/명사`, meaning: `통치하다, 지배하다, 규칙`, accept: [`통치하다`, `지배하다`, `다스리다`, `통치`, `지배`, `규칙`, `법칙`], hint: `지켜야 할 '규칙'이라는 뜻 외에 역사에서는 나라를 '통치하다/다스리다(ruler: 통치자)'라는 뜻으로 쓰입니다.` },
+      { id: 194, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `religious`, speakText: `religious`, pos: `형용사`, meaning: `종교의, 종교적인, 독실한`, accept: [`종교의`, `종교적인`, `신앙심이깊은`, `독실한`, `종교`], hint: `religion(종교)의 형용사형으로, 종교와 관련되거나 신앙심이 깊은 상태를 뜻합니다.` },
+      { id: 195, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `charity`, speakText: `charity`, pos: `명사`, meaning: `자선 (단체), 구호품, 자비`, accept: [`자선`, `자선단체`, `자비`, `구호품`, `기부`], hint: `어려운 사람들을 돕는 자선 행위나 자선 단체를 뜻합니다.` },
+      { id: 196, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `faithful`, speakText: `faithful`, pos: `형용사`, meaning: `충실한, 신실한, 성실한`, accept: [`충실한`, `신실한`, `성실한`, `충직한`, `믿음직한`], hint: `faith(믿음·신뢰) + -ful(가득한) = 신앙이나 약속, 의리에 변함없이 충실한 상태입니다.` },
+      { id: 197, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `independence`, speakText: `independence`, pos: `명사`, meaning: `독립, 자주, 자립`, accept: [`독립`, `자주`, `자립`, `해방`], hint: `다른 나라의 지배나 간섭에서 벗어나 스스로 나라를 세우고 다스리는 독립입니다.` },
+      { id: 198, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `revolution`, speakText: `revolution`, pos: `명사`, meaning: `혁명, 대변혁`, accept: [`혁명`, `대변혁`, `변혁`], hint: `정치 체제나 사회 구조가 근본적으로 뒤바뀌는 급격한 변화(Industrial Revolution: 산업 혁명)입니다.` },
+      { id: 199, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `ancient`, speakText: `ancient`, pos: `형용사`, meaning: `고대의, 아주 오래된`, accept: [`고대의`, `옛날의`, `아주오래된`, `고대`], hint: `수천 년 전의 아득히 먼 옛날(고대 그리스·이집트 등)을 가리키는 형용사(반대말: modern)입니다.` },
+      { id: 200, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `Buddhism`, speakText: `Buddhism`, pos: `명사`, meaning: `불교`, accept: [`불교`], hint: `석가모니(Buddha·부처)의 가르침을 따르는 세계 주요 종교 중 하나입니다.` },
+      { id: 201, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `Christianity`, speakText: `Christianity`, pos: `명사`, meaning: `기독교, 크리스트교`, accept: [`기독교`, `크리스트교`, `그리스도교`], hint: `예수 그리스도(Jesus Christ)를 구원자로 믿고 따르는 세계 주요 종교입니다.` },
+      { id: 202, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `Hinduism`, speakText: `Hinduism`, pos: `명사`, meaning: `힌두교`, accept: [`힌두교`, `인도교`], hint: `인도를 중심으로 고대부터 발전해 온 다신교적 전통 종교입니다.` },
+      { id: 203, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `Islam`, speakText: `Islam`, pos: `명사`, meaning: `이슬람교, 회교`, accept: [`이슬람교`, `이슬람`, `회교`], hint: `유일신 알라(Allah)와 예언자 무함마드의 가르침(코란)을 따르는 세계 주요 종교입니다.` },
+      { id: 204, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `Judaism`, speakText: `Judaism`, pos: `명사`, meaning: `유대교`, accept: [`유대교`], hint: `유대 민족의 전통과 구약 성경(토라)에 뿌리를 둔 고대 일신교입니다.` },
+      { id: 205, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `colony`, speakText: `colony`, pos: `명사`, meaning: `식민지, 집단 거주지`, accept: [`식민지`, `부락`, `집단거주지`, `군집`], hint: `강대국에 정치적·경제적으로 지배당하는 영토나 이주자들이 세운 정착지입니다.` },
+      { id: 206, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `civilization`, speakText: `civilization`, pos: `명사`, meaning: `문명`, accept: [`문명`, `개화`, `문명사회`], hint: `인류가 이룩한 고도로 발달된 사회·문화·기술 체계(세계 4대 문명 등)를 뜻합니다.` },
+      { id: 207, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `spiritual`, speakText: `spiritual`, pos: `형용사`, meaning: `정신적인, 영적인`, accept: [`정신적인`, `영적인`, `영혼의`, `종교적인`, `마음의`], hint: `spirit(정신·영혼)의 형용사형으로, 물질적인 것과 대비되는 영혼·종교적 영역을 뜻합니다.` },
+      { id: 208, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `ceremony`, speakText: `ceremony`, pos: `명사`, meaning: `의식, 예식, 식`, accept: [`의식`, `예식`, `식`, `의례`, `행사`], hint: `종교 행사나 결혼식, 졸업식 등 격식을 갖추어 치르는 공식적인 의식입니다.` },
+      { id: 209, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `date back`, speakText: `date back`, pos: `숙어/표현`, meaning: `(기원이) ~로 거슬러 올라가다`, accept: [`거슬러올라가다`, `기원이거슬러올라가다`, `역사가오래되다`, `시작되다`], hint: `유물, 전통, 건물의 역사가 과거 어느 시점부터 시작되었음을 나타내는 숙어입니다.` },
+      { id: 210, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `be based on`, speakText: `be based on`, pos: `숙어/표현`, meaning: `~에 근거하다, 기반을 두다`, accept: [`에근거하다`, `근거하다`, `기반을두다`, `바탕을두다`, `토대로하다`], hint: `사실, 역사적 사건, 또는 믿음에 바탕(base)을 두고 만들어졌다는 뜻의 필수 표현입니다.` }
+    ];
+
+    const DAY_INFO = {
+      33: { en: `Space`, kr: `우주` },
+      34: { en: `Energy`, kr: `에너지` },
+      35: { en: `Education`, kr: `교육` },
+      36: { en: `School`, kr: `학교` },
+      37: { en: `Society & Economy`, kr: `사회와 경제` },
+      38: { en: `Politics & Law`, kr: `정치와 법률` },
+      39: { en: `History & Religion`, kr: `역사와 종교` }
+    };
+    const ALL_DAYS = Object.keys(DAY_INFO).map(Number);
+
+    // App State
+    let appState = {
+      selectedDays: ALL_DAYS.slice(),
+      mistakesOnly: false,
+      questionCount: 20,
+      answerMode: `choice`, // 'choice' | 'typing'
+      speechRate: 0.95,
+      selectedVoiceURI: ``,
+      autoSpeak: true,
+      currentView: `quiz`,
+      wordbookFilter: `all`,
+      wordbookBlind: false,
+      stats: {
+        totalAnswered: 0,
+        totalCorrect: 0,
+        bestStreak: 0,
+        mistakeIds: []
+      }
+    };
+
+    // Active Quiz Session (transient per round)
+    let quizSession = {
+      questions: [],
+      currentIndex: 0,
+      score: 0,
+      streak: 0,
+      answeredCurrent: false,
+      spellingRevealed: false,
+      records: [], // { wordObj, userAnswer, isCorrect, options }
+      finished: false
+    };
+
+    let availableVoices = [];
+    let ttsSupported = (`speechSynthesis` in window);
+
+    // ==================== Utility & Persistence ====================
+
+    function shuffleArray(arr) {
+      const copy = arr.slice();
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = tmp;
+      }
+      return copy;
+    }
+
+    function normalizeKorean(str) {
+      if (!str) return ``;
+      return String(str)
+        .replace(/[~().,!?·/\s]+/g, ``)
+        .trim();
+    }
+
+    function isTypingMatch(userInput, wordObj) {
+      const normInput = normalizeKorean(userInput);
+      if (!normInput || normInput.length < 1) return false;
+
+      // Build candidate answers from accept[] plus split primary meaning
+      const candidates = new Set();
+      if (Array.isArray(wordObj.accept)) {
+        wordObj.accept.forEach(a => candidates.add(normalizeKorean(a)));
+      }
+      wordObj.meaning.split(/[,/]/).forEach(part => {
+        const cleaned = normalizeKorean(part);
+        if (cleaned) candidates.add(cleaned);
+      });
+
+      if (candidates.has(normInput)) return true;
+
+      // Allow minor suffix differences (e.g., 입력 '보존' for '보존하다', or '태양' for '태양의')
+      for (const cand of candidates) {
+        if (cand.length >= 2 && normInput.length >= 2) {
+          if (cand.replace(/하다$/, ``) === normInput.replace(/하다$/, ``)) return true;
+          if (cand.replace(/의$/, ``) === normInput.replace(/의$/, ``) && Math.abs(cand.length - normInput.length) <= 1) return true;
+        }
+      }
+      return false;
+    }
+
+    const STORAGE_KEY = `seungwoo_vocab_quiz_state_v1`;
+
+    async function persistState() {
+      const payload = {
+        selectedDays: appState.selectedDays,
+        knownDays: ALL_DAYS,
+        mistakesOnly: appState.mistakesOnly,
+        questionCount: appState.questionCount,
+        answerMode: appState.answerMode,
+        speechRate: appState.speechRate,
+        selectedVoiceURI: appState.selectedVoiceURI,
+        autoSpeak: appState.autoSpeak,
+        wordbookBlind: appState.wordbookBlind,
+        stats: appState.stats
+      };
+      try {
+        if (window.localStorage) {
+          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+        }
+      } catch (e) {
+        // Ignore localStorage quota/privacy errors
+      }
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(payload);
+        } catch (e) {
+          // Ignore persistence errors silently in restricted environments
+        }
+      }
+    }
+
+    async function loadPersistedState() {
+      let saved = null;
+      try {
+        if (window.localStorage) {
+          const raw = window.localStorage.getItem(STORAGE_KEY);
+          if (raw) saved = JSON.parse(raw);
+        }
+      } catch (e) {
+        // Ignore parse/storage errors
+      }
+      if (!saved && window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          saved = await window.notebookAppApi.getAppState();
+        } catch (e) {
+          // Fallback to defaults
+        }
+      }
+      if (saved && typeof saved === `object`) {
+        if (Array.isArray(saved.selectedDays) && saved.selectedDays.length > 0) {
+          const knownDays = Array.isArray(saved.knownDays) ? saved.knownDays : [33, 34, 35, 36];
+          const newDays = ALL_DAYS.filter(d => !knownDays.includes(d));
+          const filtered = saved.selectedDays.filter(d => ALL_DAYS.includes(d));
+          const allPreviousSelected = knownDays.length > 0 && knownDays.every(d => filtered.includes(d));
+          appState.selectedDays = allPreviousSelected
+            ? Array.from(new Set(filtered.concat(newDays))).sort((a, b) => a - b)
+            : filtered;
+          if (appState.selectedDays.length === 0) appState.selectedDays = ALL_DAYS.slice();
+        }
+        if (typeof saved.mistakesOnly === `boolean`) appState.mistakesOnly = saved.mistakesOnly;
+        if (saved.questionCount !== undefined) appState.questionCount = saved.questionCount;
+        if (saved.answerMode === `choice` || saved.answerMode === `typing`) appState.answerMode = saved.answerMode;
+        if (typeof saved.speechRate === `number`) appState.speechRate = saved.speechRate;
+        if (typeof saved.selectedVoiceURI === `string`) appState.selectedVoiceURI = saved.selectedVoiceURI;
+        if (typeof saved.autoSpeak === `boolean`) appState.autoSpeak = saved.autoSpeak;
+        if (typeof saved.wordbookBlind === `boolean`) appState.wordbookBlind = saved.wordbookBlind;
+        if (saved.stats && typeof saved.stats === `object`) {
+          appState.stats = {
+            totalAnswered: Number(saved.stats.totalAnswered) || 0,
+            totalCorrect: Number(saved.stats.totalCorrect) || 0,
+            bestStreak: Number(saved.stats.bestStreak) || 0,
+            mistakeIds: Array.isArray(saved.stats.mistakeIds) ? saved.stats.mistakeIds : []
+          };
+        }
+      }
+    }
+
+    // ==================== Web Speech API (TTS) ====================
+
+    function populateVoices() {
+      if (!ttsSupported) return;
+      const voices = window.speechSynthesis.getVoices() || [];
+      const enVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith(`en`));
+      availableVoices = enVoices.length > 0 ? enVoices : voices;
+
+      const select = document.getElementById(`voice-select`);
+      if (!select) return;
+
+      const currentVal = appState.selectedVoiceURI;
+      select.innerHTML = `<option value="">기본 영어 음성 (자동 선택)</option>`;
+      availableVoices.forEach(v => {
+        const opt = document.createElement(`option`);
+        opt.value = v.voiceURI;
+        opt.textContent = `${v.name} (${v.lang})`;
+        if (v.voiceURI === currentVal) opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+
+    function pickBestEnglishVoice() {
+      if (!availableVoices.length) return null;
+      if (appState.selectedVoiceURI) {
+        const chosen = availableVoices.find(v => v.voiceURI === appState.selectedVoiceURI);
+        if (chosen) return chosen;
+      }
+      // Prefer clear US/UK native English voices
+      const preferred = availableVoices.find(v =>
+        v.lang.toLowerCase() === `en-us` && /google|samantha|natural|aria|jenny|alex/i.test(v.name)
+      ) || availableVoices.find(v => v.lang.toLowerCase() === `en-us`)
+        || availableVoices.find(v => v.lang.toLowerCase().startsWith(`en`))
+        || availableVoices[0];
+      return preferred || null;
+    }
+
+    function speakText(text, isHeroBtn) {
+      if (!ttsSupported || !text) return;
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = `en-US`;
+        utter.rate = appState.speechRate;
+        utter.pitch = 1.0;
+
+        const voice = pickBestEnglishVoice();
+        if (voice) {
+          utter.voice = voice;
+          utter.lang = voice.lang || `en-US`;
+        }
+
+        const heroBtn = document.getElementById(`speak-hero-btn`);
+        const btnText = document.getElementById(`speak-btn-text`);
+
+        utter.onstart = function () {
+          if (isHeroBtn && heroBtn) {
+            heroBtn.classList.add(`speaking`);
+            if (btnText) btnText.textContent = `발음 재생 중…`;
+          }
+        };
+        utter.onend = function () {
+          if (heroBtn) {
+            heroBtn.classList.remove(`speaking`);
+            if (btnText) btnText.textContent = `다시 듣기`;
+          }
+        };
+        utter.onerror = function () {
+          if (heroBtn) {
+            heroBtn.classList.remove(`speaking`);
+            if (btnText) btnText.textContent = `영어 발음 듣기`;
+          }
+        };
+
+        window.speechSynthesis.speak(utter);
+      } catch (e) {
+        // Fail gracefully if speech is blocked before user gesture
+      }
+    }
+
+    function speakCurrentWord() {
+      const q = quizSession.questions[quizSession.currentIndex];
+      if (!q) return;
+      speakText(q.speakText, true);
+    }
+
+    // ==================== Setup & Filters ====================
+
+    function getFilteredPool() {
+      if (appState.mistakesOnly) {
+        const set = new Set(appState.stats.mistakeIds);
+        return VOCAB_BANK.filter(item => set.has(item.id));
+      }
+      return VOCAB_BANK.filter(item => appState.selectedDays.includes(item.day));
+    }
+
+    function updateSetupUI() {
+      const pool = getFilteredPool();
+      const poolLabel = document.getElementById(`pool-size-label`);
+      if (poolLabel) poolLabel.textContent = `${pool.length}단어 선택됨`;
+
+      // Day filter chips
+      const allSelected = !appState.mistakesOnly && appState.selectedDays.length === ALL_DAYS.length;
+      const dayChips = document.querySelectorAll(`#day-filter-chips .chip`);
+      dayChips.forEach(chip => {
+        const val = chip.dataset.day;
+        if (val === `all`) {
+          chip.classList.toggle(`selected`, allSelected);
+        } else if (val === `mistakes`) {
+          const count = appState.stats.mistakeIds.length;
+          chip.disabled = count === 0;
+          chip.textContent = count > 0 ? `오답만 복습 (${count})` : `오답만 복습`;
+          chip.classList.toggle(`selected`, appState.mistakesOnly && count > 0);
+        } else {
+          const dNum = Number(val);
+          chip.classList.toggle(`selected`, !appState.mistakesOnly && appState.selectedDays.includes(dNum));
+        }
+      });
+
+      // Question count chips
+      document.querySelectorAll(`#count-chips .chip`).forEach(chip => {
+        const raw = chip.dataset.count;
+        const match = (raw === `all` && appState.questionCount === `all`) || Number(raw) === appState.questionCount;
+        chip.classList.toggle(`selected-grape`, match);
+      });
+
+      // Mode chips
+      document.querySelectorAll(`#mode-chips .chip`).forEach(chip => {
+        chip.classList.toggle(`selected-grape`, chip.dataset.mode === appState.answerMode);
+      });
+
+      // Speech rate chips
+      document.querySelectorAll(`#rate-chips .chip`).forEach(chip => {
+        chip.classList.toggle(`selected`, Number(chip.dataset.rate) === appState.speechRate);
+      });
+
+      // Auto speak toggle
+      const autoBtn = document.getElementById(`auto-speak-toggle`);
+      if (autoBtn) autoBtn.setAttribute(`aria-checked`, appState.autoSpeak ? `true` : `false`);
+
+      // Blind toggle in wordbook
+      const blindBtn = document.getElementById(`wb-blind-toggle`);
+      if (blindBtn) blindBtn.setAttribute(`aria-checked`, appState.wordbookBlind ? `true` : `false`);
+    }
+
+    function updateStatsStrip() {
+      const s = appState.stats;
+      const acc = s.totalAnswered > 0 ? Math.round((s.totalCorrect / s.totalAnswered) * 100) : 0;
+
+      const elTotal = document.getElementById(`stat-total-answered`);
+      const elAcc = document.getElementById(`stat-accuracy`);
+      const elCorrect = document.getElementById(`stat-correct-count`);
+      const elStreak = document.getElementById(`stat-best-streak`);
+      const elMistake = document.getElementById(`stat-mistake-count`);
+
+      if (elTotal) elTotal.textContent = `${s.totalAnswered}문제`;
+      if (elAcc) elAcc.textContent = `${acc}%`;
+      if (elCorrect) elCorrect.textContent = `${s.totalCorrect}개 정답`;
+      if (elStreak) elStreak.textContent = `${s.bestStreak}연속`;
+      if (elMistake) elMistake.textContent = `${s.mistakeIds.length}단어`;
+    }
+
+    function toggleDayFilter(day) {
+      if (day === `mistakes`) {
+        if (appState.stats.mistakeIds.length === 0) return;
+        appState.mistakesOnly = !appState.mistakesOnly;
+      } else if (day === `all`) {
+        const allSelected = !appState.mistakesOnly && appState.selectedDays.length === ALL_DAYS.length;
+        appState.mistakesOnly = false;
+        appState.selectedDays = allSelected ? [] : ALL_DAYS.slice();
+      } else {
+        appState.mistakesOnly = false;
+        const idx = appState.selectedDays.indexOf(day);
+        if (idx >= 0) {
+          appState.selectedDays.splice(idx, 1);
+        } else {
+          appState.selectedDays.push(day);
+          appState.selectedDays.sort((a, b) => a - b);
+        }
+      }
+      updateSetupUI();
+      persistState();
+      startNewQuiz();
+    }
+
+    function setQuestionCount(cnt) {
+      appState.questionCount = cnt;
+      updateSetupUI();
+      persistState();
+      startNewQuiz();
+    }
+
+    function setAnswerMode(mode) {
+      appState.answerMode = mode;
+      updateSetupUI();
+      persistState();
+      // Re-render current question cleanly if quiz is active and not yet answered
+      if (!quizSession.finished && quizSession.questions.length > 0 && !quizSession.answeredCurrent) {
+        renderCurrentQuestion(false);
+      }
+    }
+
+    function setSelectedVoice(uri) {
+      appState.selectedVoiceURI = uri;
+      persistState();
+      if (!quizSession.finished) speakCurrentWord();
+    }
+
+    function setSpeechRate(rate) {
+      appState.speechRate = rate;
+      updateSetupUI();
+      persistState();
+      if (!quizSession.finished) speakCurrentWord();
+    }
+
+    function toggleAutoSpeak() {
+      appState.autoSpeak = !appState.autoSpeak;
+      updateSetupUI();
+      persistState();
+    }
+
+    function handleResetProgress(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.classList.add(`btn-danger-soft`);
+        btn.textContent = `정말 초기화할까요? (한 번 더 클릭)`;
+        setTimeout(() => {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.classList.remove(`btn-danger-soft`);
+            btn.textContent = `학습 기록 초기화`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.classList.remove(`btn-danger-soft`);
+      btn.textContent = `학습 기록 초기화`;
+
+      appState.mistakesOnly = false;
+      appState.stats = {
+        totalAnswered: 0,
+        totalCorrect: 0,
+        bestStreak: 0,
+        mistakeIds: []
+      };
+      updateStatsStrip();
+      updateSetupUI();
+      persistState();
+      renderWordbook();
+    }
+
+    // ==================== Quiz Engine ====================
+
+    function buildChoicesForWord(target) {
+      // Pick 3 distractors preferably from same Day or mixed Days, ensuring unique meanings
+      const sameDay = VOCAB_BANK.filter(w => w.id !== target.id && w.day === target.day);
+      const otherDays = VOCAB_BANK.filter(w => w.id !== target.id && w.day !== target.day);
+      const candidates = shuffleArray(sameDay).concat(shuffleArray(otherDays));
+
+      const distractors = [];
+      const usedMeanings = new Set([target.meaning]);
+      for (const c of candidates) {
+        if (distractors.length >= 3) break;
+        if (!usedMeanings.has(c.meaning)) {
+          usedMeanings.add(c.meaning);
+          distractors.push(c);
+        }
+      }
+      return shuffleArray([target].concat(distractors));
+    }
+
+    function startNewQuiz(customWordList) {
+      let pool = Array.isArray(customWordList) ? customWordList.slice() : getFilteredPool();
+      if (pool.length === 0) {
+        if (appState.mistakesOnly) {
+          appState.mistakesOnly = false;
+          if (appState.selectedDays.length === 0) {
+            appState.selectedDays = ALL_DAYS.slice();
+          }
+          pool = getFilteredPool();
+          updateSetupUI();
+        }
+        if (pool.length === 0) {
+          if (ttsSupported) window.speechSynthesis.cancel();
+          quizSession.questions = [];
+          quizSession.currentIndex = 0;
+          quizSession.answeredCurrent = false;
+          const activeStage = document.getElementById(`quiz-active-stage`);
+          const summaryStage = document.getElementById(`quiz-summary-stage`);
+          if (activeStage) activeStage.classList.remove(`hidden`);
+          if (summaryStage) summaryStage.classList.add(`hidden`);
+
+          const dayBadge = document.getElementById(`q-day-badge`);
+          const posBadge = document.getElementById(`q-pos-badge`);
+          const progText = document.getElementById(`q-progress-text`);
+          const masked = document.getElementById(`masked-word-prompt`);
+          const revealed = document.getElementById(`revealed-word-text`);
+          const choiceContainer = document.getElementById(`choice-container`);
+          const fbPanel = document.getElementById(`feedback-panel`);
+          if (dayBadge) dayBadge.textContent = `출제 범위 미선택`;
+          if (posBadge) posBadge.textContent = `Day 선택 대기`;
+          if (progText) progText.textContent = `문제 0 / 0`;
+          if (masked) {
+            masked.textContent = `왼쪽 '출제 범위'에서 공부할 Day를 선택해 주세요`;
+            masked.classList.remove(`hidden`);
+          }
+          if (revealed) revealed.classList.add(`hidden`);
+          if (choiceContainer) choiceContainer.innerHTML = ``;
+          if (fbPanel) fbPanel.classList.add(`hidden`);
+          return;
+        }
+      }
+
+      const shuffled = shuffleArray(pool);
+      const limit = appState.questionCount === `all` ? shuffled.length : Math.min(Number(appState.questionCount) || 20, shuffled.length);
+
+      quizSession = {
+        questions: shuffled.slice(0, limit),
+        currentIndex: 0,
+        score: 0,
+        streak: 0,
+        answeredCurrent: false,
+        spellingRevealed: !ttsSupported,
+        records: [],
+        finished: false
+      };
+
+      const activeStage = document.getElementById(`quiz-active-stage`);
+      const summaryStage = document.getElementById(`quiz-summary-stage`);
+      if (activeStage) activeStage.classList.remove(`hidden`);
+      if (summaryStage) summaryStage.classList.add(`hidden`);
+
+      renderCurrentQuestion(true);
+    }
+
+    function renderCurrentQuestion(shouldAutoSpeak) {
+      const q = quizSession.questions[quizSession.currentIndex];
+      if (!q) return;
+
+      const total = quizSession.questions.length;
+      const idx = quizSession.currentIndex;
+
+      // Badges & Progress
+      const dayBadge = document.getElementById(`q-day-badge`);
+      const posBadge = document.getElementById(`q-pos-badge`);
+      const streakBadge = document.getElementById(`q-streak-badge`);
+      const progText = document.getElementById(`q-progress-text`);
+      const scoreLive = document.getElementById(`q-score-live`);
+      const progBar = document.getElementById(`q-progress-bar`);
+      const progFill = document.getElementById(`q-progress-fill`);
+
+      if (dayBadge) dayBadge.textContent = `Day ${q.day} · ${q.topicKr} (${q.topic})`;
+      if (posBadge) posBadge.textContent = q.pos;
+      if (streakBadge) streakBadge.textContent = `연속 정답 ${quizSession.streak}`;
+      if (progText) progText.textContent = `문제 ${idx + 1} / ${total}`;
+      if (scoreLive) scoreLive.textContent = `현재 점수 ${quizSession.score}점`;
+
+      const pct = Math.max(4, Math.round(((idx + 1) / total) * 100));
+      if (progBar) progBar.setAttribute(`aria-valuenow`, String(pct));
+      if (progFill) progFill.style.width = `${pct}%`;
+
+      // Word Reveal / Mask State
+      updateSpellingDisplay(q);
+
+      // Hide Feedback
+      const fbPanel = document.getElementById(`feedback-panel`);
+      if (fbPanel) {
+        fbPanel.classList.add(`hidden`);
+        fbPanel.classList.remove(`correct`, `wrong`);
+      }
+
+      // Render Answer Controls
+      const choiceContainer = document.getElementById(`choice-container`);
+      const typingContainer = document.getElementById(`typing-container`);
+      const shortcutNote = document.getElementById(`shortcut-note`);
+
+      if (appState.answerMode === `choice`) {
+        if (choiceContainer) choiceContainer.classList.remove(`hidden`);
+        if (typingContainer) typingContainer.classList.add(`hidden`);
+        if (shortcutNote) shortcutNote.textContent = `단축키: Space(다시 듣기) · 1~4(선택) · Enter(다음)`;
+
+        const options = buildChoicesForWord(q);
+        quizSession.currentOptions = options;
+
+        if (choiceContainer) {
+          choiceContainer.innerHTML = ``;
+          options.forEach((opt, i) => {
+            const btn = document.createElement(`button`);
+            btn.type = `button`;
+            btn.className = `option-btn`;
+            btn.dataset.optionId = String(opt.id);
+            btn.onclick = function () { selectChoiceOption(opt.id); };
+
+            const numSpan = document.createElement(`span`);
+            numSpan.className = `option-num`;
+            numSpan.textContent = String(i + 1);
+
+            const txtSpan = document.createElement(`span`);
+            txtSpan.className = `option-text`;
+            txtSpan.textContent = opt.meaning;
+
+            btn.appendChild(numSpan);
+            btn.appendChild(txtSpan);
+            choiceContainer.appendChild(btn);
+          });
+        }
+      } else {
+        if (choiceContainer) choiceContainer.classList.add(`hidden`);
+        if (typingContainer) typingContainer.classList.remove(`hidden`);
+        if (shortcutNote) shortcutNote.textContent = `뜻을 입력하고 Enter로 확인하세요`;
+
+        const input = document.getElementById(`typing-answer-input`);
+        const submitBtn = document.getElementById(`typing-submit-btn`);
+        const skipBtn = document.getElementById(`typing-skip-btn`);
+        if (input) {
+          input.value = ``;
+          input.disabled = false;
+          setTimeout(() => input.focus(), 60);
+        }
+        if (submitBtn) submitBtn.disabled = false;
+        if (skipBtn) skipBtn.disabled = false;
+      }
+
+      const btnText = document.getElementById(`speak-btn-text`);
+      if (btnText) btnText.textContent = `영어 발음 듣기`;
+
+      if (shouldAutoSpeak && appState.autoSpeak && ttsSupported) {
+        setTimeout(() => speakCurrentWord(), 120);
+      }
+    }
+
+    function updateSpellingDisplay(q) {
+      const masked = document.getElementById(`masked-word-prompt`);
+      const revealed = document.getElementById(`revealed-word-text`);
+      const hintBtn = document.getElementById(`spelling-hint-btn`);
+
+      if (!q) return;
+      if (quizSession.spellingRevealed || quizSession.answeredCurrent) {
+        if (masked) masked.classList.add(`hidden`);
+        if (revealed) {
+          revealed.textContent = q.word;
+          revealed.classList.remove(`hidden`);
+        }
+        if (hintBtn) {
+          hintBtn.disabled = quizSession.answeredCurrent;
+          const span = hintBtn.querySelector(`span`);
+          if (span) span.textContent = quizSession.answeredCurrent ? `철자 공개됨` : `철자 숨기기`;
+        }
+      } else {
+        if (masked) {
+          masked.textContent = appState.answerMode === `choice`
+            ? `소리를 듣고 알맞은 한국어 뜻을 선택하세요`
+            : `소리를 듣고 한국어 뜻을 직접 입력해 보세요`;
+          masked.classList.remove(`hidden`);
+        }
+        if (revealed) revealed.classList.add(`hidden`);
+        if (hintBtn) {
+          hintBtn.disabled = false;
+          const span = hintBtn.querySelector(`span`);
+          if (span) span.textContent = `철자 힌트 보기`;
+        }
+      }
+    }
+
+    function toggleSpellingHint() {
+      if (quizSession.answeredCurrent) return;
+      quizSession.spellingRevealed = !quizSession.spellingRevealed;
+      const q = quizSession.questions[quizSession.currentIndex];
+      updateSpellingDisplay(q);
+    }
+
+    function recordAnswerResult(q, userAnswerText, isCorrect) {
+      quizSession.answeredCurrent = true;
+      quizSession.spellingRevealed = true;
+      updateSpellingDisplay(q);
+
+      if (isCorrect) {
+        quizSession.score += 1;
+        quizSession.streak += 1;
+      } else {
+        quizSession.streak = 0;
+      }
+
+      quizSession.records.push({
+        wordObj: q,
+        userAnswer: userAnswerText,
+        isCorrect: isCorrect
+      });
+
+      // Update persistent stats
+      appState.stats.totalAnswered += 1;
+      if (isCorrect) {
+        appState.stats.totalCorrect += 1;
+        // Remove from mistakeIds if answered correctly during mistake review
+        if (appState.mistakesOnly) {
+          appState.stats.mistakeIds = appState.stats.mistakeIds.filter(id => id !== q.id);
+        }
+      } else {
+        if (!appState.stats.mistakeIds.includes(q.id)) {
+          appState.stats.mistakeIds.push(q.id);
+        }
+      }
+      if (quizSession.streak > appState.stats.bestStreak) {
+        appState.stats.bestStreak = quizSession.streak;
+      }
+
+      updateStatsStrip();
+      updateSetupUI();
+      persistState();
+
+      // Update live header pills
+      const streakBadge = document.getElementById(`q-streak-badge`);
+      const scoreLive = document.getElementById(`q-score-live`);
+      if (streakBadge) streakBadge.textContent = `연속 정답 ${quizSession.streak}`;
+      if (scoreLive) scoreLive.textContent = `현재 점수 ${quizSession.score}점`;
+
+      // Show Feedback Panel
+      showFeedbackPanel(q, userAnswerText, isCorrect);
+    }
+
+    function selectChoiceOption(chosenId) {
+      if (quizSession.answeredCurrent) return;
+      const q = quizSession.questions[quizSession.currentIndex];
+      if (!q) return;
+
+      const isCorrect = Number(chosenId) === q.id;
+      const chosenObj = (quizSession.currentOptions || []).find(o => o.id === Number(chosenId));
+      const userAnswerText = chosenObj ? chosenObj.meaning : ``;
+
+      const buttons = document.querySelectorAll(`#choice-container .option-btn`);
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        const oid = Number(btn.dataset.optionId);
+        if (oid === q.id) {
+          btn.classList.add(`is-correct`);
+        } else if (oid === Number(chosenId) && !isCorrect) {
+          btn.classList.add(`is-wrong`);
+        }
+      });
+
+      recordAnswerResult(q, userAnswerText, isCorrect);
+    }
+
+    function submitTypingAnswer(event) {
+      if (event) event.preventDefault();
+      if (quizSession.answeredCurrent) {
+        goToNextQuestion();
+        return;
+      }
+      const q = quizSession.questions[quizSession.currentIndex];
+      const input = document.getElementById(`typing-answer-input`);
+      const submitBtn = document.getElementById(`typing-submit-btn`);
+      const skipBtn = document.getElementById(`typing-skip-btn`);
+      if (!q || !input) return;
+
+      const rawVal = input.value.trim();
+      if (!rawVal) {
+        input.focus();
+        return;
+      }
+
+      input.disabled = true;
+      if (submitBtn) submitBtn.disabled = true;
+      if (skipBtn) skipBtn.disabled = true;
+
+      const isCorrect = isTypingMatch(rawVal, q);
+      recordAnswerResult(q, rawVal, isCorrect);
+    }
+
+    function skipTypingQuestion() {
+      if (quizSession.answeredCurrent) return;
+      const q = quizSession.questions[quizSession.currentIndex];
+      const input = document.getElementById(`typing-answer-input`);
+      const submitBtn = document.getElementById(`typing-submit-btn`);
+      const skipBtn = document.getElementById(`typing-skip-btn`);
+      if (!q) return;
+
+      if (input) input.disabled = true;
+      if (submitBtn) submitBtn.disabled = true;
+      if (skipBtn) skipBtn.disabled = true;
+
+      recordAnswerResult(q, `(건너뜀)`, false);
+    }
+
+    function showFeedbackPanel(q, userAnswerText, isCorrect) {
+      const fbPanel = document.getElementById(`feedback-panel`);
+      const statusText = document.getElementById(`feedback-status-text`);
+      const fbWordEn = document.getElementById(`fb-word-en`);
+      const fbWordMeta = document.getElementById(`fb-word-meta`);
+      const fbMeaningKr = document.getElementById(`fb-meaning-kr`);
+      const fbHintText = document.getElementById(`fb-hint-text`);
+      const nextBtn = document.getElementById(`next-question-btn`);
+
+      if (!fbPanel) return;
+      fbPanel.classList.remove(`hidden`, `correct`, `wrong`);
+      fbPanel.classList.add(isCorrect ? `correct` : `wrong`);
+
+      if (statusText) {
+        if (isCorrect) {
+          statusText.textContent = `정답입니다! 훌륭해요.`;
+        } else {
+          statusText.textContent = userAnswerText && userAnswerText !== `(건너뜀)`
+            ? `아쉬워요! 입력·선택한 답: "${userAnswerText}"`
+            : `정답을 확인해 보세요!`;
+        }
+      }
+
+      if (fbWordEn) fbWordEn.textContent = q.word;
+      if (fbWordMeta) fbWordMeta.textContent = `Day ${q.day} ${q.topicKr} · ${q.pos}`;
+      if (fbMeaningKr) fbMeaningKr.textContent = `정답 뜻: ${q.meaning}`;
+      if (fbHintText) fbHintText.textContent = q.hint;
+
+      const isLast = quizSession.currentIndex >= quizSession.questions.length - 1;
+      if (nextBtn) {
+        nextBtn.textContent = isLast ? `최종 결과 보기 →` : `다음 문제 →`;
+      }
+    }
+
+    function goToNextQuestion() {
+      if (quizSession.currentIndex >= quizSession.questions.length - 1) {
+        showQuizSummary();
+        return;
+      }
+      quizSession.currentIndex += 1;
+      quizSession.answeredCurrent = false;
+      quizSession.spellingRevealed = !ttsSupported;
+      renderCurrentQuestion(true);
+    }
+
+    function finishQuizEarly() {
+      if (quizSession.records.length === 0) {
+        // Record nothing and jump to summary or restart cleanly
+      }
+      showQuizSummary();
+    }
+
+    function showQuizSummary() {
+      quizSession.finished = true;
+      if (ttsSupported) window.speechSynthesis.cancel();
+
+      const activeStage = document.getElementById(`quiz-active-stage`);
+      const summaryStage = document.getElementById(`quiz-summary-stage`);
+      if (activeStage) activeStage.classList.add(`hidden`);
+      if (summaryStage) summaryStage.classList.remove(`hidden`);
+
+      const total = quizSession.records.length;
+      const correct = quizSession.records.filter(r => r.isCorrect).length;
+      const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+      const headline = document.getElementById(`summary-headline`);
+      const subtext = document.getElementById(`summary-subtext`);
+      const scoreBig = document.getElementById(`summary-score-big`);
+      const accText = document.getElementById(`summary-accuracy-text`);
+
+      if (scoreBig) scoreBig.textContent = `${correct} / ${total}`;
+      if (accText) accText.textContent = `정답률 ${pct}%`;
+
+      if (headline && subtext) {
+        if (total === 0) {
+          headline.textContent = `아직 푼 문제가 없어요`;
+          subtext.textContent = `새 퀴즈를 시작해 첫 문제의 발음을 들어보세요.`;
+        } else if (pct === 100) {
+          headline.textContent = `완벽합니다! 백점 달성!`;
+          subtext.textContent = `모든 단어의 발음과 뜻을 정확히 맞혔어요.`;
+        } else if (pct >= 80) {
+          headline.textContent = `아주 잘했어요!`;
+          subtext.textContent = `헷갈렸던 몇 개의 단어만 한 번 더 들으며 복습해 보세요.`;
+        } else if (pct >= 50) {
+          headline.textContent = `좋은 출발이에요!`;
+          subtext.textContent = `틀린 문제만 모아 다시 풀면 금방 외워질 거예요.`;
+        } else {
+          headline.textContent = `천천히 다시 도전해 봐요!`;
+          subtext.textContent = `단어장에서 발음을 여러 번 듣고 다시 퀴즈를 풀어보세요.`;
+        }
+      }
+
+      // Day breakdown
+      const bdGrid = document.getElementById(`day-breakdown-grid`);
+      if (bdGrid) {
+        bdGrid.innerHTML = ``;
+        ALL_DAYS.forEach(day => {
+          const dayRecs = quizSession.records.filter(r => r.wordObj.day === day);
+          if (dayRecs.length === 0) return;
+          const dayCorrect = dayRecs.filter(r => r.isCorrect).length;
+          const dayPct = Math.round((dayCorrect / dayRecs.length) * 100);
+
+          const tile = document.createElement(`div`);
+          tile.className = `breakdown-tile`;
+          tile.innerHTML = `
+            <div class="progress-meta" style="margin-bottom: 0;">
+              <span>Day ${day} · ${DAY_INFO[day].kr}</span>
+              <span>${dayCorrect} / ${dayRecs.length} (${dayPct}%)</span>
+            </div>
+            <div class="progress-track" style="height: 10px;">
+              <div class="progress-fill" style="width: ${Math.max(4, dayPct)}%;"></div>
+            </div>
+          `;
+          bdGrid.appendChild(tile);
+        });
+      }
+
+      // Retry wrong button
+      const wrongCount = quizSession.records.filter(r => !r.isCorrect).length;
+      const retryBtn = document.getElementById(`retry-wrong-btn`);
+      if (retryBtn) {
+        retryBtn.classList.toggle(`hidden`, wrongCount === 0);
+        retryBtn.textContent = `틀린 문제 ${wrongCount}개만 다시 풀기`;
+      }
+
+      // Review list
+      const revList = document.getElementById(`summary-review-list`);
+      if (revList) {
+        revList.innerHTML = ``;
+        quizSession.records.forEach(rec => {
+          const w = rec.wordObj;
+          const row = document.createElement(`div`);
+          row.className = `review-item`;
+
+          const left = document.createElement(`div`);
+          left.className = `review-item-left`;
+
+          const spkBtn = document.createElement(`button`);
+          spkBtn.type = `button`;
+          spkBtn.className = `mini-speak-btn`;
+          spkBtn.setAttribute(`aria-label`, `${w.word} 발음 듣기`);
+          spkBtn.onclick = function () { speakText(w.speakText, false); };
+          spkBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>`;
+
+          const txtBox = document.createElement(`div`);
+          const wordLine = document.createElement(`div`);
+          wordLine.style.fontWeight = `800`;
+          wordLine.textContent = `${w.word} — ${w.meaning}`;
+          const metaLine = document.createElement(`div`);
+          metaLine.className = `stat-caption`;
+          metaLine.textContent = rec.isCorrect
+            ? `Day ${w.day} ${w.topicKr} · 정답`
+            : `Day ${w.day} ${w.topicKr} · 내 답: ${rec.userAnswer}`;
+
+          txtBox.appendChild(wordLine);
+          txtBox.appendChild(metaLine);
+          left.appendChild(spkBtn);
+          left.appendChild(txtBox);
+
+          const badge = document.createElement(`span`);
+          badge.className = rec.isCorrect ? `badge badge-pos` : `badge badge-err`;
+          badge.textContent = rec.isCorrect ? `정답` : `오답`;
+
+          row.appendChild(left);
+          row.appendChild(badge);
+          revList.appendChild(row);
+        });
+      }
+    }
+
+    function retryWrongWords() {
+      const wrongWords = quizSession.records
+        .filter(r => !r.isCorrect)
+        .map(r => r.wordObj);
+      if (wrongWords.length === 0) return;
+      startNewQuiz(wrongWords);
+    }
+
+    // ==================== Wordbook View ====================
+
+    function switchView(viewName) {
+      appState.currentView = viewName;
+      const quizView = document.getElementById(`view-quiz`);
+      const wbView = document.getElementById(`view-wordbook`);
+      const navQuiz = document.getElementById(`nav-quiz-btn`);
+      const navWb = document.getElementById(`nav-wordbook-btn`);
+
+      if (viewName === `quiz`) {
+        if (quizView) quizView.classList.remove(`hidden`);
+        if (wbView) wbView.classList.add(`hidden`);
+        if (navQuiz) navQuiz.classList.add(`active`);
+        if (navWb) navWb.classList.remove(`active`);
+      } else {
+        if (quizView) quizView.classList.add(`hidden`);
+        if (wbView) wbView.classList.remove(`hidden`);
+        if (navQuiz) navQuiz.classList.remove(`active`);
+        if (navWb) navWb.classList.add(`active`);
+        renderWordbook();
+      }
+    }
+
+    function setWordbookFilter(filter) {
+      appState.wordbookFilter = filter;
+      document.querySelectorAll(`#wb-filter-chips .chip`).forEach(chip => {
+        const val = chip.dataset.wb;
+        const match = String(val) === String(filter);
+        chip.classList.toggle(`selected`, match);
+      });
+      renderWordbook();
+    }
+
+    function toggleWordbookBlind() {
+      appState.wordbookBlind = !appState.wordbookBlind;
+      updateSetupUI();
+      persistState();
+      renderWordbook();
+    }
+
+    function renderWordbook() {
+      const grid = document.getElementById(`wb-grid`);
+      const emptyState = document.getElementById(`wb-empty-state`);
+      const emptyMsg = document.getElementById(`wb-empty-msg`);
+      const searchInput = document.getElementById(`wb-search-input`);
+      if (!grid) return;
+
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : ``;
+      const mistakeSet = new Set(appState.stats.mistakeIds);
+
+      let list = VOCAB_BANK.filter(w => {
+        if (appState.wordbookFilter === `mistakes`) {
+          if (!mistakeSet.has(w.id)) return false;
+        } else if (appState.wordbookFilter !== `all`) {
+          if (w.day !== Number(appState.wordbookFilter)) return false;
+        }
+        if (query) {
+          const hay = `${w.word} ${w.meaning} ${w.hint}`.toLowerCase();
+          return hay.includes(query);
+        }
+        return true;
+      });
+
+      grid.innerHTML = ``;
+      if (list.length === 0) {
+        if (emptyState) emptyState.classList.remove(`hidden`);
+        if (emptyMsg) {
+          emptyMsg.textContent = appState.wordbookFilter === `mistakes`
+            ? `아직 오답 노트에 저장된 단어가 없습니다. 퀴즈를 풀며 틀린 단어가 자동으로 이곳에 모입니다.`
+            : `검색 조건에 맞는 단어가 없습니다.`;
+        }
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add(`hidden`);
+
+      list.forEach(w => {
+        const card = document.createElement(`article`);
+        card.className = `vocab-card`;
+
+        const top = document.createElement(`div`);
+        top.className = `vocab-card-top`;
+
+        const titleWrap = document.createElement(`div`);
+        const badges = document.createElement(`div`);
+        badges.className = `badge-group`;
+
+        const dayB = document.createElement(`span`);
+        dayB.className = `badge badge-grape`;
+        dayB.textContent = `Day ${w.day} · ${w.topicKr}`;
+        badges.appendChild(dayB);
+
+        if (mistakeSet.has(w.id)) {
+          const errB = document.createElement(`span`);
+          errB.className = `badge badge-err`;
+          errB.textContent = `오답`;
+          badges.appendChild(errB);
+        }
+
+        const wordH = document.createElement(`h3`);
+        wordH.className = `vocab-word`;
+        wordH.textContent = w.word;
+
+        titleWrap.appendChild(badges);
+        titleWrap.appendChild(wordH);
+
+        const spkBtn = document.createElement(`button`);
+        spkBtn.type = `button`;
+        spkBtn.className = `mini-speak-btn`;
+        spkBtn.setAttribute(`aria-label`, `${w.word} 발음 듣기`);
+        spkBtn.onclick = function () { speakText(w.speakText, false); };
+        spkBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>`;
+
+        top.appendChild(titleWrap);
+        top.appendChild(spkBtn);
+
+        const meaningBox = document.createElement(`div`);
+        meaningBox.className = `vocab-meaning-wrap`;
+
+        const meaningP = document.createElement(`p`);
+        meaningP.className = appState.wordbookBlind ? `vocab-meaning blinded` : `vocab-meaning`;
+        meaningP.textContent = `${w.meaning} (${w.pos})`;
+
+        const hintP = document.createElement(`p`);
+        hintP.className = `vocab-hint`;
+        hintP.textContent = w.hint;
+
+        meaningBox.appendChild(meaningP);
+        meaningBox.appendChild(hintP);
+
+        card.appendChild(top);
+        card.appendChild(meaningBox);
+        grid.appendChild(card);
+      });
+    }
+
+    // ==================== Keyboard Shortcuts ====================
+
+    document.addEventListener(`keydown`, function (e) {
+      if (appState.currentView !== `quiz` || quizSession.finished) return;
+      const activeTag = document.activeElement ? document.activeElement.tagName : ``;
+      const inInput = activeTag === `INPUT` || activeTag === `SELECT` || activeTag === `TEXTAREA`;
+
+      if (e.code === `Space` && !inInput) {
+        e.preventDefault();
+        speakCurrentWord();
+        return;
+      }
+
+      if (inInput) return;
+
+      if (e.key === `r` || e.key === `R`) {
+        e.preventDefault();
+        speakCurrentWord();
+        return;
+      }
+
+      if (appState.answerMode === `choice` && !quizSession.answeredCurrent) {
+        if ([`1`, `2`, `3`, `4`].includes(e.key)) {
+          const idx = Number(e.key) - 1;
+          const opts = quizSession.currentOptions || [];
+          if (opts[idx]) {
+            selectChoiceOption(opts[idx].id);
+          }
+        }
+      }
+
+      if (e.key === `Enter` && quizSession.answeredCurrent) {
+        e.preventDefault();
+        goToNextQuestion();
+      }
+    });
+
+    // ==================== App Initialization ====================
+
+    async function initApp() {
+      await loadPersistedState();
+
+      if (!ttsSupported) {
+        const notice = document.getElementById(`tts-unsupported-notice`);
+        if (notice) notice.classList.remove(`hidden`);
+      } else {
+        populateVoices();
+        if (typeof window.speechSynthesis.onvoiceschanged !== `undefined`) {
+          window.speechSynthesis.onvoiceschanged = populateVoices;
+        }
+      }
+
+      updateStatsStrip();
+      updateSetupUI();
+      startNewQuiz();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
