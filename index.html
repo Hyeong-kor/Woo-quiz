@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="artifact-type" content="tool">
   <meta name="design-style" content="sticker">
-  <title>영어 단어 듣기 퀴즈 — Day 33~39</title>
+  <title>영어 단어 듣기 퀴즈 — Day 33~40</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
@@ -384,6 +384,7 @@
       gap: 0.5rem;
     }
 
+    #day-filter-chips [data-day="all"],
     #chip-mistakes-only {
       grid-column: 1 / -1;
     }
@@ -1345,10 +1346,10 @@
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
           </svg>
-          <span>Previous Check · Day 33–39</span>
+          <span>Previous Check · Day 33–40</span>
         </div>
         <h1 class="display">영단어 <em>듣기</em> 퀴즈</h1>
-        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교)의 210개 단어만 출제됩니다.</p>
+        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 240개 단어만 출제됩니다.</p>
       </div>
 
       <nav class="segmented" aria-label="화면 전환">
@@ -1411,7 +1412,7 @@
         <div class="control-group">
           <span class="field-label">
             <span>출제 범위 (Day 선택)</span>
-            <span id="pool-size-label">210단어 선택됨</span>
+            <span id="pool-size-label">240단어 선택됨</span>
           </span>
           <div class="chip-row" id="day-filter-chips">
             <button type="button" class="chip selected" data-day="all" onclick="toggleDayFilter('all')">전체</button>
@@ -1422,6 +1423,7 @@
             <button type="button" class="chip selected" data-day="37" onclick="toggleDayFilter(37)">Day 37 사회·경제</button>
             <button type="button" class="chip selected" data-day="38" onclick="toggleDayFilter(38)">Day 38 정치·법률</button>
             <button type="button" class="chip selected" data-day="39" onclick="toggleDayFilter(39)">Day 39 역사·종교</button>
+            <button type="button" class="chip selected" data-day="40" onclick="toggleDayFilter(40)">Day 40 세계</button>
             <button type="button" class="chip" id="chip-mistakes-only" data-day="mistakes" onclick="toggleDayFilter('mistakes')">오답만 복습</button>
           </div>
         </div>
@@ -1616,7 +1618,7 @@
         <div class="control-group" style="margin-bottom: 0;">
           <span class="field-label">단어장 필터</span>
           <div class="chip-row" id="wb-filter-chips">
-            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (210)</button>
+            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (240)</button>
             <button type="button" class="chip" data-wb="33" onclick="setWordbookFilter(33)">Day 33 우주</button>
             <button type="button" class="chip" data-wb="34" onclick="setWordbookFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip" data-wb="35" onclick="setWordbookFilter(35)">Day 35 교육</button>
@@ -1624,6 +1626,7 @@
             <button type="button" class="chip" data-wb="37" onclick="setWordbookFilter(37)">Day 37 사회·경제</button>
             <button type="button" class="chip" data-wb="38" onclick="setWordbookFilter(38)">Day 38 정치·법률</button>
             <button type="button" class="chip" data-wb="39" onclick="setWordbookFilter(39)">Day 39 역사·종교</button>
+            <button type="button" class="chip" data-wb="40" onclick="setWordbookFilter(40)">Day 40 세계</button>
             <button type="button" class="chip" data-wb="mistakes" onclick="setWordbookFilter('mistakes')">오답 노트</button>
           </div>
         </div>
@@ -1644,12 +1647,12 @@
       <div id="wb-grid" class="card-grid"></div>
       <div id="wb-empty-state" class="empty-state hidden">
         <p style="font-weight: 700; margin: 0;" id="wb-empty-msg">표시할 단어가 없습니다.</p>
-        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 210단어 보기</button>
+        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 240단어 보기</button>
       </div>
     </section>
 
     <footer class="source-footer">
-      출처: 사용자 제공 교과서 Previous Check (Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion) 총 210개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
+      출처: 사용자 제공 교과서 Previous Check (Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 240개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
     </footer>
   </div>
 
@@ -1880,7 +1883,39 @@
       { id: 207, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `spiritual`, speakText: `spiritual`, pos: `형용사`, meaning: `정신적인, 영적인`, accept: [`정신적인`, `영적인`, `영혼의`, `종교적인`, `마음의`], hint: `spirit(정신·영혼)의 형용사형으로, 물질적인 것과 대비되는 영혼·종교적 영역을 뜻합니다.` },
       { id: 208, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `ceremony`, speakText: `ceremony`, pos: `명사`, meaning: `의식, 예식, 식`, accept: [`의식`, `예식`, `식`, `의례`, `행사`], hint: `종교 행사나 결혼식, 졸업식 등 격식을 갖추어 치르는 공식적인 의식입니다.` },
       { id: 209, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `date back`, speakText: `date back`, pos: `숙어/표현`, meaning: `(기원이) ~로 거슬러 올라가다`, accept: [`거슬러올라가다`, `기원이거슬러올라가다`, `역사가오래되다`, `시작되다`], hint: `유물, 전통, 건물의 역사가 과거 어느 시점부터 시작되었음을 나타내는 숙어입니다.` },
-      { id: 210, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `be based on`, speakText: `be based on`, pos: `숙어/표현`, meaning: `~에 근거하다, 기반을 두다`, accept: [`에근거하다`, `근거하다`, `기반을두다`, `바탕을두다`, `토대로하다`], hint: `사실, 역사적 사건, 또는 믿음에 바탕(base)을 두고 만들어졌다는 뜻의 필수 표현입니다.` }
+      { id: 210, day: 39, topic: `History & Religion`, topicKr: `역사와 종교`, word: `be based on`, speakText: `be based on`, pos: `숙어/표현`, meaning: `~에 근거하다, 기반을 두다`, accept: [`에근거하다`, `근거하다`, `기반을두다`, `바탕을두다`, `토대로하다`], hint: `사실, 역사적 사건, 또는 믿음에 바탕(base)을 두고 만들어졌다는 뜻의 필수 표현입니다.` },
+
+      // ================= Day 40: The World (30 words) =================
+      { id: 211, day: 40, topic: `The World`, topicKr: `세계`, word: `different`, speakText: `different`, pos: `형용사`, meaning: `다른, 다양한`, accept: [`다른`, `상이한`, `다양한`, `색다른`], hint: `서로 같지 않고 차이가 나는 상태(반대말: same)를 뜻합니다.` },
+      { id: 212, day: 40, topic: `The World`, topicKr: `세계`, word: `global`, speakText: `global`, pos: `형용사`, meaning: `세계적인, 지구의, 전반적인`, accept: [`세계적인`, `지구의`, `전세계의`, `글로벌한`, `전반적인`], hint: `globe(지구)의 형용사형으로 전 세계에 걸친(global warming: 지구 온난화) 것을 뜻합니다.` },
+      { id: 213, day: 40, topic: `The World`, topicKr: `세계`, word: `race`, speakText: `race`, pos: `명사/동사`, meaning: `인종, 민족 (경주)`, accept: [`인종`, `민족`, `경주`, `경주하다`], hint: `달리기 '경주'라는 뜻 외에 세계 단원에서는 피부색이나 혈통에 따른 '인종·민족'을 뜻합니다.` },
+      { id: 214, day: 40, topic: `The World`, topicKr: `세계`, word: `national`, speakText: `national`, pos: `형용사`, meaning: `국가의, 국립의, 전국적인`, accept: [`국가의`, `국립의`, `전국적인`, `국민의`, `국가`], hint: `nation(국가)의 형용사형으로 한 나라 전체나 국립 기관과 관련된 말입니다.` },
+      { id: 215, day: 40, topic: `The World`, topicKr: `세계`, word: `fund`, speakText: `fund`, pos: `명사/동사`, meaning: `기금, 자금, 자금을 대다`, accept: [`기금`, `자금`, `재원`, `자금을대다`, `후원하다`], hint: `특정 목적(국제 구호나 장학 사업 등)을 위해 모아 둔 기금이나 자금을 뜻합니다.` },
+      { id: 216, day: 40, topic: `The World`, topicKr: `세계`, word: `foreign`, speakText: `foreign`, pos: `형용사`, meaning: `외국의, 대외의`, accept: [`외국의`, `해외의`, `대외의`, `이국의`], hint: `우리나라가 아닌 다른 나라와 관련된(foreign language: 외국어) 형용사입니다.` },
+      { id: 217, day: 40, topic: `The World`, topicKr: `세계`, word: `international`, speakText: `international`, pos: `형용사`, meaning: `국제적인, 국제의`, accept: [`국제적인`, `국제의`, `세계적인`, `국제`], hint: `inter-(사이의) + national(국가의) = 여러 나라가 함께 참여하는 국제적인 것을 뜻합니다.` },
+      { id: 218, day: 40, topic: `The World`, topicKr: `세계`, word: `community`, speakText: `community`, pos: `명사`, meaning: `지역 사회, 공동체`, accept: [`지역사회`, `공동체`, `사회`, `주민`], hint: `같은 지역에 살거나 공통의 관심·목표를 공유하는 사람들의 공동체입니다.` },
+      { id: 219, day: 40, topic: `The World`, topicKr: `세계`, word: `population`, speakText: `population`, pos: `명사`, meaning: `인구, 주민 수`, accept: [`인구`, `주민수`, `개체수`], hint: `특정한 국가나 지역에 살고 있는 전체 사람의 수(인구)를 뜻합니다.` },
+      { id: 220, day: 40, topic: `The World`, topicKr: `세계`, word: `increase`, speakText: `increase`, pos: `동사/명사`, meaning: `증가하다, 늘다, 증가`, accept: [`증가하다`, `늘다`, `늘어나다`, `늘리다`, `증가`], hint: `수나 양, 인구가 점점 더 많아지는 것(반대말: decrease)입니다.` },
+      { id: 221, day: 40, topic: `The World`, topicKr: `세계`, word: `decrease`, speakText: `decrease`, pos: `동사/명사`, meaning: `감소하다, 줄다, 감소`, accept: [`감소하다`, `줄다`, `줄어들다`, `줄이다`, `감소`], hint: `수나 양, 인구가 점점 줄어드는 것(반대말: increase)입니다.` },
+      { id: 222, day: 40, topic: `The World`, topicKr: `세계`, word: `urban`, speakText: `urban`, pos: `형용사`, meaning: `도시의`, accept: [`도시의`, `도심의`, `도시`], hint: `시골(rural)과 대비되는 빌딩과 인구가 밀집한 도시 지역의 것을 뜻합니다.` },
+      { id: 223, day: 40, topic: `The World`, topicKr: `세계`, word: `rural`, speakText: `rural`, pos: `형용사`, meaning: `시골의, 지방의`, accept: [`시골의`, `농촌의`, `지방의`, `전원의`, `시골`], hint: `도시(urban)와 대비되는 자연과 농촌 중심의 시골 지역을 뜻합니다.` },
+      { id: 224, day: 40, topic: `The World`, topicKr: `세계`, word: `region`, speakText: `region`, pos: `명사`, meaning: `지역, 지방`, accept: [`지역`, `지방`, `지대`, `영역`], hint: `지리적·문화적으로 구분되는 넓은 지역이나 지방을 뜻합니다.` },
+      { id: 225, day: 40, topic: `The World`, topicKr: `세계`, word: `border`, speakText: `border`, pos: `명사/동사`, meaning: `국경, 경계(선), 접하다`, accept: [`국경`, `국경선`, `경계`, `경계선`, `접하다`], hint: `나라와 나라 사이를 나누는 국경선이나 가장자리 경계를 뜻합니다.` },
+      { id: 226, day: 40, topic: `The World`, topicKr: `세계`, word: `aid`, speakText: `aid`, pos: `명사/동사`, meaning: `원조, 지원, 돕다`, accept: [`원조`, `지원`, `구호`, `도움`, `돕다`], hint: `재난이나 빈곤을 겪는 나라에 보내는 구호품·원조(first aid: 응급처치) 또는 돕는 것입니다.` },
+      { id: 227, day: 40, topic: `The World`, topicKr: `세계`, word: `suffer`, speakText: `suffer`, pos: `동사`, meaning: `고통받다, 겪다, 앓다`, accept: [`고통받다`, `괴로워하다`, `겪다`, `앓다`, `시달리다`], hint: `질병, 가난, 전쟁 등으로 인해 아픔이나 큰 어려움을 겪는 동사입니다.` },
+      { id: 228, day: 40, topic: `The World`, topicKr: `세계`, word: `native`, speakText: `native`, pos: `형용사/명사`, meaning: `출생지의, 원주민의, 현지인`, accept: [`출생지의`, `모국어의`, `토착의`, `원주민의`, `원주민`, `현지인`], hint: `태어난 고향이나 모국(native speaker: 원어민)과 관련된 형용사 또는 원주민입니다.` },
+      { id: 229, day: 40, topic: `The World`, topicKr: `세계`, word: `orphan`, speakText: `orphan`, pos: `명사`, meaning: `고아`, accept: [`고아`], hint: `전쟁이나 사고 등으로 부모를 잃은 아이(orphanage: 고아원)를 뜻합니다.` },
+      { id: 230, day: 40, topic: `The World`, topicKr: `세계`, word: `support`, speakText: `support`, pos: `동사/명사`, meaning: `지지하다, 후원하다, 부양하다`, accept: [`지지하다`, `지원하다`, `후원하다`, `부양하다`, `돕다`, `지지`, `지원`], hint: `도움이 필요한 사람이나 의견을 뒷받침해 주고 후원·지지하는 것입니다.` },
+      { id: 231, day: 40, topic: `The World`, topicKr: `세계`, word: `rescue`, speakText: `rescue`, pos: `동사/명사`, meaning: `구조하다, 구출하다, 구조`, accept: [`구조하다`, `구출하다`, `구하다`, `구조`, `구출`], hint: `위험이나 재난에 처한 사람·동물을 안전하게 구해 내는 것입니다.` },
+      { id: 232, day: 40, topic: `The World`, topicKr: `세계`, word: `immigrate`, speakText: `immigrate`, pos: `동사`, meaning: `이민 오다, 이주하다`, accept: [`이민오다`, `이민가다`, `이민하다`, `이주하다`, `이민`], hint: `살기 위해 다른 나라에서 새로운 나라로 들어와 정착하는 것입니다(immigration: 이민).` },
+      { id: 233, day: 40, topic: `The World`, topicKr: `세계`, word: `hunger`, speakText: `hunger`, pos: `명사`, meaning: `배고픔, 굶주림, 기아`, accept: [`배고픔`, `굶주림`, `기아`, `갈망`], hint: `hungry(배고픈)의 명사형으로, 먹을 것이 부족해 겪는 굶주림과 기아를 뜻합니다.` },
+      { id: 234, day: 40, topic: `The World`, topicKr: `세계`, word: `ethnic`, speakText: `ethnic`, pos: `형용사`, meaning: `민족의, 인종의, 민족 전통의`, accept: [`민족의`, `인종의`, `종족의`, `민족전통의`], hint: `공통된 문화·언어·역사를 공유하는 민족 집단(ethnic group)을 가리키는 형용사입니다.` },
+      { id: 235, day: 40, topic: `The World`, topicKr: `세계`, word: `organization`, speakText: `organization`, pos: `명사`, meaning: `기구, 조직, 단체`, accept: [`기구`, `조직`, `단체`, `기관`, `협회`], hint: `UN, WHO(세계보건기구)처럼 특정한 목적을 위해 체계적으로 구성된 조직이나 기구입니다.` },
+      { id: 236, day: 40, topic: `The World`, topicKr: `세계`, word: `statistic`, speakText: `statistic`, pos: `명사`, meaning: `통계 (수치), 통계학`, accept: [`통계`, `통계자료`, `통계수치`, `통계학`], hint: `인구, 경제 등을 조사해 숫자로 나타낸 통계 자료(보통 복수형 statistics로 자주 쓰임)입니다.` },
+      { id: 237, day: 40, topic: `The World`, topicKr: `세계`, word: `agreement`, speakText: `agreement`, pos: `명사`, meaning: `합의, 협정, 동의`, accept: [`합의`, `협정`, `동의`, `계약`, `조약`], hint: `agree(동의하다)의 명사형으로 국가 간에 맺는 협정이나 의견의 일치를 뜻합니다.` },
+      { id: 238, day: 40, topic: `The World`, topicKr: `세계`, word: `mutual`, speakText: `mutual`, pos: `형용사`, meaning: `상호 간의, 서로의, 공통의`, accept: [`상호간의`, `서로의`, `쌍방의`, `공통의`, `상호`], hint: `두 사람이나 두 국가가 일방적이지 않고 서로 주고받는(mutual respect: 상호 존중) 관계입니다.` },
+      { id: 239, day: 40, topic: `The World`, topicKr: `세계`, word: `break out`, speakText: `break out`, pos: `숙어/표현`, meaning: `(전쟁·화재·질병 등이) 발발하다, 발생하다`, accept: [`발발하다`, `발생하다`, `일어나다`, `터지다`], hint: `전쟁, 큰불, 전염병 같은 안 좋은 일이 갑자기 터져 일어날 때 쓰는 필수 숙어입니다.` },
+      { id: 240, day: 40, topic: `The World`, topicKr: `세계`, word: `consist of`, speakText: `consist of`, pos: `숙어/표현`, meaning: `~로 이루어지다, 구성되다`, accept: [`로이루어지다`, `이루어지다`, `구성되다`, `로구성되다`], hint: `단체나 세계가 여러 부분·국가들로 구성되어 있음을 나타내는 숙어(= be made up of)입니다.` }
     ];
 
     const DAY_INFO = {
@@ -1890,7 +1925,8 @@
       36: { en: `School`, kr: `학교` },
       37: { en: `Society & Economy`, kr: `사회와 경제` },
       38: { en: `Politics & Law`, kr: `정치와 법률` },
-      39: { en: `History & Religion`, kr: `역사와 종교` }
+      39: { en: `History & Religion`, kr: `역사와 종교` },
+      40: { en: `The World`, kr: `세계` }
     };
     const ALL_DAYS = Object.keys(DAY_INFO).map(Number);
 
