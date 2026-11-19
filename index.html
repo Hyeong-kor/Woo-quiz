@@ -395,7 +395,8 @@
       gap: 0.5rem;
     }
 
-    #mode-chips {
+    #mode-chips,
+    #voice-chips {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.5rem;
@@ -1447,10 +1448,11 @@
         </div>
 
         <div class="control-group">
-          <label class="field-label" for="voice-select">영어 발음 음성 (TTS)</label>
-          <select id="voice-select" class="select-pill" onchange="setSelectedVoice(this.value)">
-            <option value="">기본 영어 음성 (자동)</option>
-          </select>
+          <span class="field-label">영어 발음 음성 (미국)</span>
+          <div class="chip-row" id="voice-chips">
+            <button type="button" class="chip selected" data-voice-gender="male" onclick="setVoiceGender('male')">미국 발음 · 남성</button>
+            <button type="button" class="chip" data-voice-gender="female" onclick="setVoiceGender('female')">미국 발음 · 여성</button>
+          </div>
         </div>
 
         <div class="control-group">
@@ -1937,7 +1939,7 @@
       questionCount: 20,
       answerMode: `choice`, // 'choice' | 'typing'
       speechRate: 0.95,
-      selectedVoiceURI: ``,
+      voiceGender: `male`,
       autoSpeak: true,
       currentView: `quiz`,
       wordbookFilter: `all`,
@@ -2021,7 +2023,7 @@
         questionCount: appState.questionCount,
         answerMode: appState.answerMode,
         speechRate: appState.speechRate,
-        selectedVoiceURI: appState.selectedVoiceURI,
+        voiceGender: appState.voiceGender,
         autoSpeak: appState.autoSpeak,
         wordbookBlind: appState.wordbookBlind,
         stats: appState.stats
@@ -2074,7 +2076,7 @@
         if (saved.questionCount !== undefined) appState.questionCount = saved.questionCount;
         if (saved.answerMode === `choice` || saved.answerMode === `typing`) appState.answerMode = saved.answerMode;
         if (typeof saved.speechRate === `number`) appState.speechRate = saved.speechRate;
-        if (typeof saved.selectedVoiceURI === `string`) appState.selectedVoiceURI = saved.selectedVoiceURI;
+        if (saved.voiceGender === `male` || saved.voiceGender === `female`) appState.voiceGender = saved.voiceGender;
         if (typeof saved.autoSpeak === `boolean`) appState.autoSpeak = saved.autoSpeak;
         if (typeof saved.wordbookBlind === `boolean`) appState.wordbookBlind = saved.wordbookBlind;
         if (saved.stats && typeof saved.stats === `object`) {
@@ -2095,34 +2097,44 @@
       const voices = window.speechSynthesis.getVoices() || [];
       const enVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith(`en`));
       availableVoices = enVoices.length > 0 ? enVoices : voices;
-
-      const select = document.getElementById(`voice-select`);
-      if (!select) return;
-
-      const currentVal = appState.selectedVoiceURI;
-      select.innerHTML = `<option value="">기본 영어 음성 (자동 선택)</option>`;
-      availableVoices.forEach(v => {
-        const opt = document.createElement(`option`);
-        opt.value = v.voiceURI;
-        opt.textContent = `${v.name} (${v.lang})`;
-        if (v.voiceURI === currentVal) opt.selected = true;
-        select.appendChild(opt);
-      });
     }
 
+    const MALE_VOICE_RE = /\b(male|david|mark|guy|christopher|eric|andrew|brian|roger|steffan|davis|alex|fred|tom|aaron|evan|nathan|reed|oliver|daniel|jacob|matthew|ryan)\b/i;
+    const FEMALE_VOICE_RE = /\b(female|zira|aria|jenny|michelle|ana|ava|emma|sara|samantha|victoria|allison|susan|zoe|nicky|karen|serena|moira|tessa)\b|google us english/i;
+    const HIGH_QUALITY_VOICE_RE = /natural|online|google|neural|premium|enhanced|samantha|alex|aria|jenny|guy|christopher|andrew|brian|eric|roger|steffan|ava|emma|michelle|allison|victoria/i;
+    const LEGACY_SAPI_VOICE_RE = /\b(david|mark|zira)\b/i;
+
     function pickBestEnglishVoice() {
-      if (!availableVoices.length) return null;
-      if (appState.selectedVoiceURI) {
-        const chosen = availableVoices.find(v => v.voiceURI === appState.selectedVoiceURI);
-        if (chosen) return chosen;
-      }
-      // Prefer clear US/UK native English voices
-      const preferred = availableVoices.find(v =>
-        v.lang.toLowerCase() === `en-us` && /google|samantha|natural|aria|jenny|alex/i.test(v.name)
-      ) || availableVoices.find(v => v.lang.toLowerCase() === `en-us`)
-        || availableVoices.find(v => v.lang.toLowerCase().startsWith(`en`))
-        || availableVoices[0];
-      return preferred || null;
+      if (!availableVoices.length) return { voice: null, exactGender: false };
+      const isUs = v => /^en[-_]us$/i.test((v.lang || ``).trim()) || /united states|\bUS\b/i.test(v.name || ``);
+      const isEn = v => /^en\b/i.test((v.lang || ``).trim());
+      const usPool = availableVoices.filter(isUs);
+      const enPool = availableVoices.filter(isEn);
+      const pool = usPool.length > 0 ? usPool : (enPool.length > 0 ? enPool : availableVoices);
+
+      const wantMale = appState.voiceGender !== `female`;
+      const targetRe = wantMale ? MALE_VOICE_RE : FEMALE_VOICE_RE;
+      const oppositeRe = wantMale ? FEMALE_VOICE_RE : MALE_VOICE_RE;
+
+      // 1. Prefer high-quality (Natural / Google / Apple) US voices matching gender, then English
+      const hqUs = usPool.find(v => HIGH_QUALITY_VOICE_RE.test(v.name) && targetRe.test(v.name));
+      if (hqUs) return { voice: hqUs, exactGender: true };
+      const hqEn = enPool.find(v => HIGH_QUALITY_VOICE_RE.test(v.name) && targetRe.test(v.name));
+      if (hqEn) return { voice: hqEn, exactGender: true };
+
+      // 2. Fallback to any US or English voice matching gender (e.g. Microsoft David / Mark / Zira)
+      const exactUs = usPool.find(v => targetRe.test(v.name));
+      if (exactUs) return { voice: exactUs, exactGender: true };
+      const exactEn = enPool.find(v => targetRe.test(v.name));
+      if (exactEn) return { voice: exactEn, exactGender: true };
+
+      // 3. Neutral high-quality voice, then any voice not explicitly the opposite gender
+      const hqNeutral = pool.find(v => HIGH_QUALITY_VOICE_RE.test(v.name) && !oppositeRe.test(v.name));
+      if (hqNeutral) return { voice: hqNeutral, exactGender: false };
+      const neutral = pool.find(v => !oppositeRe.test(v.name));
+      if (neutral) return { voice: neutral, exactGender: false };
+
+      return { voice: pool[0], exactGender: false };
     }
 
     function speakText(text, isHeroBtn) {
@@ -2130,15 +2142,20 @@
       try {
         window.speechSynthesis.cancel();
         const utter = new SpeechSynthesisUtterance(text);
-        utter.lang = `en-US`;
-        utter.rate = appState.speechRate;
-        utter.pitch = 1.0;
-
-        const voice = pickBestEnglishVoice();
-        if (voice) {
-          utter.voice = voice;
-          utter.lang = voice.lang || `en-US`;
+        const picked = pickBestEnglishVoice();
+        if (picked.voice) {
+          utter.voice = picked.voice;
+          utter.lang = picked.voice.lang || `en-US`;
+        } else {
+          utter.lang = `en-US`;
         }
+
+        const rawRate = Number(appState.speechRate) || 0.95;
+        const isLegacySapi = picked.voice && LEGACY_SAPI_VOICE_RE.test(picked.voice.name);
+        utter.rate = isLegacySapi
+          ? (rawRate <= 0.8 ? 0.55 : (rawRate >= 1.1 ? 1.65 : 1.0))
+          : rawRate;
+        utter.pitch = picked.exactGender ? 1.0 : (appState.voiceGender === `female` ? 1.15 : 0.88);
 
         const heroBtn = document.getElementById(`speak-hero-btn`);
         const btnText = document.getElementById(`speak-btn-text`);
@@ -2219,6 +2236,11 @@
         chip.classList.toggle(`selected-grape`, chip.dataset.mode === appState.answerMode);
       });
 
+      // Voice gender chips
+      document.querySelectorAll(`#voice-chips .chip`).forEach(chip => {
+        chip.classList.toggle(`selected`, chip.dataset.voiceGender === appState.voiceGender);
+      });
+
       // Speech rate chips
       document.querySelectorAll(`#rate-chips .chip`).forEach(chip => {
         chip.classList.toggle(`selected`, Number(chip.dataset.rate) === appState.speechRate);
@@ -2290,8 +2312,9 @@
       }
     }
 
-    function setSelectedVoice(uri) {
-      appState.selectedVoiceURI = uri;
+    function setVoiceGender(gender) {
+      appState.voiceGender = gender === `female` ? `female` : `male`;
+      updateSetupUI();
       persistState();
       if (!quizSession.finished) speakCurrentWord();
     }
