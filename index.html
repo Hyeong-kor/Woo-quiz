@@ -1327,6 +1327,119 @@
       }
     }
 
+    /* Backup Restore Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgb(46 26 40 / 0.48);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-md);
+      z-index: 1000;
+    }
+
+    .modal-dialog {
+      width: min(640px, 100%);
+      max-height: 85dvh;
+      background: var(--surface-container-low);
+      border: 2px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-grape-deep);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .backup-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      overflow-y: auto;
+      min-height: 0;
+      padding-right: 0.2rem;
+    }
+
+    .backup-item {
+      background: var(--surface-container);
+      border: 1.5px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .backup-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      flex: 1 1 280px;
+    }
+
+    .backup-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 800;
+      font-size: 0.96rem;
+      color: var(--on-surface);
+    }
+
+    .backup-sub-row {
+      font-size: 0.84rem;
+      color: var(--on-surface-variant);
+    }
+
+    .backup-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .backup-actions .btn {
+      min-height: 36px;
+      padding: 0.25rem 0.85rem;
+      font-size: 0.86rem;
+    }
+
+    .modal-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--outline-variant);
+    }
+
+    .modal-footer .btn {
+      min-height: 36px;
+      padding: 0.25rem 0.85rem;
+      font-size: 0.85rem;
+    }
+
+    .backup-status-msg {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--positive);
+      margin: 0;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1482,6 +1595,7 @@
             <span>새 퀴즈 시작하기</span>
           </button>
           <button type="button" id="reset-stats-btn" class="btn btn-quiet btn-full" onclick="handleResetProgress(this)">학습 기록 초기화</button>
+          <button type="button" id="open-backup-btn" class="btn btn-soft btn-full" style="grid-column: 1 / -1;" onclick="openBackupModal()">이전 학습 기록 불러오기</button>
         </div>
       </aside>
 
@@ -1656,6 +1770,31 @@
     <footer class="source-footer">
       출처: 사용자 제공 교과서 Previous Check (Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 240개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
     </footer>
+  </div>
+
+  <!-- Auto-Backup & Restore Modal -->
+  <div id="backup-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="backup-modal-title" onclick="handleBackupBackdropClick(event)">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h2 id="backup-modal-title" class="section-title" style="margin: 0;">자동 백업 학습 기록</h2>
+          <p class="subtitle" style="margin-top: 0.2rem; font-size: 0.85rem;">테스트가 완료될 때마다 시간과 정답 수, 오답 노트가 자동 백업됩니다.</p>
+        </div>
+        <button type="button" class="btn btn-quiet" onclick="closeBackupModal()">닫기</button>
+      </div>
+
+      <p id="backup-status-msg" class="backup-status-msg hidden" role="status"></p>
+      <div id="backup-list" class="backup-list"></div>
+
+      <div class="modal-footer">
+        <div class="chip-row">
+          <button type="button" class="btn btn-soft" onclick="exportBackupFile()">백업 파일 저장 (.json)</button>
+          <button type="button" class="btn btn-soft" onclick="triggerImportBackupFile()">백업 파일 불러오기</button>
+          <input type="file" id="backup-file-input" class="hidden" accept=".json,application/json" onchange="handleImportBackupFile(event)">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="closeBackupModal()">확인</button>
+      </div>
+    </div>
   </div>
 
   <api-shim></api-shim>
@@ -1961,7 +2100,8 @@
       answeredCurrent: false,
       spellingRevealed: false,
       records: [], // { wordObj, userAnswer, isCorrect, options }
-      finished: false
+      finished: false,
+      backupSaved: false
     };
 
     let availableVoices = [];
@@ -2014,6 +2154,222 @@
     }
 
     const STORAGE_KEY = `seungwoo_vocab_quiz_state_v1`;
+    const BACKUP_STORAGE_KEY = `seungwoo_vocab_quiz_backups_v1`;
+    const WINDOW_NAME_PREFIX = `SEUNGWOO_QUIZ_V1:`;
+    const MAX_BACKUPS = 30;
+    const IDB_NAME = `seungwoo_vocab_quiz_db`;
+    const IDB_STORE = `kv`;
+
+    let backupHistory = [];
+
+    function readWindowNameStore() {
+      try {
+        if (typeof window.name === `string` && window.name.startsWith(WINDOW_NAME_PREFIX)) {
+          const parsed = JSON.parse(window.name.slice(WINDOW_NAME_PREFIX.length));
+          if (parsed && typeof parsed === `object`) return parsed;
+        }
+      } catch (e) {
+        // Ignore window.name parse errors
+      }
+      return {};
+    }
+
+    function writeWindowNameStore(partial) {
+      try {
+        const next = Object.assign({}, readWindowNameStore(), partial);
+        window.name = WINDOW_NAME_PREFIX + JSON.stringify(next);
+      } catch (e) {
+        // Ignore window.name serialization errors
+      }
+    }
+
+    function idbGet(key) {
+      return new Promise(resolve => {
+        try {
+          if (!window.indexedDB) {
+            resolve(null);
+            return;
+          }
+          const req = window.indexedDB.open(IDB_NAME, 1);
+          req.onupgradeneeded = function (e) {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(IDB_STORE)) {
+              db.createObjectStore(IDB_STORE);
+            }
+          };
+          req.onsuccess = function (e) {
+            try {
+              const db = e.target.result;
+              const tx = db.transaction(IDB_STORE, `readonly`);
+              const getReq = tx.objectStore(IDB_STORE).get(key);
+              getReq.onsuccess = function () { resolve(getReq.result || null); };
+              getReq.onerror = function () { resolve(null); };
+              tx.oncomplete = function () { db.close(); };
+            } catch (err) {
+              resolve(null);
+            }
+          };
+          req.onerror = function () { resolve(null); };
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    }
+
+    function idbSet(key, val) {
+      return new Promise(resolve => {
+        try {
+          if (!window.indexedDB) {
+            resolve(false);
+            return;
+          }
+          const req = window.indexedDB.open(IDB_NAME, 1);
+          req.onupgradeneeded = function (e) {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(IDB_STORE)) {
+              db.createObjectStore(IDB_STORE);
+            }
+          };
+          req.onsuccess = function (e) {
+            try {
+              const db = e.target.result;
+              const tx = db.transaction(IDB_STORE, `readwrite`);
+              tx.objectStore(IDB_STORE).put(val, key);
+              tx.oncomplete = function () { db.close(); resolve(true); };
+              tx.onerror = function () { db.close(); resolve(false); };
+              tx.onabort = function () { db.close(); resolve(false); };
+            } catch (err) {
+              resolve(false);
+            }
+          };
+          req.onerror = function () { resolve(false); };
+        } catch (e) {
+          resolve(false);
+        }
+      });
+    }
+
+    function formatBackupTime(dateObj) {
+      const d = dateObj instanceof Date ? dateObj : new Date();
+      const pad = n => String(n).padStart(2, `0`);
+      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+
+    function normalizeBackupEntry(raw) {
+      if (!raw || typeof raw !== `object` || !raw.stats || typeof raw.stats !== `object`) return null;
+      const validIds = new Set(VOCAB_BANK.map(w => w.id));
+      const idNum = Number(raw.id) || Date.parse(raw.savedAt) || Date.now();
+      const savedAt = typeof raw.savedAt === `string` ? raw.savedAt : new Date(idNum).toISOString();
+      const totalAnswered = Number(raw.stats.totalAnswered) || 0;
+      const totalCorrect = Number(raw.stats.totalCorrect) || 0;
+      const bestStreak = Number(raw.stats.bestStreak) || 0;
+      const mistakeIds = Array.isArray(raw.stats.mistakeIds)
+        ? Array.from(new Set(raw.stats.mistakeIds.map(Number).filter(id => validIds.has(id))))
+        : [];
+      return {
+        id: idNum,
+        savedAt: savedAt,
+        timeLabel: typeof raw.timeLabel === `string` && raw.timeLabel ? raw.timeLabel : formatBackupTime(new Date(savedAt)),
+        reason: typeof raw.reason === `string` && raw.reason ? raw.reason : `테스트 완료`,
+        sessionCorrect: raw.sessionCorrect !== null && raw.sessionCorrect !== undefined ? Number(raw.sessionCorrect) || 0 : null,
+        sessionTotal: raw.sessionTotal !== null && raw.sessionTotal !== undefined ? Number(raw.sessionTotal) || 0 : null,
+        sessionPct: raw.sessionPct !== null && raw.sessionPct !== undefined ? Number(raw.sessionPct) || 0 : null,
+        days: Array.isArray(raw.days) ? raw.days.map(Number).filter(d => ALL_DAYS.includes(d)) : [],
+        stats: {
+          totalAnswered: totalAnswered,
+          totalCorrect: totalCorrect,
+          bestStreak: bestStreak,
+          mistakeIds: mistakeIds
+        }
+      };
+    }
+
+    function mergeBackupLists(lists) {
+      const map = new Map();
+      lists.forEach(list => {
+        if (!Array.isArray(list)) return;
+        list.forEach(raw => {
+          const item = normalizeBackupEntry(raw);
+          if (!item) return;
+          const prev = map.get(item.id);
+          if (!prev || item.stats.totalAnswered >= prev.stats.totalAnswered) {
+            map.set(item.id, item);
+          }
+        });
+      });
+      return Array.from(map.values())
+        .sort((a, b) => b.id - a.id)
+        .slice(0, MAX_BACKUPS);
+    }
+
+    function updateBackupButtonUI() {
+      const btn = document.getElementById(`open-backup-btn`);
+      if (!btn) return;
+      btn.textContent = backupHistory.length > 0
+        ? `이전 학습 기록 불러오기 (${backupHistory.length})`
+        : `이전 학습 기록 불러오기`;
+    }
+
+    async function persistBackupHistory() {
+      try {
+        if (window.localStorage) {
+          window.localStorage.setItem(BACKUP_STORAGE_KEY, JSON.stringify(backupHistory));
+        }
+      } catch (e) {
+        // Ignore localStorage quota/privacy errors
+      }
+      writeWindowNameStore({ backups: backupHistory });
+      await idbSet(`backups`, backupHistory);
+    }
+
+    async function loadBackupHistory() {
+      let lsBackups = null;
+      try {
+        if (window.localStorage) {
+          const raw = window.localStorage.getItem(BACKUP_STORAGE_KEY);
+          if (raw) lsBackups = JSON.parse(raw);
+        }
+      } catch (e) {
+        // Ignore parse errors
+      }
+      const idbBackups = await idbGet(`backups`);
+      const wnBackups = readWindowNameStore().backups || null;
+      backupHistory = mergeBackupLists([lsBackups, idbBackups, wnBackups]);
+      if (backupHistory.length > 0 && (!Array.isArray(lsBackups) || lsBackups.length < backupHistory.length)) {
+        try {
+          if (window.localStorage) {
+            window.localStorage.setItem(BACKUP_STORAGE_KEY, JSON.stringify(backupHistory));
+          }
+        } catch (e) {
+          // Ignore
+        }
+        writeWindowNameStore({ backups: backupHistory });
+      }
+    }
+
+    function createAutoBackup(reason, sessionInfo) {
+      const now = new Date();
+      const nextId = backupHistory.length > 0 ? Math.max(now.getTime(), backupHistory[0].id + 1) : now.getTime();
+      const snapshot = {
+        id: nextId,
+        savedAt: now.toISOString(),
+        timeLabel: formatBackupTime(now),
+        reason: reason || `테스트 완료`,
+        sessionCorrect: sessionInfo ? Number(sessionInfo.correct) || 0 : null,
+        sessionTotal: sessionInfo ? Number(sessionInfo.total) || 0 : null,
+        sessionPct: sessionInfo ? Number(sessionInfo.pct) || 0 : null,
+        days: sessionInfo && Array.isArray(sessionInfo.days) ? sessionInfo.days.slice() : appState.selectedDays.slice(),
+        stats: {
+          totalAnswered: Number(appState.stats.totalAnswered) || 0,
+          totalCorrect: Number(appState.stats.totalCorrect) || 0,
+          bestStreak: Number(appState.stats.bestStreak) || 0,
+          mistakeIds: Array.isArray(appState.stats.mistakeIds) ? appState.stats.mistakeIds.slice() : []
+        }
+      };
+      backupHistory = [snapshot].concat(backupHistory).slice(0, MAX_BACKUPS);
+      persistBackupHistory();
+      updateBackupButtonUI();
+    }
 
     async function persistState() {
       const payload = {
@@ -2035,6 +2391,8 @@
       } catch (e) {
         // Ignore localStorage quota/privacy errors
       }
+      writeWindowNameStore({ state: payload });
+      idbSet(`state`, payload);
       if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
         try {
           await window.notebookAppApi.setAppState(payload);
@@ -2046,13 +2404,25 @@
 
     async function loadPersistedState() {
       let saved = null;
+      let hadLocalStorage = false;
       try {
         if (window.localStorage) {
           const raw = window.localStorage.getItem(STORAGE_KEY);
-          if (raw) saved = JSON.parse(raw);
+          if (raw) {
+            saved = JSON.parse(raw);
+            hadLocalStorage = true;
+          }
         }
       } catch (e) {
         // Ignore parse/storage errors
+      }
+      if (!saved) {
+        const idbSaved = await idbGet(`state`);
+        if (idbSaved && typeof idbSaved === `object`) saved = idbSaved;
+      }
+      if (!saved) {
+        const wnSaved = readWindowNameStore().state;
+        if (wnSaved && typeof wnSaved === `object`) saved = wnSaved;
       }
       if (!saved && window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
         try {
@@ -2062,6 +2432,15 @@
         }
       }
       if (saved && typeof saved === `object`) {
+        if (!hadLocalStorage) {
+          try {
+            if (window.localStorage) {
+              window.localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+            }
+          } catch (e) {
+            // Ignore
+          }
+        }
         if (Array.isArray(saved.selectedDays) && saved.selectedDays.length > 0) {
           const knownDays = Array.isArray(saved.knownDays) ? saved.knownDays : [33, 34, 35, 36];
           const newDays = ALL_DAYS.filter(d => !knownDays.includes(d));
@@ -2088,6 +2467,8 @@
           };
         }
       }
+      await loadBackupHistory();
+      updateBackupButtonUI();
     }
 
     // ==================== Web Speech API (TTS) ====================
@@ -2351,6 +2732,10 @@
       btn.classList.remove(`btn-danger-soft`);
       btn.textContent = `학습 기록 초기화`;
 
+      if (appState.stats.totalAnswered > 0) {
+        createAutoBackup(`초기화 직전`, null);
+      }
+
       appState.mistakesOnly = false;
       appState.stats = {
         totalAnswered: 0,
@@ -2437,7 +2822,8 @@
         answeredCurrent: false,
         spellingRevealed: !ttsSupported,
         records: [],
-        finished: false
+        finished: false,
+        backupSaved: false
       };
 
       const activeStage = document.getElementById(`quiz-active-stage`);
@@ -2762,6 +3148,12 @@
       const correct = quizSession.records.filter(r => r.isCorrect).length;
       const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
 
+      if (total > 0 && !quizSession.backupSaved) {
+        quizSession.backupSaved = true;
+        const practicedDays = Array.from(new Set(quizSession.records.map(r => r.wordObj.day))).sort((a, b) => a - b);
+        createAutoBackup(`테스트 완료`, { correct, total, pct, days: practicedDays });
+      }
+
       const headline = document.getElementById(`summary-headline`);
       const subtext = document.getElementById(`summary-subtext`);
       const scoreBig = document.getElementById(`summary-score-big`);
@@ -3011,9 +3403,258 @@
       });
     }
 
+    // ==================== Auto-Backup & Restore Modal ====================
+
+    function showBackupStatus(msg, isError) {
+      const el = document.getElementById(`backup-status-msg`);
+      if (!el) return;
+      if (!msg) {
+        el.classList.add(`hidden`);
+        el.textContent = ``;
+        return;
+      }
+      el.textContent = msg;
+      el.style.color = isError ? `var(--error)` : `var(--positive)`;
+      el.classList.remove(`hidden`);
+    }
+
+    function openBackupModal() {
+      const modal = document.getElementById(`backup-modal`);
+      if (!modal) return;
+      showBackupStatus(``, false);
+      renderBackupList();
+      modal.classList.remove(`hidden`);
+    }
+
+    function closeBackupModal() {
+      const modal = document.getElementById(`backup-modal`);
+      if (modal) modal.classList.add(`hidden`);
+    }
+
+    function handleBackupBackdropClick(event) {
+      if (event && event.target && event.target.id === `backup-modal`) {
+        closeBackupModal();
+      }
+    }
+
+    function renderBackupList() {
+      const listEl = document.getElementById(`backup-list`);
+      if (!listEl) return;
+      listEl.innerHTML = ``;
+
+      if (backupHistory.length === 0) {
+        const empty = document.createElement(`div`);
+        empty.className = `empty-state`;
+        empty.style.padding = `var(--space-lg)`;
+        const msg = document.createElement(`p`);
+        msg.style.margin = `0`;
+        msg.style.fontWeight = `700`;
+        msg.textContent = `아직 자동 백업된 기록이 없습니다. 퀴즈를 1회 이상 완료하면 이곳에 시간과 정답 수가 자동 저장됩니다.`;
+        empty.appendChild(msg);
+        listEl.appendChild(empty);
+        return;
+      }
+
+      backupHistory.forEach(item => {
+        const row = document.createElement(`div`);
+        row.className = `backup-item`;
+
+        const meta = document.createElement(`div`);
+        meta.className = `backup-meta`;
+
+        const titleRow = document.createElement(`div`);
+        titleRow.className = `backup-title-row`;
+
+        const timeSpan = document.createElement(`span`);
+        timeSpan.textContent = item.timeLabel;
+        titleRow.appendChild(timeSpan);
+
+        const reasonBadge = document.createElement(`span`);
+        reasonBadge.className = item.reason === `초기화 직전` ? `badge badge-err` : `badge badge-grape`;
+        reasonBadge.textContent = item.reason;
+        titleRow.appendChild(reasonBadge);
+
+        if (item.sessionTotal !== null && item.sessionTotal > 0) {
+          const scoreBadge = document.createElement(`span`);
+          scoreBadge.className = `badge badge-pos`;
+          scoreBadge.textContent = `테스트 ${item.sessionCorrect}/${item.sessionTotal} 정답 (${item.sessionPct}%)`;
+          titleRow.appendChild(scoreBadge);
+        }
+
+        if (Array.isArray(item.days) && item.days.length > 0) {
+          const dayBadge = document.createElement(`span`);
+          dayBadge.className = `badge badge-sky`;
+          dayBadge.textContent = `Day ${item.days.join(`, `)}`;
+          titleRow.appendChild(dayBadge);
+        }
+
+        const subRow = document.createElement(`div`);
+        subRow.className = `backup-sub-row`;
+        const s = item.stats;
+        const acc = s.totalAnswered > 0 ? Math.round((s.totalCorrect / s.totalAnswered) * 100) : 0;
+        subRow.textContent = `누적 ${s.totalAnswered}문제 · 정답 ${s.totalCorrect}개 (${acc}%) · 오답 ${s.mistakeIds.length}단어 · 최고 ${s.bestStreak}연속`;
+
+        meta.appendChild(titleRow);
+        meta.appendChild(subRow);
+
+        const actions = document.createElement(`div`);
+        actions.className = `backup-actions`;
+
+        const restoreBtn = document.createElement(`button`);
+        restoreBtn.type = `button`;
+        restoreBtn.className = `btn btn-primary`;
+        restoreBtn.textContent = `불러오기`;
+        restoreBtn.onclick = function () { restoreBackupById(item.id); };
+
+        const delBtn = document.createElement(`button`);
+        delBtn.type = `button`;
+        delBtn.className = `btn btn-quiet`;
+        delBtn.textContent = `삭제`;
+        delBtn.onclick = function () { deleteBackupById(item.id); };
+
+        actions.appendChild(restoreBtn);
+        actions.appendChild(delBtn);
+
+        row.appendChild(meta);
+        row.appendChild(actions);
+        listEl.appendChild(row);
+      });
+    }
+
+    function restoreBackupById(id) {
+      const item = backupHistory.find(b => b.id === id);
+      if (!item) return;
+
+      const validIds = new Set(VOCAB_BANK.map(w => w.id));
+      appState.stats = {
+        totalAnswered: Number(item.stats.totalAnswered) || 0,
+        totalCorrect: Number(item.stats.totalCorrect) || 0,
+        bestStreak: Number(item.stats.bestStreak) || 0,
+        mistakeIds: Array.isArray(item.stats.mistakeIds)
+          ? item.stats.mistakeIds.map(Number).filter(wid => validIds.has(wid))
+          : []
+      };
+      if (appState.mistakesOnly && appState.stats.mistakeIds.length === 0) {
+        appState.mistakesOnly = false;
+      }
+
+      updateStatsStrip();
+      updateSetupUI();
+      persistState();
+      renderWordbook();
+      showBackupStatus(`${item.timeLabel} 기록을 불러왔습니다! (누적 ${appState.stats.totalCorrect}/${appState.stats.totalAnswered} 정답 · 오답 ${appState.stats.mistakeIds.length}단어)`, false);
+    }
+
+    function deleteBackupById(id) {
+      backupHistory = backupHistory.filter(b => b.id !== id);
+      persistBackupHistory();
+      updateBackupButtonUI();
+      renderBackupList();
+    }
+
+    function exportBackupFile() {
+      try {
+        const now = new Date();
+        const pad = n => String(n).padStart(2, `0`);
+        const fileName = `seungwoo_vocab_backup_${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}.json`;
+        const data = {
+          version: 1,
+          exportedAt: now.toISOString(),
+          stats: appState.stats,
+          backups: backupHistory
+        };
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: `application/json` });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement(`a`);
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showBackupStatus(`백업 파일을 저장했습니다 (${fileName})`, false);
+      } catch (e) {
+        showBackupStatus(`백업 파일 저장 중 오류가 발생했습니다.`, true);
+      }
+    }
+
+    function triggerImportBackupFile() {
+      const input = document.getElementById(`backup-file-input`);
+      if (input) {
+        input.value = ``;
+        input.click();
+      }
+    }
+
+    function handleImportBackupFile(event) {
+      const file = event && event.target && event.target.files ? event.target.files[0] : null;
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function () {
+        try {
+          const parsed = JSON.parse(String(reader.result || ``));
+          const incomingList = Array.isArray(parsed)
+            ? parsed
+            : (parsed && Array.isArray(parsed.backups) ? parsed.backups : []);
+          const hasStats = parsed && !Array.isArray(parsed) && parsed.stats && typeof parsed.stats === `object`;
+
+          if (incomingList.length === 0 && !hasStats) {
+            showBackupStatus(`올바른 백업 파일 형식이 아닙니다.`, true);
+            return;
+          }
+
+          if (appState.stats.totalAnswered > 0 && hasStats) {
+            createAutoBackup(`파일 불러오기 직전`, null);
+          }
+
+          if (incomingList.length > 0) {
+            backupHistory = mergeBackupLists([incomingList, backupHistory]);
+            persistBackupHistory();
+            updateBackupButtonUI();
+          }
+
+          if (hasStats) {
+            const validIds = new Set(VOCAB_BANK.map(w => w.id));
+            appState.stats = {
+              totalAnswered: Number(parsed.stats.totalAnswered) || 0,
+              totalCorrect: Number(parsed.stats.totalCorrect) || 0,
+              bestStreak: Number(parsed.stats.bestStreak) || 0,
+              mistakeIds: Array.isArray(parsed.stats.mistakeIds)
+                ? parsed.stats.mistakeIds.map(Number).filter(wid => validIds.has(wid))
+                : []
+            };
+            if (appState.mistakesOnly && appState.stats.mistakeIds.length === 0) {
+              appState.mistakesOnly = false;
+            }
+            updateStatsStrip();
+            updateSetupUI();
+            persistState();
+            renderWordbook();
+          } else if (backupHistory.length > 0) {
+            restoreBackupById(backupHistory[0].id);
+          }
+
+          renderBackupList();
+          showBackupStatus(`백업 파일에서 기록을 성공적으로 불러왔습니다!`, false);
+        } catch (err) {
+          showBackupStatus(`백업 파일을 읽을 수 없습니다. JSON 파일을 확인해 주세요.`, true);
+        }
+      };
+      reader.readAsText(file, `UTF-8`);
+    }
+
     // ==================== Keyboard Shortcuts ====================
 
     document.addEventListener(`keydown`, function (e) {
+      const backupModal = document.getElementById(`backup-modal`);
+      if (backupModal && !backupModal.classList.contains(`hidden`)) {
+        if (e.key === `Escape`) {
+          e.preventDefault();
+          closeBackupModal();
+        }
+        return;
+      }
+
       if (appState.currentView !== `quiz` || quizSession.finished) return;
       const activeTag = document.activeElement ? document.activeElement.tagName : ``;
       const inInput = activeTag === `INPUT` || activeTag === `SELECT` || activeTag === `TEXTAREA`;
