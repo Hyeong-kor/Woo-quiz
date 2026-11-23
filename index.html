@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="artifact-type" content="tool">
   <meta name="design-style" content="sticker">
-  <title>영어 단어 듣기 퀴즈 — Day 33~40</title>
+  <title>영어 단어 듣기 퀴즈 — Day 01, 33~40</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
@@ -1460,10 +1460,10 @@
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
           </svg>
-          <span>Previous Check · Day 33–40</span>
+          <span>Previous Check · Day 01, 33–40</span>
         </div>
         <h1 class="display">영단어 <em>듣기</em> 퀴즈</h1>
-        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 240개 단어만 출제됩니다.</p>
+        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 01(성격), Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 270개 단어만 출제됩니다.</p>
       </div>
 
       <nav class="segmented" aria-label="화면 전환">
@@ -1526,10 +1526,11 @@
         <div class="control-group">
           <span class="field-label">
             <span>출제 범위 (Day 선택)</span>
-            <span id="pool-size-label">240단어 선택됨</span>
+            <span id="pool-size-label">270단어 선택됨</span>
           </span>
           <div class="chip-row" id="day-filter-chips">
             <button type="button" class="chip selected" data-day="all" onclick="toggleDayFilter('all')">전체</button>
+            <button type="button" class="chip selected" data-day="1" onclick="toggleDayFilter(1)">Day 01 성격</button>
             <button type="button" class="chip selected" data-day="33" onclick="toggleDayFilter(33)">Day 33 우주</button>
             <button type="button" class="chip selected" data-day="34" onclick="toggleDayFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip selected" data-day="35" onclick="toggleDayFilter(35)">Day 35 교육</button>
@@ -1734,7 +1735,8 @@
         <div class="control-group" style="margin-bottom: 0;">
           <span class="field-label">단어장 필터</span>
           <div class="chip-row" id="wb-filter-chips">
-            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (240)</button>
+            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (270)</button>
+            <button type="button" class="chip" data-wb="1" onclick="setWordbookFilter(1)">Day 01 성격</button>
             <button type="button" class="chip" data-wb="33" onclick="setWordbookFilter(33)">Day 33 우주</button>
             <button type="button" class="chip" data-wb="34" onclick="setWordbookFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip" data-wb="35" onclick="setWordbookFilter(35)">Day 35 교육</button>
@@ -1763,12 +1765,12 @@
       <div id="wb-grid" class="card-grid"></div>
       <div id="wb-empty-state" class="empty-state hidden">
         <p style="font-weight: 700; margin: 0;" id="wb-empty-msg">표시할 단어가 없습니다.</p>
-        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 240단어 보기</button>
+        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 270단어 보기</button>
       </div>
     </section>
 
     <footer class="source-footer">
-      출처: 사용자 제공 교과서 Previous Check (Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 240개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
+      출처: 사용자 제공 교과서 Previous Check (Day 01 Characters · Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 270개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
     </footer>
   </div>
 
@@ -2056,10 +2058,43 @@
       { id: 237, day: 40, topic: `The World`, topicKr: `세계`, word: `agreement`, speakText: `agreement`, pos: `명사`, meaning: `합의, 협정, 동의`, accept: [`합의`, `협정`, `동의`, `계약`, `조약`], hint: `agree(동의하다)의 명사형으로 국가 간에 맺는 협정이나 의견의 일치를 뜻합니다.` },
       { id: 238, day: 40, topic: `The World`, topicKr: `세계`, word: `mutual`, speakText: `mutual`, pos: `형용사`, meaning: `상호 간의, 서로의, 공통의`, accept: [`상호간의`, `서로의`, `쌍방의`, `공통의`, `상호`], hint: `두 사람이나 두 국가가 일방적이지 않고 서로 주고받는(mutual respect: 상호 존중) 관계입니다.` },
       { id: 239, day: 40, topic: `The World`, topicKr: `세계`, word: `break out`, speakText: `break out`, pos: `숙어/표현`, meaning: `(전쟁·화재·질병 등이) 발발하다, 발생하다`, accept: [`발발하다`, `발생하다`, `일어나다`, `터지다`], hint: `전쟁, 큰불, 전염병 같은 안 좋은 일이 갑자기 터져 일어날 때 쓰는 필수 숙어입니다.` },
-      { id: 240, day: 40, topic: `The World`, topicKr: `세계`, word: `consist of`, speakText: `consist of`, pos: `숙어/표현`, meaning: `~로 이루어지다, 구성되다`, accept: [`로이루어지다`, `이루어지다`, `구성되다`, `로구성되다`], hint: `단체나 세계가 여러 부분·국가들로 구성되어 있음을 나타내는 숙어(= be made up of)입니다.` }
+      { id: 240, day: 40, topic: `The World`, topicKr: `세계`, word: `consist of`, speakText: `consist of`, pos: `숙어/표현`, meaning: `~로 이루어지다, 구성되다`, accept: [`로이루어지다`, `이루어지다`, `구성되다`, `로구성되다`], hint: `단체나 세계가 여러 부분·국가들로 구성되어 있음을 나타내는 숙어(= be made up of)입니다.` },
+
+      // ================= Day 01: Characters (30 words) =================
+      { id: 241, day: 1, topic: `Characters`, topicKr: `성격`, word: `wise`, speakText: `wise`, pos: `형용사`, meaning: `현명한, 지혜로운`, accept: [`현명한`, `지혜로운`, `슬기로운`], hint: `경험과 지식이 풍부해 올바른 판단을 내리는(반대말: foolish) 성격을 뜻합니다.` },
+      { id: 242, day: 1, topic: `Characters`, topicKr: `성격`, word: `foolish`, speakText: `foolish`, pos: `형용사`, meaning: `어리석은, 바보 같은`, accept: [`어리석은`, `바보같은`, `멍청한`, `우둔한`], hint: `분별력이 부족해 현명하지 못한(반대말: wise) 상태를 뜻합니다.` },
+      { id: 243, day: 1, topic: `Characters`, topicKr: `성격`, word: `proud`, speakText: `proud`, pos: `형용사`, meaning: `자랑스러운, 자부심을 갖는`, accept: [`자랑스러운`, `자부심을갖는`, `자랑스러워하는`, `거만한`], hint: `자신이나 타인의 성취에 대해 뿌듯하고 자랑스러워하는(be proud of) 마음입니다.` },
+      { id: 244, day: 1, topic: `Characters`, topicKr: `성격`, word: `honest`, speakText: `honest`, pos: `형용사`, meaning: `정직한, 솔직한`, accept: [`정직한`, `솔직한`, `진실한`], hint: `거짓말을 하지 않고 바르고 솔직한 성격(첫 글자 h는 발음하지 않는 묵음)입니다.` },
+      { id: 245, day: 1, topic: `Characters`, topicKr: `성격`, word: `careful`, speakText: `careful`, pos: `형용사`, meaning: `조심하는, 주의 깊은`, accept: [`조심하는`, `조심스러운`, `주의깊은`, `신중한`], hint: `실수나 위험이 없도록 주의를 기울이는 성격(반대말: careless)입니다.` },
+      { id: 246, day: 1, topic: `Characters`, topicKr: `성격`, word: `brave`, speakText: `brave`, pos: `형용사`, meaning: `용감한`, accept: [`용감한`, `용기있는`, `대담한`], hint: `위험하거나 두려운 상황에서도 물러서지 않고 맞서는 용기 있는 성격입니다.` },
+      { id: 247, day: 1, topic: `Characters`, topicKr: `성격`, word: `lazy`, speakText: `lazy`, pos: `형용사`, meaning: `게으른`, accept: [`게으른`, `나태한`, `게으름피우는`], hint: `일하거나 움직이기를 싫어하고 미루는 성향(반대말: diligent)입니다.` },
+      { id: 248, day: 1, topic: `Characters`, topicKr: `성격`, word: `calm`, speakText: `calm`, pos: `형용사`, meaning: `차분한, 침착한`, accept: [`차분한`, `침착한`, `고요한`, `잔잔한`, `평온한`], hint: `흥분하거나 당황하지 않고 마음을 고요하게 가라앉힌 상태(철자 l은 묵음)입니다.` },
+      { id: 249, day: 1, topic: `Characters`, topicKr: `성격`, word: `rude`, speakText: `rude`, pos: `형용사`, meaning: `무례한, 버릇없는`, accept: [`무례한`, `버릇없는`, `예의없는`, `불손한`], hint: `예절을 지키지 않고 상대방을 불쾌하게 대하는 태도(반대말: polite)입니다.` },
+      { id: 250, day: 1, topic: `Characters`, topicKr: `성격`, word: `active`, speakText: `active`, pos: `형용사`, meaning: `활동적인, 적극적인`, accept: [`활동적인`, `적극적인`, `활발한`], hint: `가만히 있지 않고 활발하게 움직이거나 일에 적극 참여하는 성격(반대말: passive)입니다.` },
+      { id: 251, day: 1, topic: `Characters`, topicKr: `성격`, word: `character`, speakText: `character`, pos: `명사`, meaning: `성격, 등장인물, 특징`, accept: [`성격`, `인격`, `성품`, `등장인물`, `특징`, `문자`], hint: `사람이 지닌 고유한 성격·성품이나 소설·영화 속 등장인물을 뜻합니다.` },
+      { id: 252, day: 1, topic: `Characters`, topicKr: `성격`, word: `serious`, speakText: `serious`, pos: `형용사`, meaning: `진지한, 심각한`, accept: [`진지한`, `심각한`, `엄숙한`, `진중한`], hint: `농담하지 않고 진지하게 임하는 태도나 상황이 매우 심각함을 뜻합니다.` },
+      { id: 253, day: 1, topic: `Characters`, topicKr: `성격`, word: `strict`, speakText: `strict`, pos: `형용사`, meaning: `엄격한, 엄한`, accept: [`엄격한`, `엄한`, `까다로운`, `엄밀한`], hint: `규칙이나 원칙을 예외 없이 철저하게 지키도록 요구하는 성격입니다.` },
+      { id: 254, day: 1, topic: `Characters`, topicKr: `성격`, word: `cruel`, speakText: `cruel`, pos: `형용사`, meaning: `잔인한, 잔혹한`, accept: [`잔인한`, `잔혹한`, `가혹한`, `무자비한`], hint: `다른 사람이나 동물에게 동정심 없이 고통을 주는 모진 성격입니다.` },
+      { id: 255, day: 1, topic: `Characters`, topicKr: `성격`, word: `mean`, speakText: `mean`, pos: `형용사/동사`, meaning: `못된, 비열한 (의미하다)`, accept: [`못된`, `비열한`, `심술궂은`, `인색한`, `의미하다`, `뜻하다`], hint: `동사로는 '의미하다'이지만, 성격을 나타내는 형용사로는 '못된, 심술궂은'이라는 뜻입니다.` },
+      { id: 256, day: 1, topic: `Characters`, topicKr: `성격`, word: `selfish`, speakText: `selfish`, pos: `형용사`, meaning: `이기적인`, accept: [`이기적인`, `제멋대로인`, `자기중심적인`], hint: `self(자기 자신)만 생각하고 남을 배려하지 않는 이기적인 성격입니다.` },
+      { id: 257, day: 1, topic: `Characters`, topicKr: `성격`, word: `evil`, speakText: `evil`, pos: `형용사/명사`, meaning: `사악한, 악한, 악`, accept: [`사악한`, `악한`, `나쁜`, `악`, `해악`], hint: `도덕적으로 매우 나쁘고 사악한 성품이나 악(반대말: good)을 뜻합니다.` },
+      { id: 258, day: 1, topic: `Characters`, topicKr: `성격`, word: `curious`, speakText: `curious`, pos: `형용사`, meaning: `호기심이 많은, 궁금한`, accept: [`호기심이많은`, `궁금한`, `호기심많은`, `이상한`], hint: `새로운 것을 알고 싶어 하고 궁금해하는(be curious about) 성격입니다.` },
+      { id: 259, day: 1, topic: `Characters`, topicKr: `성격`, word: `cheerful`, speakText: `cheerful`, pos: `형용사`, meaning: `쾌활한, 명랑한`, accept: [`쾌활한`, `명랑한`, `밝은`, `유쾌한`, `활기찬`], hint: `늘 밝고 기분이 좋아 주변에 즐거움을 주는 명랑한 성격입니다.` },
+      { id: 260, day: 1, topic: `Characters`, topicKr: `성격`, word: `friendly`, speakText: `friendly`, pos: `형용사`, meaning: `친절한, 다정한, 우호적인`, accept: [`친절한`, `다정한`, `우호적인`, `친근한`, `상냥한`], hint: `friend(친구) + -ly = 친구처럼 따뜻하고 다정하게 대하는 성격입니다.` },
+      { id: 261, day: 1, topic: `Characters`, topicKr: `성격`, word: `modest`, speakText: `modest`, pos: `형용사`, meaning: `겸손한, 수수한`, accept: [`겸손한`, `수수한`, `보통의`, `적당한`], hint: `자기 능력이나 업적을 뽐내지 않고 낮추는 겸손한 성격입니다.` },
+      { id: 262, day: 1, topic: `Characters`, topicKr: `성격`, word: `generous`, speakText: `generous`, pos: `형용사`, meaning: `관대한, 너그러운`, accept: [`관대한`, `너그러운`, `후한`, `아낌없는`], hint: `남에게 베풀기를 좋아하고 실수를 넓게 이해해 주는 너그러운 성격입니다.` },
+      { id: 263, day: 1, topic: `Characters`, topicKr: `성격`, word: `sensitive`, speakText: `sensitive`, pos: `형용사`, meaning: `민감한, 예민한, 세심한`, accept: [`민감한`, `예민한`, `세심한`, `감수성이풍부한`], hint: `남의 감정이나 작은 변화에 빠르고 깊게 반응하는 예민하고 세심한 성향입니다.` },
+      { id: 264, day: 1, topic: `Characters`, topicKr: `성격`, word: `confident`, speakText: `confident`, pos: `형용사`, meaning: `자신감 있는, 확신하는`, accept: [`자신감있는`, `자신있는`, `확신하는`, `당당한`], hint: `자신의 능력이나 성공을 믿고 당당하게 행동하는(confidence: 자신감) 성격입니다.` },
+      { id: 265, day: 1, topic: `Characters`, topicKr: `성격`, word: `positive`, speakText: `positive`, pos: `형용사`, meaning: `긍정적인, 확신하는`, accept: [`긍정적인`, `적극적인`, `확신하는`, `양성의`], hint: `사물이나 미래를 밝고 희망적인 쪽으로 바라보는(반대말: negative) 태도입니다.` },
+      { id: 266, day: 1, topic: `Characters`, topicKr: `성격`, word: `negative`, speakText: `negative`, pos: `형용사`, meaning: `부정적인`, accept: [`부정적인`, `소극적인`, `음성의`, `반대의`], hint: `안 좋은 면을 먼저 보거나 거절·반대하는(반대말: positive) 태도입니다.` },
+      { id: 267, day: 1, topic: `Characters`, topicKr: `성격`, word: `optimistic`, speakText: `optimistic`, pos: `형용사`, meaning: `낙관적인, 낙천적인`, accept: [`낙관적인`, `낙천적인`, `희망적인`], hint: `앞으로 모든 일이 잘 풀릴 것이라고 밝게 기대하는(반대말: pessimistic) 성격입니다.` },
+      { id: 268, day: 1, topic: `Characters`, topicKr: `성격`, word: `cautious`, speakText: `cautious`, pos: `형용사`, meaning: `신중한, 조심스러운`, accept: [`신중한`, `조심스러운`, `조심성있는`, `경계하는`], hint: `위험이나 실수를 피하기 위해 섣불리 움직이지 않고 꼼꼼히 살피는 성격입니다.` },
+      { id: 269, day: 1, topic: `Characters`, topicKr: `성격`, word: `make fun of`, speakText: `make fun of`, pos: `숙어/표현`, meaning: `~을 놀리다, 비웃다`, accept: [`놀리다`, `을놀리다`, `비웃다`, `조롱하다`], hint: `남의 약점이나 실수를 웃음거리로 삼아 놀릴 때 쓰는 필수 숙어(= laugh at)입니다.` },
+      { id: 270, day: 1, topic: `Characters`, topicKr: `성격`, word: `cheer up`, speakText: `cheer up`, pos: `숙어/표현`, meaning: `힘을 내다, 기운을 내다, 격려하다`, accept: [`힘을내다`, `기운을내다`, `기운을북돋우다`, `격려하다`, `힘내다`], hint: `슬프거나 낙심한 사람에게 "힘내!"라고 위로하거나 스스로 기운을 차리는 표현입니다.` }
     ];
 
     const DAY_INFO = {
+      1: { en: `Characters`, kr: `성격` },
       33: { en: `Space`, kr: `우주` },
       34: { en: `Energy`, kr: `에너지` },
       35: { en: `Education`, kr: `교육` },
