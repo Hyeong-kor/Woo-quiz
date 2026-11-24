@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="artifact-type" content="tool">
   <meta name="design-style" content="sticker">
-  <title>영어 단어 듣기 퀴즈 — Day 01, 33~40</title>
+  <title>영어 단어 듣기 퀴즈 — Day 01~02, 33~40</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
@@ -1460,10 +1460,10 @@
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
           </svg>
-          <span>Previous Check · Day 01, 33–40</span>
+          <span>Previous Check · Day 01–02, 33–40</span>
         </div>
         <h1 class="display">영단어 <em>듣기</em> 퀴즈</h1>
-        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 01(성격), Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 270개 단어만 출제됩니다.</p>
+        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 01(성격), Day 02(사람 묘사), Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 300개 단어만 출제됩니다.</p>
       </div>
 
       <nav class="segmented" aria-label="화면 전환">
@@ -1526,11 +1526,12 @@
         <div class="control-group">
           <span class="field-label">
             <span>출제 범위 (Day 선택)</span>
-            <span id="pool-size-label">270단어 선택됨</span>
+            <span id="pool-size-label">300단어 선택됨</span>
           </span>
           <div class="chip-row" id="day-filter-chips">
             <button type="button" class="chip selected" data-day="all" onclick="toggleDayFilter('all')">전체</button>
             <button type="button" class="chip selected" data-day="1" onclick="toggleDayFilter(1)">Day 01 성격</button>
+            <button type="button" class="chip selected" data-day="2" onclick="toggleDayFilter(2)">Day 02 사람 묘사</button>
             <button type="button" class="chip selected" data-day="33" onclick="toggleDayFilter(33)">Day 33 우주</button>
             <button type="button" class="chip selected" data-day="34" onclick="toggleDayFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip selected" data-day="35" onclick="toggleDayFilter(35)">Day 35 교육</button>
@@ -1735,8 +1736,9 @@
         <div class="control-group" style="margin-bottom: 0;">
           <span class="field-label">단어장 필터</span>
           <div class="chip-row" id="wb-filter-chips">
-            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (270)</button>
+            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (300)</button>
             <button type="button" class="chip" data-wb="1" onclick="setWordbookFilter(1)">Day 01 성격</button>
+            <button type="button" class="chip" data-wb="2" onclick="setWordbookFilter(2)">Day 02 사람 묘사</button>
             <button type="button" class="chip" data-wb="33" onclick="setWordbookFilter(33)">Day 33 우주</button>
             <button type="button" class="chip" data-wb="34" onclick="setWordbookFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip" data-wb="35" onclick="setWordbookFilter(35)">Day 35 교육</button>
@@ -1765,12 +1767,12 @@
       <div id="wb-grid" class="card-grid"></div>
       <div id="wb-empty-state" class="empty-state hidden">
         <p style="font-weight: 700; margin: 0;" id="wb-empty-msg">표시할 단어가 없습니다.</p>
-        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 270단어 보기</button>
+        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 300단어 보기</button>
       </div>
     </section>
 
     <footer class="source-footer">
-      출처: 사용자 제공 교과서 Previous Check (Day 01 Characters · Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 270개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
+      출처: 사용자 제공 교과서 Previous Check (Day 01 Characters · Day 02 Describing People · Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 300개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
     </footer>
   </div>
 
@@ -2090,11 +2092,44 @@
       { id: 267, day: 1, topic: `Characters`, topicKr: `성격`, word: `optimistic`, speakText: `optimistic`, pos: `형용사`, meaning: `낙관적인, 낙천적인`, accept: [`낙관적인`, `낙천적인`, `희망적인`], hint: `앞으로 모든 일이 잘 풀릴 것이라고 밝게 기대하는(반대말: pessimistic) 성격입니다.` },
       { id: 268, day: 1, topic: `Characters`, topicKr: `성격`, word: `cautious`, speakText: `cautious`, pos: `형용사`, meaning: `신중한, 조심스러운`, accept: [`신중한`, `조심스러운`, `조심성있는`, `경계하는`], hint: `위험이나 실수를 피하기 위해 섣불리 움직이지 않고 꼼꼼히 살피는 성격입니다.` },
       { id: 269, day: 1, topic: `Characters`, topicKr: `성격`, word: `make fun of`, speakText: `make fun of`, pos: `숙어/표현`, meaning: `~을 놀리다, 비웃다`, accept: [`놀리다`, `을놀리다`, `비웃다`, `조롱하다`], hint: `남의 약점이나 실수를 웃음거리로 삼아 놀릴 때 쓰는 필수 숙어(= laugh at)입니다.` },
-      { id: 270, day: 1, topic: `Characters`, topicKr: `성격`, word: `cheer up`, speakText: `cheer up`, pos: `숙어/표현`, meaning: `힘을 내다, 기운을 내다, 격려하다`, accept: [`힘을내다`, `기운을내다`, `기운을북돋우다`, `격려하다`, `힘내다`], hint: `슬프거나 낙심한 사람에게 "힘내!"라고 위로하거나 스스로 기운을 차리는 표현입니다.` }
+      { id: 270, day: 1, topic: `Characters`, topicKr: `성격`, word: `cheer up`, speakText: `cheer up`, pos: `숙어/표현`, meaning: `힘을 내다, 기운을 내다, 격려하다`, accept: [`힘을내다`, `기운을내다`, `기운을북돋우다`, `격려하다`, `힘내다`], hint: `슬프거나 낙심한 사람에게 "힘내!"라고 위로하거나 스스로 기운을 차리는 표현입니다.` },
+
+      // ================= Day 02: Describing People (30 words) =================
+      { id: 271, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `cute`, speakText: `cute`, pos: `형용사`, meaning: `귀여운`, accept: [`귀여운`, `앙증맞은`], hint: `어린아이나 강아지처럼 작고 사랑스럽게 귀여운 모습을 뜻합니다.` },
+      { id: 272, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `pretty`, speakText: `pretty`, pos: `형용사/부사`, meaning: `예쁜, 꽤`, accept: [`예쁜`, `이쁜`, `꽤`, `상당히`], hint: `외모가 곱고 '예쁜'이라는 형용사(부사로 쓰이면 '꽤, 상당히')입니다.` },
+      { id: 273, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `beautiful`, speakText: `beautiful`, pos: `형용사`, meaning: `아름다운`, accept: [`아름다운`, `멋진`, `예쁜`], hint: `사람의 외모나 풍경이 감탄할 만큼 매우 아름답고 뛰어난 상태입니다.` },
+      { id: 274, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `ugly`, speakText: `ugly`, pos: `형용사`, meaning: `못생긴, 추한`, accept: [`못생긴`, `추한`, `보기흉한`], hint: `외모가 보기 좋지 않고 못생긴 상태(반대말: beautiful, pretty)입니다.` },
+      { id: 275, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `overweight`, speakText: `overweight`, pos: `형용사`, meaning: `과체중의, 너무 뚱뚱한`, accept: [`과체중의`, `과체중`, `뚱뚱한`, `너무뚱뚱한`, `비만의`], hint: `over(초과) + weight(체중) = 표준 몸무게보다 많이 나가는 상태(반대말: underweight)입니다.` },
+      { id: 276, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `young`, speakText: `young`, pos: `형용사`, meaning: `어린, 젊은`, accept: [`어린`, `젊은`, `어리다`, `젊다`], hint: `나이가 적고 젊은 상태(반대말: old)를 뜻합니다.` },
+      { id: 277, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `handsome`, speakText: `handsome`, pos: `형용사`, meaning: `잘생긴, 멋진`, accept: [`잘생긴`, `멋진`, `미남의`], hint: `주로 남자의 외모가 훤칠하고 잘생겼을 때 쓰는 형용사입니다.` },
+      { id: 278, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `slim`, speakText: `slim`, pos: `형용사`, meaning: `날씬한, 호리호리한`, accept: [`날씬한`, `호리호리한`, `가느다란`, `슬림한`], hint: `건강하고 보기 좋게 가늘고 날씬한 체형을 뜻합니다.` },
+      { id: 279, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `beard`, speakText: `beard`, pos: `명사`, meaning: `턱수염`, accept: [`턱수염`, `수염`], hint: `턱과 뺨 아래에 길게 자라는 수염(콧수염은 mustache)입니다.` },
+      { id: 280, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `lovely`, speakText: `lovely`, pos: `형용사`, meaning: `사랑스러운, 아주 매력적인`, accept: [`사랑스러운`, `어여쁜`, `매력적인`, `멋진`, `즐거운`], hint: `love(사랑) + -ly = 보기만 해도 기분 좋고 사랑스러운 모습을 뜻합니다.` },
+      { id: 281, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `neat`, speakText: `neat`, pos: `형용사`, meaning: `단정한, 깔끔한, 정돈된`, accept: [`단정한`, `깔끔한`, `정돈된`, `깨끗한`], hint: `옷차림이나 방, 글씨 등이 지저분하지 않고 가지런히 정돈된 상태입니다.` },
+      { id: 282, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `plain`, speakText: `plain`, pos: `형용사`, meaning: `평범한, 꾸밈없는, 단순한`, accept: [`평범한`, `꾸밈없는`, `단순한`, `수수한`, `무늬없는`, `분명한`], hint: `화려하게 꾸미지 않고 평범하거나 무늬가 없는 단조로운 상태입니다.` },
+      { id: 283, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `good-looking`, speakText: `good-looking`, pos: `형용사`, meaning: `잘생긴, 외모가 뛰어난`, accept: [`잘생긴`, `외모가뛰어난`, `보기좋은`, `멋진`, `미남미녀의`], hint: `남녀 모두에게 쓰이며, 겉보기에 호감 가고 외모가 잘생긴 것을 뜻합니다.` },
+      { id: 284, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `skinny`, speakText: `skinny`, pos: `형용사`, meaning: `깡마른, 피골이 상접한`, accept: [`깡마른`, `바싹마른`, `너무마른`, `피골이상접한`, `마른`], hint: `slim(날씬한)보다 훨씬 심하게 살이 없이 뼈만 앙상할 정도로 깡마른 상태입니다.` },
+      { id: 285, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `fit`, speakText: `fit`, pos: `형용사/동사`, meaning: `건강한, 탄탄한, 알맞은`, accept: [`건강한`, `탄탄한`, `몸매가좋은`, `알맞은`, `적합한`, `맞다`, `꼭맞다`], hint: `꾸준한 운동으로 몸이 건강하고 균형 잡힌 상태(keep fit: 건강을 유지하다) 또는 옷이 꼭 맞다는 뜻입니다.` },
+      { id: 286, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `muscular`, speakText: `muscular`, pos: `형용사`, meaning: `근육질의, 근육의`, accept: [`근육질의`, `근육이발달한`, `근육의`, `건장한`], hint: `muscle(근육)의 형용사형으로, 운동을 많이 해 근육이 탄탄하게 발달한 체형입니다.` },
+      { id: 287, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `thin`, speakText: `thin`, pos: `형용사`, meaning: `마른, 얇은`, accept: [`마른`, `야윈`, `얇은`, `가는`], hint: `몸에 살이 적어 마르거나, 책·종이 등의 두께가 얇은 상태(반대말: thick, fat)입니다.` },
+      { id: 288, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `bald`, speakText: `bald`, pos: `형용사`, meaning: `대머리의, 벗겨진`, accept: [`대머리의`, `대머리`, `머리가벗겨진`, `민머리의`], hint: `머리카락이 빠져 거의 없거나 아예 없는 대머리 상태를 뜻합니다.` },
+      { id: 289, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `curly`, speakText: `curly`, pos: `형용사`, meaning: `곱슬곱슬한, 곱슬머리의`, accept: [`곱슬곱슬한`, `곱슬머리의`, `곱슬한`, `말린`], hint: `머리카락이 직모(straight)가 아니라 둥글게 말려 곱슬곱슬한 모양입니다.` },
+      { id: 290, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `dye`, speakText: `dye`, pos: `동사/명사`, meaning: `염색하다, 염료`, accept: [`염색하다`, `물들이다`, `염색`, `염료`, `염색약`], hint: `머리카락이나 천의 색깔을 다른 색으로 물들이는 동사(발음은 die와 같음)입니다.` },
+      { id: 291, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `appearance`, speakText: `appearance`, pos: `명사`, meaning: `외모, 겉모습, 출현`, accept: [`외모`, `겉모습`, `생김새`, `모습`, `출현`, `등장`], hint: `appear(나타나다)의 명사형으로, 겉으로 드러나는 사람의 생김새와 외모를 뜻합니다.` },
+      { id: 292, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `attractive`, speakText: `attractive`, pos: `형용사`, meaning: `매력적인, 마음을 끄는`, accept: [`매력적인`, `마음을끄는`, `매력있는`, `보기좋은`], hint: `attract(끌어당기다)에서 나온 말로, 사람들의 시선과 마음을 끄는 매력적인 모습입니다.` },
+      { id: 293, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `charming`, speakText: `charming`, pos: `형용사`, meaning: `매혹적인, 호감 가는`, accept: [`매혹적인`, `매력적인`, `호감가는`, `매력있는`, `멋진`], hint: `charm(매력) + -ing = 미소나 말투, 분위기가 사람을 기분 좋게 사로잡는 상태입니다.` },
+      { id: 294, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `mustache`, speakText: `mustache`, pos: `명사`, meaning: `콧수염`, accept: [`콧수염`, `입수염`, `수염`], hint: `코 아래와 윗입술 위에 자라는 수염(턱수염은 beard)입니다.` },
+      { id: 295, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `sideburns`, speakText: `sideburns`, pos: `명사`, meaning: `구레나룻`, accept: [`구레나룻`, `귀밑머리`, `귀밑수염`], hint: `귀 앞쪽 뺨 옆(side)을 따라 내려오는 수염·머리카락인 구레나룻입니다.` },
+      { id: 296, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `middle-aged`, speakText: `middle-aged`, pos: `형용사`, meaning: `중년의`, accept: [`중년의`, `중년`, `중년기의`], hint: `청년과 노년의 중간 시기(보통 40~50대)인 중년의 나이를 뜻합니다.` },
+      { id: 297, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `build`, speakText: `build`, pos: `명사/동사`, meaning: `체격, 몸집 (짓다)`, accept: [`체격`, `몸집`, `체형`, `골격`, `짓다`, `만들다`], hint: `동사로는 '짓다'이지만, 사람 묘사 명사로는 '체격, 몸집(medium build: 보통 체격)'을 뜻합니다.` },
+      { id: 298, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `image`, speakText: `image`, pos: `명사`, meaning: `이미지, 인상, 영상`, accept: [`이미지`, `인상`, `영상`, `모습`, `상`], hint: `다른 사람이 어떤 인물이나 사물에 대해 떠올리는 전체적인 인상이나 모습입니다.` },
+      { id: 299, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `grow up`, speakText: `grow up`, pos: `숙어/표현`, meaning: `자라다, 성장하다`, accept: [`자라다`, `성장하다`, `크다`, `어른이되다`], hint: `어린아이가 키와 마음이 커서 어른으로 자라나는 것을 나타내는 필수 숙어입니다.` },
+      { id: 300, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `both A and B`, speakText: `both A and B`, pos: `숙어/표현`, meaning: `A와 B 둘 다`, accept: [`A와B둘다`, `둘다`, `모두`, `양쪽다`], hint: `두 가지 대상이나 특징을 모두 포함해 "A와 B 둘 다"라고 말할 때 쓰는 핵심 표현입니다.` }
     ];
 
     const DAY_INFO = {
       1: { en: `Characters`, kr: `성격` },
+      2: { en: `Describing People`, kr: `사람 묘사` },
       33: { en: `Space`, kr: `우주` },
       34: { en: `Energy`, kr: `에너지` },
       35: { en: `Education`, kr: `교육` },
