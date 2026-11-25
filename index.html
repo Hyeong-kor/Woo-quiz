@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="artifact-type" content="tool">
   <meta name="design-style" content="sticker">
-  <title>영어 단어 듣기 퀴즈 — Day 01~02, 33~40</title>
+  <title>영어 단어 듣기 퀴즈 — Day 01~03, 33~40</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
@@ -1460,10 +1460,10 @@
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
           </svg>
-          <span>Previous Check · Day 01–02, 33–40</span>
+          <span>Previous Check · Day 01–03, 33–40</span>
         </div>
         <h1 class="display">영단어 <em>듣기</em> 퀴즈</h1>
-        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 01(성격), Day 02(사람 묘사), Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 300개 단어만 출제됩니다.</p>
+        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 01(성격), Day 02(사람 묘사), Day 03(감정), Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 330개 단어만 출제됩니다.</p>
       </div>
 
       <nav class="segmented" aria-label="화면 전환">
@@ -1526,12 +1526,13 @@
         <div class="control-group">
           <span class="field-label">
             <span>출제 범위 (Day 선택)</span>
-            <span id="pool-size-label">300단어 선택됨</span>
+            <span id="pool-size-label">330단어 선택됨</span>
           </span>
           <div class="chip-row" id="day-filter-chips">
             <button type="button" class="chip selected" data-day="all" onclick="toggleDayFilter('all')">전체</button>
             <button type="button" class="chip selected" data-day="1" onclick="toggleDayFilter(1)">Day 01 성격</button>
             <button type="button" class="chip selected" data-day="2" onclick="toggleDayFilter(2)">Day 02 사람 묘사</button>
+            <button type="button" class="chip selected" data-day="3" onclick="toggleDayFilter(3)">Day 03 감정</button>
             <button type="button" class="chip selected" data-day="33" onclick="toggleDayFilter(33)">Day 33 우주</button>
             <button type="button" class="chip selected" data-day="34" onclick="toggleDayFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip selected" data-day="35" onclick="toggleDayFilter(35)">Day 35 교육</button>
@@ -1736,9 +1737,10 @@
         <div class="control-group" style="margin-bottom: 0;">
           <span class="field-label">단어장 필터</span>
           <div class="chip-row" id="wb-filter-chips">
-            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (300)</button>
+            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (330)</button>
             <button type="button" class="chip" data-wb="1" onclick="setWordbookFilter(1)">Day 01 성격</button>
             <button type="button" class="chip" data-wb="2" onclick="setWordbookFilter(2)">Day 02 사람 묘사</button>
+            <button type="button" class="chip" data-wb="3" onclick="setWordbookFilter(3)">Day 03 감정</button>
             <button type="button" class="chip" data-wb="33" onclick="setWordbookFilter(33)">Day 33 우주</button>
             <button type="button" class="chip" data-wb="34" onclick="setWordbookFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip" data-wb="35" onclick="setWordbookFilter(35)">Day 35 교육</button>
@@ -1767,12 +1769,12 @@
       <div id="wb-grid" class="card-grid"></div>
       <div id="wb-empty-state" class="empty-state hidden">
         <p style="font-weight: 700; margin: 0;" id="wb-empty-msg">표시할 단어가 없습니다.</p>
-        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 300단어 보기</button>
+        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 330단어 보기</button>
       </div>
     </section>
 
     <footer class="source-footer">
-      출처: 사용자 제공 교과서 Previous Check (Day 01 Characters · Day 02 Describing People · Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 300개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
+      출처: 사용자 제공 교과서 Previous Check (Day 01 Characters · Day 02 Describing People · Day 03 Emotions · Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 330개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
     </footer>
   </div>
 
@@ -2124,12 +2126,43 @@
       { id: 297, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `build`, speakText: `build`, pos: `명사/동사`, meaning: `체격, 몸집 (짓다)`, accept: [`체격`, `몸집`, `체형`, `골격`, `짓다`, `만들다`], hint: `동사로는 '짓다'이지만, 사람 묘사 명사로는 '체격, 몸집(medium build: 보통 체격)'을 뜻합니다.` },
       { id: 298, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `image`, speakText: `image`, pos: `명사`, meaning: `이미지, 인상, 영상`, accept: [`이미지`, `인상`, `영상`, `모습`, `상`], hint: `다른 사람이 어떤 인물이나 사물에 대해 떠올리는 전체적인 인상이나 모습입니다.` },
       { id: 299, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `grow up`, speakText: `grow up`, pos: `숙어/표현`, meaning: `자라다, 성장하다`, accept: [`자라다`, `성장하다`, `크다`, `어른이되다`], hint: `어린아이가 키와 마음이 커서 어른으로 자라나는 것을 나타내는 필수 숙어입니다.` },
-      { id: 300, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `both A and B`, speakText: `both A and B`, pos: `숙어/표현`, meaning: `A와 B 둘 다`, accept: [`A와B둘다`, `둘다`, `모두`, `양쪽다`], hint: `두 가지 대상이나 특징을 모두 포함해 "A와 B 둘 다"라고 말할 때 쓰는 핵심 표현입니다.` }
+      { id: 300, day: 2, topic: `Describing People`, topicKr: `사람 묘사`, word: `both A and B`, speakText: `both A and B`, pos: `숙어/표현`, meaning: `A와 B 둘 다`, accept: [`A와B둘다`, `둘다`, `모두`, `양쪽다`], hint: `두 가지 대상이나 특징을 모두 포함해 "A와 B 둘 다"라고 말할 때 쓰는 핵심 표현입니다.` },
+      { id: 301, day: 3, topic: `Emotions`, topicKr: `감정`, word: `enjoy`, speakText: `enjoy`, pos: `동사`, meaning: `즐기다, 누리다`, accept: [`즐기다`, `누리다`, `재미있어하다`], hint: `어떤 활동이나 시간을 기쁘게 보내며 누린다는 뜻의 기본 동사입니다.` },
+      { id: 302, day: 3, topic: `Emotions`, topicKr: `감정`, word: `cry`, speakText: `cry`, pos: `동사/명사`, meaning: `울다, 외치다, 울음`, accept: [`울다`, `외치다`, `울음`, `소리치다`], hint: `슬프거나 아파서 눈물을 흘리거나 크게 소리치는 행동입니다.` },
+      { id: 303, day: 3, topic: `Emotions`, topicKr: `감정`, word: `glad`, speakText: `glad`, pos: `형용사`, meaning: `기쁜, 반가운`, accept: [`기쁜`, `반가운`, `기쁘다`, `반갑다`], hint: `마음이 기쁘고 만족스러울 때 쓰는 형용사로 "I'm glad to meet you."처럼 씁니다.` },
+      { id: 304, day: 3, topic: `Emotions`, topicKr: `감정`, word: `fear`, speakText: `fear`, pos: `명사/동사`, meaning: `두려움, 공포, 두려워하다`, accept: [`두려움`, `공포`, `두려워하다`, `무서워하다`], hint: `무섭고 위험하다고 느껴 겁이 나는 감정이나 그런 감정을 느끼는 것을 말합니다.` },
+      { id: 305, day: 3, topic: `Emotions`, topicKr: `감정`, word: `joy`, speakText: `joy`, pos: `명사`, meaning: `기쁨, 즐거움`, accept: [`기쁨`, `즐거움`, `환희`], hint: `마음속에서 우러나오는 큰 기쁨이나 행복한 느낌을 뜻하는 명사입니다.` },
+      { id: 306, day: 3, topic: `Emotions`, topicKr: `감정`, word: `miss`, speakText: `miss`, pos: `동사`, meaning: `그리워하다, 놓치다`, accept: [`그리워하다`, `놓치다`, `그립다`, `빠뜨리다`], hint: `보고 싶어 그리워하거나 버스·기회 등을 잡지 못하고 지나치는 뜻이 있습니다.` },
+      { id: 307, day: 3, topic: `Emotions`, topicKr: `감정`, word: `laugh`, speakText: `laugh`, pos: `동사/명사`, meaning: `웃다, 웃음`, accept: [`웃다`, `웃음`, `비웃다`], hint: `기쁘거나 재미있어서 소리를 내며 웃는 모습이나 그 소리를 가리킵니다.` },
+      { id: 308, day: 3, topic: `Emotions`, topicKr: `감정`, word: `mad`, speakText: `mad`, pos: `형용사`, meaning: `화가 난, 미친`, accept: [`화가난`, `화난`, `미친`, `열받은`, `화가나다`], hint: `몹시 화가 나 있거나 제정신이 아닐 정도로 흥분한 상태를 나타냅니다.` },
+      { id: 309, day: 3, topic: `Emotions`, topicKr: `감정`, word: `annoyed`, speakText: `annoyed`, pos: `형용사`, meaning: `짜증이 난, 성가신`, accept: [`짜증이난`, `짜증난`, `성가신`, `화난`, `귀찮은`], hint: `누군가나 어떤 일이 계속 거슬려서 불쾌하고 짜증이 난 감정입니다.` },
+      { id: 310, day: 3, topic: `Emotions`, topicKr: `감정`, word: `upset`, speakText: `upset`, pos: `형용사/동사`, meaning: `속상한, 화가 난, 뒤엎다`, accept: [`속상한`, `화가난`, `기분상한`, `뒤엎다`, `속상하게하다`], hint: `예상치 못한 일로 마음이 상해 속상하거나 화가 난 상태를 말합니다.` },
+      { id: 311, day: 3, topic: `Emotions`, topicKr: `감정`, word: `worried`, speakText: `worried`, pos: `형용사`, meaning: `걱정스러운, 걱정하는`, accept: [`걱정스러운`, `걱정하는`, `근심하는`, `염려하는`], hint: `무슨 안 좋은 일이 생길까 봐 마음이 놓이지 않고 근심하는 모습입니다.` },
+      { id: 312, day: 3, topic: `Emotions`, topicKr: `감정`, word: `regret`, speakText: `regret`, pos: `동사/명사`, meaning: `후회하다, 유감, 후회`, accept: [`후회하다`, `유감`, `후회`, `유감스럽게생각하다`], hint: `지나간 일에 대해 아쉽게 생각하며 뉘우치거나 유감스럽게 여기는 말입니다.` },
+      { id: 313, day: 3, topic: `Emotions`, topicKr: `감정`, word: `bother`, speakText: `bother`, pos: `동사/명사`, meaning: `괴롭히다, 귀찮게 하다, 신경 쓰다`, accept: [`괴롭히다`, `귀찮게하다`, `신경쓰다`, `성가시게하다`, `방해하다`], hint: `남을 성가시게 해 마음을 불편하게 하거나 어떤 일에 애써 신경 쓰는 뜻입니다.` },
+      { id: 314, day: 3, topic: `Emotions`, topicKr: `감정`, word: `excited`, speakText: `excited`, pos: `형용사`, meaning: `신난, 흥분한, 들뜬`, accept: [`신난`, `흥분한`, `들뜬`, `신이나다`, `기대되는`], hint: `좋은 일이 기대되거나 너무 재미있어서 가슴이 뛰고 들뜬 상태입니다.` },
+      { id: 315, day: 3, topic: `Emotions`, topicKr: `감정`, word: `surprised`, speakText: `surprised`, pos: `형용사`, meaning: `놀란`, accept: [`놀란`, `깜짝놀란`, `놀라다`], hint: `뜻밖의 일이나 예상하지 못한 소식을 접해 깜짝 놀란 감정을 나타냅니다.` },
+      { id: 316, day: 3, topic: `Emotions`, topicKr: `감정`, word: `pleased`, speakText: `pleased`, pos: `형용사`, meaning: `기뻐하는, 만족스러운`, accept: [`기뻐하는`, `만족스러운`, `기쁜`, `만족한`], hint: `결과나 상황이 마음에 들어 기쁘고 흡족한 느낌을 표현할 때 씁니다.` },
+      { id: 317, day: 3, topic: `Emotions`, topicKr: `감정`, word: `horrible`, speakText: `horrible`, pos: `형용사`, meaning: `끔찍한, 무서운, 지독한`, accept: [`끔찍한`, `무서운`, `지독한`, `형편없는`, `섬뜩한`], hint: `소름이 끼칠 정도로 무섭거나 매우 불쾌하고 형편없음을 뜻합니다.` },
+      { id: 318, day: 3, topic: `Emotions`, topicKr: `감정`, word: `grateful`, speakText: `grateful`, pos: `형용사`, meaning: `감사하는, 고마워하는`, accept: [`감사하는`, `고마워하는`, `고마운`, `감사한`], hint: `누군가의 친절이나 도움을 받아 마음이 따뜻하게 고마운 상태입니다.` },
+      { id: 319, day: 3, topic: `Emotions`, topicKr: `감정`, word: `anxious`, speakText: `anxious`, pos: `형용사`, meaning: `불안한, 걱정하는, 열망하는`, accept: [`불안한`, `걱정하는`, `염려하는`, `초조한`, `열망하는`, `간절히바라는`], hint: `앞일이 걱정되어 초조하고 불안하거나, 반대로 어떤 일을 간절히 바라는 마음입니다.` },
+      { id: 320, day: 3, topic: `Emotions`, topicKr: `감정`, word: `delighted`, speakText: `delighted`, pos: `형용사`, meaning: `매우 기뻐하는, 아주 즐거운`, accept: [`매우기뻐하는`, `아주즐거운`, `매우기쁜`, `기뻐하는`, `아주기쁜`], hint: `그냥 기쁜 것을 넘어 아주 크게 기뻐하고 즐거워하는 상태를 말합니다.` },
+      { id: 321, day: 3, topic: `Emotions`, topicKr: `감정`, word: `depressed`, speakText: `depressed`, pos: `형용사`, meaning: `우울한, 낙담한`, accept: [`우울한`, `낙담한`, `기운이없는`, `침울한`], hint: `기분이 몹시 가라앉고 의욕이 없어 슬프고 우울한 상태입니다.` },
+      { id: 322, day: 3, topic: `Emotions`, topicKr: `감정`, word: `frightened`, speakText: `frightened`, pos: `형용사`, meaning: `겁먹은, 깜짝 놀란`, accept: [`겁먹은`, `깜짝놀란`, `무서워하는`, `두려워하는`], hint: `무서운 대상이나 갑작스러운 일 때문에 몹시 겁을 먹은 상태를 말합니다.` },
+      { id: 323, day: 3, topic: `Emotions`, topicKr: `감정`, word: `ashamed`, speakText: `ashamed`, pos: `형용사`, meaning: `부끄러워하는, 창피한`, accept: [`부끄러워하는`, `창피한`, `부끄러운`, `수치스러운`], hint: `잘못이나 부족한 행동 때문에 남 보기 민망하고 부끄럽게 느끼는 감정입니다.` },
+      { id: 324, day: 3, topic: `Emotions`, topicKr: `감정`, word: `emotion`, speakText: `emotion`, pos: `명사`, meaning: `감정, 정서`, accept: [`감정`, `정서`, `느낌`], hint: `기쁨, 슬픔, 분노처럼 마음속에서 일어나는 여러 가지 느낌을 통틀어 가리킵니다.` },
+      { id: 325, day: 3, topic: `Emotions`, topicKr: `감정`, word: `sympathy`, speakText: `sympathy`, pos: `명사`, meaning: `동정, 연민, 공감`, accept: [`동정`, `연민`, `공감`, `동정심`], hint: `다른 사람의 슬픔이나 어려움을 함께 아파하고 딱하게 여기는 마음입니다.` },
+      { id: 326, day: 3, topic: `Emotions`, topicKr: `감정`, word: `satisfied`, speakText: `satisfied`, pos: `형용사`, meaning: `만족한, 흡족한`, accept: [`만족한`, `흡족한`, `만족하는`, `충족된`], hint: `원하던 바를 이루거나 결과가 기대에 맞아 모자람 없이 기분이 좋은 상태입니다.` },
+      { id: 327, day: 3, topic: `Emotions`, topicKr: `감정`, word: `disappointed`, speakText: `disappointed`, pos: `형용사`, meaning: `실망한, 낙담한`, accept: [`실망한`, `낙담한`, `실망스러운`, `실망하다`], hint: `기대했던 만큼 결과가 나오지 않아 맥이 빠지고 서운한 감정을 뜻합니다.` },
+      { id: 328, day: 3, topic: `Emotions`, topicKr: `감정`, word: `amused`, speakText: `amused`, pos: `형용사`, meaning: `즐거워하는, 재미있어하는`, accept: [`즐거워하는`, `재미있어하는`, `유쾌해하는`, `재미있는`], hint: `재미있는 이야기나 상황을 보고 미소가 지어질 만큼 유쾌하게 즐기는 상태입니다.` },
+      { id: 329, day: 3, topic: `Emotions`, topicKr: `감정`, word: `calm down`, speakText: `calm down`, pos: `숙어/표현`, meaning: `진정하다, 침착해지다, 가라앉히다`, accept: [`진정하다`, `침착해지다`, `가라앉히다`, `마음을가라앉히다`, `진정시키다`], hint: `흥분하거나 화난 감정을 가라앉히고 차분해지도록 할 때 쓰는 표현입니다.` },
+      { id: 330, day: 3, topic: `Emotions`, topicKr: `감정`, word: `feel sorry for`, speakText: `feel sorry for`, pos: `숙어/표현`, meaning: `~을 가엾게 여기다, ~에게 미안함을 느끼다`, accept: [`가엾게여기다`, `불쌍히여기다`, `안쓰럽게여기다`, `동정하다`, `미안함을느끼다`, `안타깝게여기다`], hint: `힘든 처지에 있는 사람에게 연민과 동정을 느끼거나 미안한 마음이 들 때 씁니다.` }
     ];
 
     const DAY_INFO = {
       1: { en: `Characters`, kr: `성격` },
       2: { en: `Describing People`, kr: `사람 묘사` },
+      3: { en: `Emotions`, kr: `감정` },
       33: { en: `Space`, kr: `우주` },
       34: { en: `Energy`, kr: `에너지` },
       35: { en: `Education`, kr: `교육` },
