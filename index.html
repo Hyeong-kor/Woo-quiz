@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="artifact-type" content="tool">
   <meta name="design-style" content="sticker">
-  <title>영어 단어 듣기 퀴즈 — Day 01~03, 33~40</title>
+  <title>영어 단어 듣기 퀴즈 — Day 01~04, 33~40</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
@@ -1460,10 +1460,10 @@
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
           </svg>
-          <span>Previous Check · Day 01–03, 33–40</span>
+          <span>Previous Check · Day 01–04, 33–40</span>
         </div>
         <h1 class="display">영단어 <em>듣기</em> 퀴즈</h1>
-        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 01(성격), Day 02(사람 묘사), Day 03(감정), Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 330개 단어만 출제됩니다.</p>
+        <p class="subtitle">컴퓨터가 읽어주는 영어 발음을 듣고 한국어 뜻을 맞혀보세요. Day 01(성격), Day 02(사람 묘사), Day 03(감정), Day 04(직업), Day 33(우주), Day 34(에너지), Day 35(교육), Day 36(학교), Day 37(사회와 경제), Day 38(정치와 법률), Day 39(역사와 종교), Day 40(세계)의 360개 단어만 출제됩니다.</p>
       </div>
 
       <nav class="segmented" aria-label="화면 전환">
@@ -1526,13 +1526,14 @@
         <div class="control-group">
           <span class="field-label">
             <span>출제 범위 (Day 선택)</span>
-            <span id="pool-size-label">330단어 선택됨</span>
+            <span id="pool-size-label">360단어 선택됨</span>
           </span>
           <div class="chip-row" id="day-filter-chips">
             <button type="button" class="chip selected" data-day="all" onclick="toggleDayFilter('all')">전체</button>
             <button type="button" class="chip selected" data-day="1" onclick="toggleDayFilter(1)">Day 01 성격</button>
             <button type="button" class="chip selected" data-day="2" onclick="toggleDayFilter(2)">Day 02 사람 묘사</button>
             <button type="button" class="chip selected" data-day="3" onclick="toggleDayFilter(3)">Day 03 감정</button>
+            <button type="button" class="chip selected" data-day="4" onclick="toggleDayFilter(4)">Day 04 직업</button>
             <button type="button" class="chip selected" data-day="33" onclick="toggleDayFilter(33)">Day 33 우주</button>
             <button type="button" class="chip selected" data-day="34" onclick="toggleDayFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip selected" data-day="35" onclick="toggleDayFilter(35)">Day 35 교육</button>
@@ -1737,10 +1738,11 @@
         <div class="control-group" style="margin-bottom: 0;">
           <span class="field-label">단어장 필터</span>
           <div class="chip-row" id="wb-filter-chips">
-            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (330)</button>
+            <button type="button" class="chip selected" data-wb="all" onclick="setWordbookFilter('all')">전체 (360)</button>
             <button type="button" class="chip" data-wb="1" onclick="setWordbookFilter(1)">Day 01 성격</button>
             <button type="button" class="chip" data-wb="2" onclick="setWordbookFilter(2)">Day 02 사람 묘사</button>
             <button type="button" class="chip" data-wb="3" onclick="setWordbookFilter(3)">Day 03 감정</button>
+            <button type="button" class="chip" data-wb="4" onclick="setWordbookFilter(4)">Day 04 직업</button>
             <button type="button" class="chip" data-wb="33" onclick="setWordbookFilter(33)">Day 33 우주</button>
             <button type="button" class="chip" data-wb="34" onclick="setWordbookFilter(34)">Day 34 에너지</button>
             <button type="button" class="chip" data-wb="35" onclick="setWordbookFilter(35)">Day 35 교육</button>
@@ -1769,12 +1771,12 @@
       <div id="wb-grid" class="card-grid"></div>
       <div id="wb-empty-state" class="empty-state hidden">
         <p style="font-weight: 700; margin: 0;" id="wb-empty-msg">표시할 단어가 없습니다.</p>
-        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 330단어 보기</button>
+        <button type="button" class="btn btn-primary" onclick="setWordbookFilter('all')">전체 360단어 보기</button>
       </div>
     </section>
 
     <footer class="source-footer">
-      출처: 사용자 제공 교과서 Previous Check (Day 01 Characters · Day 02 Describing People · Day 03 Emotions · Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 330개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
+      출처: 사용자 제공 교과서 Previous Check (Day 01 Characters · Day 02 Describing People · Day 03 Emotions · Day 04 Jobs · Day 33 Space · Day 34 Energy · Day 35 Education · Day 36 School · Day 37 Society &amp; Economy · Day 38 Politics &amp; Law · Day 39 History &amp; Religion · Day 40 The World) 총 360개 영단어 · 음성 합성은 브라우저 내장 Web Speech API를 사용합니다.
     </footer>
   </div>
 
@@ -2156,13 +2158,44 @@
       { id: 327, day: 3, topic: `Emotions`, topicKr: `감정`, word: `disappointed`, speakText: `disappointed`, pos: `형용사`, meaning: `실망한, 낙담한`, accept: [`실망한`, `낙담한`, `실망스러운`, `실망하다`], hint: `기대했던 만큼 결과가 나오지 않아 맥이 빠지고 서운한 감정을 뜻합니다.` },
       { id: 328, day: 3, topic: `Emotions`, topicKr: `감정`, word: `amused`, speakText: `amused`, pos: `형용사`, meaning: `즐거워하는, 재미있어하는`, accept: [`즐거워하는`, `재미있어하는`, `유쾌해하는`, `재미있는`], hint: `재미있는 이야기나 상황을 보고 미소가 지어질 만큼 유쾌하게 즐기는 상태입니다.` },
       { id: 329, day: 3, topic: `Emotions`, topicKr: `감정`, word: `calm down`, speakText: `calm down`, pos: `숙어/표현`, meaning: `진정하다, 침착해지다, 가라앉히다`, accept: [`진정하다`, `침착해지다`, `가라앉히다`, `마음을가라앉히다`, `진정시키다`], hint: `흥분하거나 화난 감정을 가라앉히고 차분해지도록 할 때 쓰는 표현입니다.` },
-      { id: 330, day: 3, topic: `Emotions`, topicKr: `감정`, word: `feel sorry for`, speakText: `feel sorry for`, pos: `숙어/표현`, meaning: `~을 가엾게 여기다, ~에게 미안함을 느끼다`, accept: [`가엾게여기다`, `불쌍히여기다`, `안쓰럽게여기다`, `동정하다`, `미안함을느끼다`, `안타깝게여기다`], hint: `힘든 처지에 있는 사람에게 연민과 동정을 느끼거나 미안한 마음이 들 때 씁니다.` }
+      { id: 330, day: 3, topic: `Emotions`, topicKr: `감정`, word: `feel sorry for`, speakText: `feel sorry for`, pos: `숙어/표현`, meaning: `~을 가엾게 여기다, ~에게 미안함을 느끼다`, accept: [`가엾게여기다`, `불쌍히여기다`, `안쓰럽게여기다`, `동정하다`, `미안함을느끼다`, `안타깝게여기다`], hint: `힘든 처지에 있는 사람에게 연민과 동정을 느끼거나 미안한 마음이 들 때 씁니다.` },
+      { id: 331, day: 4, topic: `Jobs`, topicKr: `직업`, word: `baker`, speakText: `baker`, pos: `명사`, meaning: `제빵사`, accept: [`제빵사`, `빵집주인`, `빵굽는사람`], hint: `빵이나 케이크, 과자 등을 직접 구워 만드는 직업을 가진 사람입니다.` },
+      { id: 332, day: 4, topic: `Jobs`, topicKr: `직업`, word: `reporter`, speakText: `reporter`, pos: `명사`, meaning: `기자, 리포터`, accept: [`기자`, `리포터`, `보도기자`], hint: `뉴스나 신문, 방송을 위해 사건과 소식을 취재해 전하는 사람입니다.` },
+      { id: 333, day: 4, topic: `Jobs`, topicKr: `직업`, word: `engineer`, speakText: `engineer`, pos: `명사`, meaning: `기사, 기술자, 엔지니어`, accept: [`기사`, `기술자`, `엔지니어`, `공학자`], hint: `기계·전자·소프트웨어·시설물 등을 설계하고 만들거나 다루는 기술 전문가입니다.` },
+      { id: 334, day: 4, topic: `Jobs`, topicKr: `직업`, word: `scientist`, speakText: `scientist`, pos: `명사`, meaning: `과학자`, accept: [`과학자`], hint: `자연과 우주의 원리를 실험과 연구로 탐구하는 사람입니다.` },
+      { id: 335, day: 4, topic: `Jobs`, topicKr: `직업`, word: `lawyer`, speakText: `lawyer`, pos: `명사`, meaning: `변호사`, accept: [`변호사`, `법률가`], hint: `법률 지식을 바탕으로 의뢰인을 돕고 재판에서 변호하는 전문가입니다.` },
+      { id: 336, day: 4, topic: `Jobs`, topicKr: `직업`, word: `dentist`, speakText: `dentist`, pos: `명사`, meaning: `치과 의사`, accept: [`치과의사`, `치과선생님`], hint: `치아와 잇몸 등 입안의 병을 진찰하고 치료하는 의사입니다.` },
+      { id: 337, day: 4, topic: `Jobs`, topicKr: `직업`, word: `mechanic`, speakText: `mechanic`, pos: `명사`, meaning: `정비공, 수리공`, accept: [`정비공`, `수리공`, `기계공`, `정비사`], hint: `자동차나 여러 기계 장치가 고장 났을 때 점검하고 고치는 사람입니다.` },
+      { id: 338, day: 4, topic: `Jobs`, topicKr: `직업`, word: `architect`, speakText: `architect`, pos: `명사`, meaning: `건축가`, accept: [`건축가`, `설계사`], hint: `집이나 빌딩 같은 건물의 구조와 디자인을 전문적으로 설계하는 사람입니다.` },
+      { id: 339, day: 4, topic: `Jobs`, topicKr: `직업`, word: `officer`, speakText: `officer`, pos: `명사`, meaning: `장교, 경찰관, 공무원`, accept: [`장교`, `경찰관`, `공무원`, `임원`, `관리`], hint: `군대나 경찰 조직의 지휘관 또는 공적인 직책을 맡아 일하는 사람입니다.` },
+      { id: 340, day: 4, topic: `Jobs`, topicKr: `직업`, word: `gardener`, speakText: `gardener`, pos: `명사`, meaning: `정원사`, accept: [`정원사`, `원예사`], hint: `꽃과 나무를 심고 가꾸며 정원을 돌보는 일을 하는 사람입니다.` },
+      { id: 341, day: 4, topic: `Jobs`, topicKr: `직업`, word: `photographer`, speakText: `photographer`, pos: `명사`, meaning: `사진작가, 사진사`, accept: [`사진작가`, `사진사`, `사진기사`], hint: `카메라로 인물이나 풍경 등을 전문적으로 촬영하는 사람입니다.` },
+      { id: 342, day: 4, topic: `Jobs`, topicKr: `직업`, word: `president`, speakText: `president`, pos: `명사`, meaning: `대통령, 회장, 사장`, accept: [`대통령`, `회장`, `사장`, `총장`], hint: `한 나라의 최고 지도자나 회사·단체의 대표를 뜻하는 말입니다.` },
+      { id: 343, day: 4, topic: `Jobs`, topicKr: `직업`, word: `salesperson`, speakText: `salesperson`, pos: `명사`, meaning: `판매원, 영업 사원`, accept: [`판매원`, `영업사원`, `점원`], hint: `상점이나 회사에서 손님에게 물건이나 서비스를 소개하고 파는 사람입니다.` },
+      { id: 344, day: 4, topic: `Jobs`, topicKr: `직업`, word: `carpenter`, speakText: `carpenter`, pos: `명사`, meaning: `목수`, accept: [`목수`], hint: `나무를 다듬고 깎아서 집이나 가구 등을 만드는 기술자입니다.` },
+      { id: 345, day: 4, topic: `Jobs`, topicKr: `직업`, word: `businessman`, speakText: `businessman`, pos: `명사`, meaning: `사업가, 회사원`, accept: [`사업가`, `회사원`, `실업가`, `경영인`], hint: `사업체를 운영하거나 기업에서 상업·경영 분야의 일을 하는 사람입니다.` },
+      { id: 346, day: 4, topic: `Jobs`, topicKr: `직업`, word: `fisherman`, speakText: `fisherman`, pos: `명사`, meaning: `어부, 낚시꾼`, accept: [`어부`, `낚시꾼`], hint: `바다나 강에서 직업으로 혹은 취미로 물고기를 잡는 사람입니다.` },
+      { id: 347, day: 4, topic: `Jobs`, topicKr: `직업`, word: `soldier`, speakText: `soldier`, pos: `명사`, meaning: `군인, 병사`, accept: [`군인`, `병사`], hint: `나라를 지키기 위해 군대에 소속되어 복무하는 사람입니다.` },
+      { id: 348, day: 4, topic: `Jobs`, topicKr: `직업`, word: `professor`, speakText: `professor`, pos: `명사`, meaning: `교수`, accept: [`교수`, `대학교수`], hint: `대학에서 전문 학문을 연구하고 학생들을 가르치는 높은 직위의 선생입니다.` },
+      { id: 349, day: 4, topic: `Jobs`, topicKr: `직업`, word: `judge`, speakText: `judge`, pos: `명사/동사`, meaning: `판사, 심판, 판단하다`, accept: [`판사`, `심판`, `판단하다`, `심사위원`], hint: `법정에서 옳고 그름을 가리는 판사나 경기의 심판, 또는 무언가를 판단하는 뜻입니다.` },
+      { id: 350, day: 4, topic: `Jobs`, topicKr: `직업`, word: `announcer`, speakText: `announcer`, pos: `명사`, meaning: `아나운서, 방송 진행자`, accept: [`아나운서`, `방송진행자`, `진행자`, `안내방송자`], hint: `텔레비전이나 라디오 방송에서 뉴스·프로그램을 진행하거나 안내 방송을 하는 사람입니다.` },
+      { id: 351, day: 4, topic: `Jobs`, topicKr: `직업`, word: `hairdresser`, speakText: `hairdresser`, pos: `명사`, meaning: `미용사`, accept: [`미용사`, `헤어디자이너`], hint: `미용실에서 손님의 머리카락을 자르거나 파마·염색 등을 해주는 사람입니다.` },
+      { id: 352, day: 4, topic: `Jobs`, topicKr: `직업`, word: `accountant`, speakText: `accountant`, pos: `명사`, meaning: `회계사`, accept: [`회계사`, `공인회계사`, `경리`], hint: `개인이나 회사의 돈의 수입과 지출, 장부와 세금을 전문적으로 관리하는 사람입니다.` },
+      { id: 353, day: 4, topic: `Jobs`, topicKr: `직업`, word: `novelist`, speakText: `novelist`, pos: `명사`, meaning: `소설가`, accept: [`소설가`, `작가`], hint: `상상력과 이야기를 바탕으로 장편이나 단편 소설을 쓰는 작가입니다.` },
+      { id: 354, day: 4, topic: `Jobs`, topicKr: `직업`, word: `security guard`, speakText: `security guard`, pos: `명사`, meaning: `경비원, 보안 요원`, accept: [`경비원`, `보안요원`, `경비`, `안전요원`], hint: `건물이나 시설의 안전을 지키고 출입을 관리하는 일을 하는 사람입니다.` },
+      { id: 355, day: 4, topic: `Jobs`, topicKr: `직업`, word: `astronaut`, speakText: `astronaut`, pos: `명사`, meaning: `우주 비행사`, accept: [`우주비행사`, `우주인`], hint: `우주선을 타고 지구 밖 우주로 나가 임무를 수행하는 사람입니다.` },
+      { id: 356, day: 4, topic: `Jobs`, topicKr: `직업`, word: `detective`, speakText: `detective`, pos: `명사`, meaning: `탐정, 형사`, accept: [`탐정`, `형사`, `수사관`], hint: `사건의 단서를 추적하고 숨겨진 진실을 파헤쳐 범인을 찾아내는 사람입니다.` },
+      { id: 357, day: 4, topic: `Jobs`, topicKr: `직업`, word: `secretary`, speakText: `secretary`, pos: `명사`, meaning: `비서, 장관`, accept: [`비서`, `장관`, `서기`], hint: `일정 관리와 문서 작성을 돕는 비서나 정부 부처를 이끄는 장관을 뜻합니다.` },
+      { id: 358, day: 4, topic: `Jobs`, topicKr: `직업`, word: `illustrator`, speakText: `illustrator`, pos: `명사`, meaning: `삽화가, 일러스트레이터`, accept: [`삽화가`, `일러스트레이터`, `그림작가`], hint: `책, 잡지, 광고 등에 들어가는 그림과 삽화를 전문적으로 그리는 작가입니다.` },
+      { id: 359, day: 4, topic: `Jobs`, topicKr: `직업`, word: `be good at`, speakText: `be good at`, pos: `숙어/표현`, meaning: `~을 잘하다, ~에 능숙하다`, accept: [`잘하다`, `능숙하다`, `솜씨가좋다`, `능하다`], hint: `어떤 일이나 분야에 소질이 있어 뛰어나게 잘한다는 뜻의 핵심 표현입니다.` },
+      { id: 360, day: 4, topic: `Jobs`, topicKr: `직업`, word: `be[become] interested in`, speakText: `be interested in`, pos: `숙어/표현`, meaning: `~에 관심이 있다[생기다]`, accept: [`관심이있다`, `관심이생기다`, `흥미가있다`, `흥미가생기다`, `관심을가지다`], hint: `어떤 대상이나 분야에 호기심과 흥미를 느끼는 상태를 나타낼 때 쓰는 표현입니다.` }
     ];
 
     const DAY_INFO = {
       1: { en: `Characters`, kr: `성격` },
       2: { en: `Describing People`, kr: `사람 묘사` },
       3: { en: `Emotions`, kr: `감정` },
+      4: { en: `Jobs`, kr: `직업` },
       33: { en: `Space`, kr: `우주` },
       34: { en: `Energy`, kr: `에너지` },
       35: { en: `Education`, kr: `교육` },
